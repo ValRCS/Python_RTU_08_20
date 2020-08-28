@@ -1,1 +1,1 @@
-food = "potatoe"
+print("Fun with Strings!")
