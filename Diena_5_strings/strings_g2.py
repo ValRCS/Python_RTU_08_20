@@ -74,4 +74,3 @@ print(city.strip())
 sentence = "A quick brown fox run over a sleeping dog"
 words = sentence.split()
 print(words)
-city.
