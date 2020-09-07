@@ -80,3 +80,35 @@ print(lazy_pow())
 print(lazy_pow(pretty_print=True))
 # could change order but generally not recommended
 print(lazy_pow(pretty_print=True, b=4, a=10))
+
+
+def super_add(*argv):
+    result = 0
+    for arg in argv:
+        print(arg)
+        result += arg
+    # return sum(argv)
+    return result
+
+
+# super_add(5, 10, "Valdis", True, 3.14)
+result = super_add(5, 10, 20)
+print(result)
+# print(super_add("Valdis", " likes", " coding", "and food"))
+
+my_list = [1, 2, 3]
+
+
+def mod_list(arg_list):
+    arg_list.append(10)
+    arg_list += [20]  # turns out += for list is like extends in place
+    # arg_list = arg_list + [30] this will creat a new list!!
+    return my_list
+
+
+print(my_list)
+mod_list(my_list)
+print(my_list)
+another_list = [14, 30]
+mod_list(another_list)
+print(another_list)
