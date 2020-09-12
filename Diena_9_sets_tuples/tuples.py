@@ -17,7 +17,7 @@ my_tuple[-1]
 my_tuple[:3]
 my_tuple[::2]
 my_tuple[::-1]
-my_tuple[1] = "scientist"
+# my_tuple[1] = "scientist"
 my_list = list(my_tuple)
 print(my_list)
 my_list[1] = "scientist"
