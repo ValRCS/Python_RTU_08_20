@@ -25,3 +25,6 @@ print(my_tuple)
 (name, job, _, _, my_list, my_dict) = my_tuple
 my_list.append(777)
 print(my_tuple)
+my_tuple[4].append(555)
+print(my_tuple)
+print(my_list)

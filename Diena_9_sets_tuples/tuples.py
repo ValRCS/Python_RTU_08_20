@@ -14,7 +14,9 @@ type(my_tuple)
 print(my_tuple[0])
 len(my_tuple)
 my_tuple[-1]
-my_tuple[:3]
+my_tuple[-1][1]
+mini_3 = my_tuple[:3]
+print(mini_3, type(mini_3))
 my_tuple[::2]
 my_tuple[::-1]
 # my_tuple[1] = "scientist"
@@ -25,10 +27,11 @@ new_tuple = tuple(my_list)
 print(new_tuple)
 t = ()  # empty tuple only question where would you use it?
 print(t, type(t))
-t = (1, 2)  # 2 or more elements
+t = (1, 2, 55)  # 2 or more elements
 print(t, type(t))
 t = (5,)  # if you really need a tuple of one element
 my_tuple.count("programmer")
+new_tuple.count("programmer")
 my_tuple.index(45)
 a = 10
 b = 20
@@ -42,10 +45,11 @@ print(a, b)
 print(a, b)
 a, b = b, a  # we can even change a,b,c,d = d,c,b,a and more
 print(a, b)
-(name, job, age, top_speed, favorite_list) = my_list  # tuple unpacking
+(name, job, age, top_speed, favorite_list) = my_tuple  # tuple unpacking
 print(name, job, age, top_speed, favorite_list)
+name is my_tuple[0]
 # tuple unpacking and using _ for values that we do need
-(name, job, _, top_speed, _) = my_list
+(name, job, _, top_speed, _) = my_tuple
 print(name, _)  # so _ will have value of last unpacking
 
 
