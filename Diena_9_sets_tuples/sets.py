@@ -10,13 +10,17 @@ print(chars)
 len(chars)
 'a' in chars
 'e' in chars
+'bl' in chars
 "".join(chars)
 sorted("".join(chars))
 list(chars)
-"".join(sorted(list(chars)))
+# recipe to sort characters unique characters into a list an then make a string
+"".join(sorted(chars))
+str(chars)  # not much point in this one
 words = ['potato', 'potatoes', 'tomato', 'Valdis', 'potato']
 unique_words = set(words)
 print(unique_words)
+# unique_words[1] # 'set' object is not subscriptable
 list_unique_words = list(unique_words)
 print(list_unique_words)
 # difference between set() and {setitem}
@@ -27,7 +31,7 @@ print(food_item_set)
 print(new_set == food_item_set)
 # above two sets are equal
 food_set = set('katrupelis')
-print(food_set)
+print(food_set, sorted(food_set))
 
 numbers = set(range(12))
 print(numbers)
@@ -37,6 +41,9 @@ print(n3_7)
 4 in n3_7
 # below two are equal
 n3_7.issubset(numbers)
+n3_7.issubset(numbers)
+n3_7.issubset(range(20))
+n3_7.issubset(range(7))  # range(7) is 0 to 6
 n3_7 <= numbers  # this lets you have equal sets
 n3_7 < numbers  # this will be false if both sets are equal
 numbers <= numbers
@@ -52,6 +59,7 @@ n3_7 | n5_9
 n3_7.union(n5_9)
 n3_9 = n3_7 | n5_9  # i could chain union more sets here
 print(n3_9)
+n3_7 | n5_9 | set(range(30, 35))
 # below two are equal
 n5_7 = n3_7 & n5_9
 n3_7.intersection(n5_9)
@@ -67,9 +75,12 @@ n3_4.isdisjoint(n8_9)
 print(n_sim)
 n_sim.update([4, 1, 6, 1, 6, 13, 2])
 print(n_sim)
-n_sim.remove(13)
+n_sim.update([-5, 5, 3, 6, 6, 8, 99, 9, 9])
 print(n_sim)
-n_sim.discard(13)
+n_sim.remove(13)  # Raises KeyError if you try to remove nonexistant value
+print(n_sim)
+n_sim.discard(13)  # No error
+print(n_sim)
 random_pop = n_sim.pop()
 print(random_pop, n_sim)
 random_pop = n_sim.pop()
