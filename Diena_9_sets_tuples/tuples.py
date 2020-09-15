@@ -19,6 +19,17 @@ mini_3 = my_tuple[:3]
 print(mini_3, type(mini_3))
 my_tuple[::2]
 my_tuple[::-1]
+reverse_inner = tuple(el * 2 for el in my_tuple)
+my_list = []
+for el in my_tuple:
+    if type(el) == int:
+        my_list.append(1/el)
+    else:
+        my_list.append(el[::-1])
+my_rev_tuple = tuple(my_list)
+my_rev_tuple
+
+print(my_tuple)
 # my_tuple[1] = "scientist"
 my_list = list(my_tuple)
 print(my_list)
@@ -32,6 +43,7 @@ print(t, type(t))
 t = (5,)  # if you really need a tuple of one element
 my_tuple.count("programmer")
 new_tuple.count("programmer")
+new_tuple.index("scientist")
 my_tuple.index(45)
 a = 10
 b = 20

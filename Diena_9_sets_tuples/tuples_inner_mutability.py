@@ -8,7 +8,7 @@ print(my_tuple)
 # my_tuple[1] = "coding"
 # my_tuple[4] = [1,2,3,5]
 # my_tuple[5] = {'key':'value'}
-my_tuple[4].append(55)
+my_tuple[4].append(55)  # I can change in place
 print(my_tuple)
 my_tuple[4].clear()
 print(my_tuple)
@@ -19,6 +19,8 @@ print(my_tuple)
 print(my_tuple[-1]['drink'])
 print(my_tuple[-1]['car'])
 print(my_tuple[-1]['car'][0])
+my_tuple[-1]['car'].append('lada')
+print(my_tuple)
 my_tuple[-1]['car'] = 'tesla'
 print(my_tuple)
 # to make life easier we could unpack
