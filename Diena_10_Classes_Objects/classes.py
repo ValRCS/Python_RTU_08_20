@@ -10,18 +10,42 @@
 my_garage = ["paint can", "old papers", "rotting potatoes"]
 my_garage_d = {"paints": ["white", "black"], "food": "potatoes"}
 
+# empty class definition
+
+
+class EmptyClass:
+    pass
+
+
+# i create an  based on class blueprint
+empty_class_instance_object = EmptyClass()
+empty_class_instance_object.paint = ["red", "blue"]
+empty_class_instance_object.papers = ["Diena"]
+empty_class_instance_object.paint
 # the simplest empty class definition
 
 
 class Garage:
     g_name = "just a garage"
 
-    def __init__(self, color="green"):
+    # classes constructor method called when we make a new object instance from this class
+    # dunder syntax __init__
+    def __init__(self, color="green", nails=0):
         self.color = color
+        self.nails = nails
         print(f"Initialized class instance with {self.color=}")
 
     def simple_print(self):
-        print(f"Oh {self.g_name=} {self.color=}")
+        print(f"Oh {self.g_name=} {self.color=} {self.nails=}")
+        return self
+
+    def add_nails(self, new_nails=1):
+        self.nails += new_nails
+        return self
+
+    # OOP getters method
+    def get_current_nails(self):
+        return self.nails
 
 
 # create new objects based on class definition
@@ -30,10 +54,24 @@ flanders_garage = Garage()
 # two different objects from the same blueprint(class defintion)
 print(id(homer_garage), id(flanders_garage))
 
-homer_garage.paints = ["white", "black"]
-homer_garage.foods = "eaten"
-print(homer_garage.paints)
-print(homer_garage.foods)
+homer_garage.simple_print()
+flanders_garage.simple_print()
+millhouse_garage = Garage(color="purple")
+millhouse_garage.simple_print()
+
+millhouse_garage.nails
+millhouse_garage.add_nails(7)
+millhouse_garage.add_nails(17)
+millhouse_garage.simple_print()
+millhouse_garage.add_nails(10).add_nails(
+    25).simple_print().add_nails(5).simple_print()
+
+# homer_garage.paints = ["white", "black"]
+# homer_garage.foods = "eaten"
+# print(homer_garage.paints)
+# print(homer_garage.foods)
+
+# FancyGarage will inherit everything from Garage
 
 
 class FancyGarage(Garage):
@@ -43,6 +81,7 @@ class FancyGarage(Garage):
     total_travel = 0
 
     def __init__(self, cars, wines, color="Gold"):
+        # I call my parent class constructor
         super().__init__(color)  # Python 3.x+ we call our parent class constructor
         self.cars = cars
         self.wines = wines
@@ -50,6 +89,7 @@ class FancyGarage(Garage):
     # we have to give self argument for all methods inside classes
     def pretty_print(self):
         print(f"{self.gtype=}, {self.cars=}, {self.wines=}, {self.total_travel=}")
+        return self
 
     def drive(self, distance):
         print(f"Driving {self.cars} a distance of {distance}")
@@ -57,12 +97,12 @@ class FancyGarage(Garage):
         return self  # Allows chaining of objects
 
     def get_longest_wine(self):
-        wines_length = sorted(self.wines, reverse=True)
+        wines_length = sorted(self.wines, key=len, reverse=True)
         return wines_length[0]
 
 
 burns_garage = FancyGarage("Bentley", ["Rioja", "Temparillo", "Riesling"])
-crusty_garage = FancyGarage("Rolls", ["Cabernet"])
+crusty_garage = FancyGarage("Rolls", ["Cabernet", "Cheap Wine"], "Bright Red")
 
 
 print(burns_garage.cars)
@@ -72,17 +112,18 @@ burns_garage.pretty_print()
 crusty_garage.pretty_print()
 
 
-crusty_garage.drive(60)
-crusty_garage.drive(160)
-crusty_garage.drive(20)
-crusty_garage.pretty_print()
-print(burns_garage.get_longest_wine())
-print(crusty_garage.get_longest_wine())
+# crusty_garage.drive(60)
+# crusty_garage.drive(160)
+# crusty_garage.drive(20)
+# crusty_garage.pretty_print()
+# print(burns_garage.get_longest_wine())
+# print(crusty_garage.get_longest_wine())
 burns_garage.drive(100).drive(150).drive(80).pretty_print()
-wilma_garage = Garage("pink")
-wilma_garage.simple_print()
-burns_garage.simple_print()
-brockman_garage = FancyGarage("Ferrari", "Chuck Wine")
-comic_guy_garage = FancyGarage("Ferrari", "Chuck Wine", "Bright Red")
-comic_guy_garage.simple_print()  # can use Garage method
-comic_guy_garage.pretty_print()  # can use Fancy Garage method
+crusty_garage.drive(10).drive(25).pretty_print()
+# wilma_garage = Garage("pink")
+# wilma_garage.simple_print()
+# burns_garage.simple_print()
+# brockman_garage = FancyGarage("Ferrari", "Chuck Wine")
+# comic_guy_garage = FancyGarage("Ferrari", "Chuck Wine", "Bright Red")
+# comic_guy_garage.simple_print()  # can use Garage method
+# comic_guy_garage.pretty_print()  # can use Fancy Garage method
