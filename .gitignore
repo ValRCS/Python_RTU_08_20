@@ -1,3 +1,6 @@
 .vscode/launch.json
 .vscode/settings.json
 .vscode/tasks.json
+Diena_11_modules_packages_std/__pycache__/
+Diena_11_modules_packages_std/pkg/__pycache__/
+Diena_11_modules_packages_std/pkg/subp/__pycache__/
