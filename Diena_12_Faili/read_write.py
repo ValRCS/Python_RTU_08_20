@@ -15,14 +15,36 @@ with open('frost.txt') as f:  # create a file object
 
 # list of supported encodings
 # https://docs.python.org/3/library/codecs.html#standard-encodings
-# with open('frost.txt', encoding="utf-8") as f:  # create a file object
-#     print(f.read())
+with open('frost.txt', encoding="utf-8") as f:  # create a file object
+    print(f.read())
 
-with open('frost.txt') as f:  # create a file object
+with open('frost.txt', encoding="utf-8") as f:  # create a file object
     for line in f:
         print(line)
 
-with open('frost.txt') as f:  # create a file object
+with open('frost.txt', encoding="utf-8") as f:  # create a file object
     mylines = f.readlines()  # could also read a few lines with f.readline()
+
+print(mylines[:5])
+
+with open('frost.txt', encoding="utf-8") as f:  # create a file object
+    # could also read a few lines with f.readline()
+    mylines = [line[:-1] for line in f]
+    # 99.9%  of time newline ends with /n
+
+print(mylines[:5])
+
+with open('frost.txt', encoding="utf-8") as f:  # create a file object
+    # could also read a few lines with f.readline()
+    mylines = [line.rstrip() for line in f]
+    # 99.9%  of time newline ends with /n
+
+print(mylines[:5])
+
+# super precise
+with open('frost.txt', encoding="utf-8") as f:  # create a file object
+    # could also read a few lines with f.readline()
+    mylines = [line.rstrip('\n') for line in f]
+    # 99.9%  of time newline ends with \n
 
 print(mylines[:5])
