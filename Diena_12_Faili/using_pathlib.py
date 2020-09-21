@@ -48,22 +48,33 @@ from pathlib import Path  # from Python 3.4 onwards
 # with open(frostpath) as f:
 #     print(f.readlines())
 
-p = Path('.')  # our current working directory
-# Path could be a file or folder/directory
-print(f"Current PATH {p.resolve()}")
-# p.glob is a generator so need to cast to list
+# p = Path('.')  # our current working directory
+# # Path could be a file or folder/directory
+# print(f"Current PATH {p.resolve()}")
+# # p.glob is a generator so need to cast to list
 # local_txt_files = list(p.glob("*.txt"))
 # print(local_txt_files)
 # for fname in local_txt_files:
 #     print(fname.suffix)  # just the last suffix
 #     print(fname.suffixes)  # list of all suffixes
 #     print(fname.with_suffix(".vstxt"))
+
 # parent = Path('..')  # we go up to our parent
-# sub_folders = [x for x in parent.iterdir() if x.is_dir()]
+# sub_folders = [fp for fp in parent.iterdir() if fp.is_dir()]
 # print(sub_folders)
+# for subf in sub_folders:
+#     print(subf.resolve())  # so i can get absolute file names also
 # parent_files = [x for x in parent.iterdir() if x.is_file()]
 # print(parent_files)
 # print(parent_files[0])
 # parent_py_files = [x for x in parent.iterdir() if x.is_file()
 #                    and x.suffix == ".py"]
 # print(parent_py_files)
+
+# getting all files recursively
+# parent = Path('..')  # we go up to our parent
+pyfiles = sorted(Path('../..').glob('**/*.py'))
+print(pyfiles)
+for fname in pyfiles:
+    print(fname, type(fname), fname.resolve())
+    print(fname.stem, type(fname.stem))
