@@ -6,7 +6,7 @@
 # https://stackoverflow.com/questions/12229580/python-importing-a-sub-package-or-sub-module
 # https://realpython.com/lessons/subpackages/
 
-
+import my_cool_lib.my_cool_mod
 import pkg.my_utils
 import pkg.my_housing
 import pkg as pk
@@ -19,6 +19,7 @@ from pkg.subp.sub_utils import (
     subprint,
     MAGIC_PI
 )
+sutils.subadd(555, 100)
 
 pkg.my_utils.add(30, 50)
 gar = pkg.my_housing.Garage("Funny")
@@ -31,3 +32,4 @@ sutils.subadd(50, 20)
 subadd(30, 90)
 subprint("Valdis")
 print(MAGIC_PI)
+my_cool_lib.my_cool_mod.add(555, 222)
