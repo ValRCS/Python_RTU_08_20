@@ -21,7 +21,8 @@
 # this works but for complicated path manipulation
 # library is recommended (OS differences)
 
-
+# https://docs.python.org/3/library/shutil.html
+import shutil
 from pathlib import Path  # from Python 3.4 onwards
 # there is also older os.path library
 # . means current path
@@ -29,7 +30,7 @@ p = Path('.')
 print(p)
 print(p.absolute())
 
-# somewhat similar to going up with ../
+# # somewhat similar to going up with ../
 # print(p.resolve().parents[0])
 # print(p.resolve().parents[1])
 # print(p.resolve().parents[2])
@@ -43,13 +44,13 @@ print(ogpath)
 print(ogpath.parents[0])
 print(ogpath.parents[1])
 
-# first part has to be Path !
-# with this i guarantee OS compatibility
+# # first part has to be Path !
+# # with this i guarantee OS compatibility
 frostpath = ogpath.parents[1] / "data" / "stopping_frost.txt"
 print(frostpath, type(frostpath))
-# # notice the \ on windows!
-# with open(frostpath) as f:
-#     print(f.readlines())
+# # # notice the \ on windows!
+with open(frostpath) as f:
+    print(f.readlines())
 
 p = Path('.')  # our current working directory
 # Path could be a file or folder/directory
@@ -58,6 +59,7 @@ print(f"Current PATH {p.resolve()}")
 local_txt_files = list(p.glob("*.txt"))
 print(local_txt_files)
 for fname in local_txt_files:
+    print(fname)
     print(fname.suffix)  # just the last suffix
     print(fname.suffixes)  # list of all suffixes
     print(fname.with_suffix(".vstxt"))
@@ -76,8 +78,18 @@ for fname in local_txt_files:
 
 # getting all files recursively
 # parent = Path('..')  # we go up to our parent
-# pyfiles = sorted(Path('../..').glob('**/*.py'))
+# pyfiles = sorted(Path('..').glob('**/*.py'))
 # print(pyfiles)
 # for fname in pyfiles:
 #     print(fname, type(fname), fname.resolve())
 #     print(fname.stem, type(fname.stem))
+src_list = list(Path(".").glob('*.txt'))
+
+print(src_list)
+
+# for src in src_list:
+#     shutil.copyfile(src, dst=src.with_suffix(".bak"))
+
+# we can copy to some other folder of course
+for src in src_list:
+    shutil.copyfile(src, dst=Path("..") / "data" / src)
