@@ -14,5 +14,6 @@ y3 = [n+15 for n in y]
 plt.bar(x, y)
 plt.plot(x, y2)
 plt.scatter(x, y3)
+plt.savefig("simplegraph.png")
 
 plt.show()

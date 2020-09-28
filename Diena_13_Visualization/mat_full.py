@@ -37,7 +37,9 @@ ax.tick_params(which='major', length=10)
 ax.tick_params(which='minor', width=1.0, labelsize=10)
 ax.tick_params(which='minor', length=5, labelsize=10, labelcolor='0.25')
 
-ax.grid(linestyle="--", linewidth=0.5, color='.25', zorder=-10)
+# can change grid style
+# ax.grid(linestyle="--", linewidth=0.75, color='.25', zorder=-10)
+ax.grid(linestyle="--", linewidth=0.75, color=(0.25, 1.00, 0.25), zorder=-10)
 
 ax.plot(X, Y1, c=(0.25, 0.25, 1.00), lw=2, label="Blue signal", zorder=10)
 ax.plot(X, Y2, c=(1.00, 0.95, 0.25), lw=6, label="Red signal")
