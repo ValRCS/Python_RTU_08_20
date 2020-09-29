@@ -1,0 +1,5 @@
+mylist = list(range(10))
+print(mylist)
+print(mylist.pop())
+print(mylist)
+[].pop()
