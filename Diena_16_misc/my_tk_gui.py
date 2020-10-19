@@ -1,4 +1,4 @@
-import tkinter as tk
+import tkinter as tk # this is in standard library
 
 
 class Application(tk.Frame):

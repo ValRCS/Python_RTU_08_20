@@ -3,6 +3,11 @@
 def add(a: int, b: int) -> int:
     return a+b
 
-
+def mult(a:int,b:int) -> int:
+    """
+    My Multiplication function
+    """
+    return a*b
 print(add(6, 10))
-print(add("Valdis ", "Līga"))
+print(mult(6, 10))
+# print(add("Valdis ", "Līga"))
