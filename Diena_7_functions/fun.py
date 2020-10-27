@@ -1,8 +1,8 @@
-# # formal https://docs.python.org/3/tutorial/controlflow.html#defining-functions
-# # built in functions https://docs.python.org/3/library/functions.html
-# # DRY ! https://en.wikipedia.org/wiki/Don%27t_repeat_yourself
+# # # formal https://docs.python.org/3/tutorial/controlflow.html#defining-functions
+# # # built in functions https://docs.python.org/3/library/functions.html
+# # # DRY ! https://en.wikipedia.org/wiki/Don%27t_repeat_yourself
 
-# # we can give our functions parameters and those parameters take arguments
+# # # we can give our functions parameters and those parameters take arguments
 
 # print("Go eat")
 # print("Let's order food")
@@ -14,12 +14,12 @@ def go_eat():
     print("Go eat")
     print("Let's order food")
 
-# calling function
+# # calling function
 # go_eat()
 # go_eat()
 # go_eat()
 
-# requirement that order_food is given an argument
+# # requirement that order_food is given an argument
 def order_food(dish):
     dish = str(dish)
     print(f"I am ordering {dish}")
@@ -27,14 +27,17 @@ def order_food(dish):
     # so dish stops working here
 # no dish here
 
+
 # order_food("potatoes")
 # order_food("ice cream")
+# my_soup = "Beet soup"
+# order_food(my_soup)
 # order_food(555)
 
 # print(dish)
 
 
-# # go to restaurant
+# # # go to restaurant
 
 
 def eat(food_list):
@@ -47,6 +50,9 @@ def eat(food_list):
     print("Let's leave and be happy")
 
 
-# # call the function 2 times
-eat(["soup", "potatoes", "ice cream"])
-# eat()
+food_list = ["soup", "potatoes", "ice cream"]
+eat(food_list)
+
+# # # call the function 2 times
+# eat(["soup", "potatoes", "ice cream"])
+# # eat()
