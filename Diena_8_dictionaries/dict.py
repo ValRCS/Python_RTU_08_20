@@ -64,6 +64,7 @@ print(tel)
 
 value_to_find = 2911
 new_dict = {}
+
 for key, value in tel.items():
     if value == value_to_find:
         new_dict[key] = value
