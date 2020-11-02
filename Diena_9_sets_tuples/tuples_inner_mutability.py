@@ -10,23 +10,23 @@ print(my_tuple)
 # my_tuple[5] = {'key':'value'}
 my_tuple[4].append(55)  # I can change in place
 print(my_tuple)
-my_tuple[4].clear()
-print(my_tuple)
-my_tuple[4].append(66)
-print(my_tuple)
+# my_tuple[4].clear()
+# print(my_tuple)
+# my_tuple[4].append(66)
+# print(my_tuple)
 my_tuple[-1]['car'] = ['vw']
 print(my_tuple)
-print(my_tuple[-1]['drink'])
-print(my_tuple[-1]['car'])
-print(my_tuple[-1]['car'][0])
+# print(my_tuple[-1]['drink'])
+# print(my_tuple[-1]['car'])
+# print(my_tuple[-1]['car'][0])
 my_tuple[-1]['car'].append('lada')
 print(my_tuple)
-my_tuple[-1]['car'] = 'tesla'
-print(my_tuple)
-# to make life easier we could unpack
-(name, job, _, _, my_list, my_dict) = my_tuple
-my_list.append(777)
-print(my_tuple)
-my_tuple[4].append(555)
-print(my_tuple)
-print(my_list)
+# my_tuple[-1]['car'] = 'tesla'
+# print(my_tuple)
+# # to make life easier we could unpack
+# (name, job, _, _, my_list, my_dict) = my_tuple
+# my_list.append(777)
+# print(my_tuple)
+# my_tuple[4].append(555)
+# print(my_tuple)
+# print(my_list)
