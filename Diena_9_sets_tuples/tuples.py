@@ -8,7 +8,7 @@
 # # https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences
 # # https://realpython.com/python-lists-tuples/
 
-my_tuple = ("Valdis", "programmer", 45, 200.8, [1, 2, 3], True, None, {'food':'potatoes', 'drink':'kefir'})
+my_tuple = ("Valdis", "programmer", 45, 200.8, [1, 2, 3], True, None, {'food':'potatoes', 'drink':'kefir'}, "programmer")
 # print(my_tuple)
 # print(type(my_tuple))
 # print(my_tuple[0])
@@ -17,20 +17,28 @@ my_tuple = ("Valdis", "programmer", 45, 200.8, [1, 2, 3], True, None, {'food':'p
 # print(my_tuple[-1]['drink'])
 # print(my_tuple[4][1])
 # mykey = ("Valdis",180) # to use tuple as key tuple must only have immutables inside as well
+# newdict = {mykey:9000, "secondkey":9050}
+# print(newdict)
+# print(newdict[mykey])
 # my_tuple[-1].setdefault(mykey, 500)
 # my_tuple[-1][mykey] = 9000
 # print(my_tuple[-1])
 # print(my_tuple)
-# print(my_tuple[-1].get(mykey))
+# # print(my_tuple[-1].get(mykey))
 # mini_3 = my_tuple[:3]
 # print(mini_3, type(mini_3))
-# # my_tuple[1] = "teacher" # will not work because tuples are immutable
+# # # my_tuple[1] = "teacher" # will not work because tuples are immutable
+# my_list = list(my_tuple)
+# my_list[1] = "teacher"
+# print(my_tuple)
+# my_tuple = tuple(my_list)
+# print(my_tuple)
 # print(my_tuple[::2])
 # print(my_tuple[::-1])
-# print((4,5,"Valdis"))
+# print((4,5,"Valdis")) # so i create tuple on the fly - hot tuple
 
-# mult_tuple = tuple(el * 2 for el in mini_3)
-# print(mult_tuple)
+mult_tuple = tuple(el * 2 for el in my_tuple[:5])
+print(mult_tuple)
 # int_tuple = tuple(el**2 for el in range(1,10)) # this is not but generator meaning it is made on demand not ready
 # print(int_tuple)
 
@@ -51,30 +59,41 @@ my_tuple = ("Valdis", "programmer", 45, 200.8, [1, 2, 3], True, None, {'food':'p
 # my_list[1] = "scientist"
 # new_tuple = tuple(my_list)
 # print(new_tuple)
-# # t = ()  # empty tuple only question where would you use it?
-# # print(t, type(t))
-# # t = (1, 2, 55)  # 2 or more elements
-# # print(t, type(t))
-# # t = (5,)  # if you really need a tuple of one element
+# t = ()  # empty tuple only question where would you use it?
+# print(t, type(t))
+# t = (1, 2, 55)  # 2 or more elements
+# print(t, type(t))
+# t = (5,)  # if you really need a tuple of one element
+# print(t, type(t))
+# my_tuple.
 # print(my_tuple.count("programmer"))
+# print(my_tuple.index("programmer"))
+# # print(my_tuple.index("notprogrammer"))
+# print("somevalue" in my_tuple)
+
 # print(new_tuple.count("programmer"))
 # print(new_tuple.index("scientist"))
 # print(my_tuple.index(45))
-# a = 10
-# b = 20
-# # print(a, b)
+a = 10
+b = 20
+# print(a, b)
 # # how to change them
-# # temp = a
-# # a = b
-# # b = temp
-# # print(a, b)
+# temp = a
+# a = b
+# b = temp
+# print(a, b)
 # # # in Python the above is simpler!
 # print(a, b)
 # a, b = b, a  # we can even change a,b,c,d = d,c,b,a and more
 # print(a, b)
-# (name, job, age, top_speed, favorite_list, _ , _ , favorite_dict) = my_tuple  # tuple unpacking
+# my_num_tuple = 5, 6, 8
+# print(my_num_tuple, type(my_num_tuple))
+# my_num_tuple = (5, 6, 8)
+# print(my_num_tuple, type(my_num_tuple))
+
+# name, job, age, top_speed, favorite_list, _ , _ , favorite_dict, secondjob = my_tuple  # tuple unpacking
 # print(name, job, age, top_speed, favorite_list)
-# # name is my_tuple[0]
+# name is my_tuple[0]
 # # # tuple unpacking and using _ for values that we do need
 # (name, job, _, top_speed, _) = my_tuple[:5]
 # print(name, _)  # so _ will have value of last unpacking
