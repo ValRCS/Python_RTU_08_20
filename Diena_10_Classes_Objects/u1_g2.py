@@ -22,6 +22,7 @@ class Song():
             print(f"{self.title} - {self.author}")
         return self
  
+ 
 class Rap(Song):
     def __init__(self, title="", author="", lyrics=()):
         super().__init__(title=title, author=author, lyrics=lyrics)
@@ -35,7 +36,8 @@ class Rap(Song):
             drop_to_add = f" {drop.upper()} "
             print(drop_to_add.join(temp_list) + drop_to_add[:-1])
         return self
-    
+
+
 ziemelmeita = Song("Ziemeļmeita", "Jumprava", ["Gāju meklēt ziemeļmeitu","Garu, tālu ceļu veicu"])
 ziemelmeita.sing(1).yell(1)
  
