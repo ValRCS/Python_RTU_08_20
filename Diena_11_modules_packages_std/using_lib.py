@@ -15,10 +15,22 @@
 # print("hmm")
 # import mlib.my_mod
 
-import mlib_mod
-import my_pak.mpak_mod
-import my_pak.supermod as smod
+# import mlib_mod
+# import my_pak.mpak_mod
+# import my_pak.supermod as smod
 
-mlib_mod.add(55, 555)
-my_pak.mpak_mod.add(100, 24)
-smod.add(666, 77)
+# mlib_mod.add(55, 555)
+# my_pak.mpak_mod.add(100, 24)
+# smod.add(666, 77)
+
+import my_cool_lib.my_cool_mod
+from my_cool_lib import my_cool_mod
+from my_cool_lib import my_cool_mod as mcm # very common to rename modules
+from my_cool_lib.my_cool_mod import add # careful could have name collission with another module
+from my_cool_lib.my_cool_mod import add as my_add
+
+my_cool_lib.my_cool_mod.add(5,11)
+my_cool_mod.add(10,11)
+mcm.add(50,10)
+add(55,22)
+my_add(66,66)
