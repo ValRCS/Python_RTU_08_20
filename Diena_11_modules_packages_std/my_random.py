@@ -1,5 +1,5 @@
 import random
-random.seed(42)
+random.seed(42) # 42 is the answer to everything
 # so random numbers are really pseudo-random so with specific seed number they are consistent
 numbers = [random.randint(1,6) for n in range(100)]
 floats = [random.random() for _ in range(10)] 
