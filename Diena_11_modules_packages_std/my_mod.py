@@ -1,6 +1,8 @@
 txt = "Quick brown fox"
 mlist = [1, 2, 3, 9]
 
+print("THis will run no matter what")
+
 # TODO move add to my utilities module
 
 
@@ -31,3 +33,4 @@ if __name__ == "__main__":
     assert(add(2, 3) == 5)
     print("This will run when my_mod.py is called normally")
     my_gar = Garage()
+    
