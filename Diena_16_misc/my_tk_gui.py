@@ -17,6 +17,7 @@ class Application(tk.Frame):
         self.quit = tk.Button(self, text="QUIT", fg="red",
                               command=self.master.destroy)
         self.quit.pack(side="bottom")
+        self.result = tk.Label(self, text='Rezult:')
 
     def say_hi(self):
         print("hi there, everyone!")
