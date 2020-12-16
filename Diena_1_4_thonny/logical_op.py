@@ -7,29 +7,32 @@ print(True and True and True and False) # one drop of False will ruin everything
 print(False and 2*2 == 4 and 3 == 3) # 2*2 == 4 will not be evaluated because False ruined it
 print(a >= 5 and b >= 10)
 print(a >= 5 and b >= 10 and a > b)
+print(a >= 5 and b >= 10 and a < b)
 print(False and False) # False
 print(True and False) # False
 print(False and True) # False
-# # or (not || in other languages)
-# one side of or has to be True for the whole expression to be True
+# # # or (not || in other languages)
+# # one side of or has to be True for the whole expression to be True
 print(True or True) # True
 print(True or False) # True
 print(False or True) # True
 print(False or False) # False
-# with or as soon as one statement is True Python stops evaluation the expression
+# # with or as soon as one statement is True Python stops evaluation the expression
 print("a > 24 or b > 1_000 or 2*2 == 5", a > 24 or b > 1_000 or 2*2 == 5)
 print("" or 0 or False)
-
-# negation
+print(1_000_000 == 1000000 and 1000000 == 1_0_0_0_0_0_0) # last one is NOT recommended
+# 
+# # negation
 print(not True)
 print(not False)
-
-print(2 == 3 and 3 == 900)
-print(not 2 == 3 and 3 == 900) # still false
-print(not (2 == 3 and 3 == 900)) # because not otherwise is eval first
 # 
-# isAoverB = a >= 5 and b >= 10 and a > b
-# notSoFast = not isAoverB
-
-# # there are also bit operators & and | think ^ and ~
-# https://realpython.com/python-bitwise-operators/
+print(2 == 3 and 3 == 9000)
+print(not 2 == 3) # True
+print(not 2 == 3 and 3 == 900) # still False
+print(not (2 == 3 and 3 == 900)) # because not otherwise is eval first
+# # 
+isAoverB = a >= 5 and b >= 10 and a > b
+notSoFast = not isAoverB
+# 
+# # # there are also bit operators & and | think ^ and ~
+# # https://realpython.com/python-bitwise-operators/
