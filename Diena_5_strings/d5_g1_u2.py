@@ -19,8 +19,7 @@ while not done:
         guess = input("Player 2, make your guess (one letter) ")
         for cut_here, c in enumerate(text_to_guess): # enumerate starts from 0
             if c == guess: 
-                new_string = guessed_so_far[:cut_here] + guess + guessed_so_far[cut_here+1:] #neder, string indices must be integers
-                guessed_so_far = new_string      
+                guessed_so_far = guessed_so_far[:cut_here] + guess + guessed_so_far[cut_here+1:] #neder, string indices must be integers  
         print(guessed_so_far)
 
 
