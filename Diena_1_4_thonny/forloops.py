@@ -1,7 +1,8 @@
 # # for loops are for definite iteration
-# 
-# for n in range(10):
-#     print("Number is", n)
+# # 
+# for num in range(10):
+#     print("Hello there!")
+#     print("Number is", num)
 # # print("out of loop", n)
 # for i in range(1, 11): # so careful of off-by-one errors
 #     print(f"I like this {i} better")
@@ -12,9 +13,17 @@
 # print("This happens after the loop is done")
 # for n in range(20,25):
 #     print(n)
-# 
+# # 
 # for my_num in range(100,110,2): # i can add step to range
 #     print(my_num)
+
+
+# for _ in range(2): # _ means that we do not care about the variable
+#     print("We do not need the number in this case")
+#     
+# for i in range(5): # outer loop
+#     for j in range(4): #inner loop
+#         print(f"{i}x{j}={i*j}")
 # #     
 # # my_name = "Valdis"
 # # for c in my_name:
@@ -52,7 +61,17 @@
 # #     
 # # more Pythonic is using enumerate:
 # # use this if you need index
-# for i, c in enumerate(my_name, start=1001):
-#     print(i, c)
-# 
+
+# my_name = "Valdis"
+# for i, c in enumerate(my_name):
+#     print("Letter", i, "is",c)
 #     
+# for i, c in enumerate(my_name, start=101):
+#     print("Letter", i, "is",c)
+# 
+#
+my_num = 20
+for n in range(1,11):
+    reminder = my_num % n
+    result = my_num // n # whole number
+    print(f"{my_num} divided by {n} gives {result} with {reminder} as reminder")
