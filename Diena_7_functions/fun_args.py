@@ -8,9 +8,17 @@ def adder(*args): # so a list of arguments of any length
     for arg in args:
         print(arg)
 
-# adder()
-# adder(5, 2, "Valdis")
-# adder(5, 2, "Valdis", "Līga", 1222)
+adder() # will work even with no arguments
+adder(5, 2, "Valdis")
+adder(5, 2, "Valdis", "Līga", 1222)
+
+def summator(*args):
+    print(f"got {args}")
+    result = sum(args)
+    print(result)
+    return result
+
+summator(23,3,234,2235)
 
 
 def mult(*args, multiplier=1):
@@ -20,7 +28,7 @@ def mult(*args, multiplier=1):
         result *= arg
     return result
 
-
+print(mult())
 print(mult(2, 10, 5))
 print(mult(2, 10, 5, -3.6))
 print(mult(2, 10, 5, -3.6, multiplier=1000))
