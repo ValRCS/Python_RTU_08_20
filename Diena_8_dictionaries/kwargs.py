@@ -5,6 +5,8 @@ def name_adder(**kwargs):
     for key, value in kwargs.items():
         print(key, value)
 
+# name_adder(first="Valdis", likes="coding", loves="potatoes")
+
 
 def adder(*args):
     for arg in args:
@@ -14,7 +16,7 @@ def adder(*args):
 # adder(1, 5, 6)
 
 
-# name_adder(first="Valdis", likes="coding", loves="potatoes")
+
 
 
 def get_me_everything(*args, **kwargs):  # order is important positional comes first!!
@@ -29,7 +31,7 @@ def get_me_everything(*args, **kwargs):  # order is important positional comes f
 # get_me_everything()
 
 
-def get_me_all(a, b, args="", **kwargs):  # order is important positional comes first!!
+def get_me_all(a, b, *args, **kwargs):  # order is important positional comes first!!
     for key, value in kwargs.items():
         print(key, value)
     for arg in args:
