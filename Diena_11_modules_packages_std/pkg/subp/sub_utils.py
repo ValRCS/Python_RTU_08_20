@@ -1,4 +1,4 @@
-MAGIC_PI = 3.14  # indicates constant
+MAGIC_PI = 3.14  # capitals indicates constants by conventions
 
 
 def subadd(a, b):

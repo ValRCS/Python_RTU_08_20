@@ -1,7 +1,7 @@
 txt = "Quick brown fox"
 mlist = [1, 2, 3, 9]
 
-print("THis will run no matter what")
+print("THis will run no matter what") # generally you'd want to avoid things that always run
 
 # TODO move add to my utilities module
 
@@ -29,8 +29,9 @@ class Garage:
 
 # this will only run when not imported
 if __name__ == "__main__":
-    # typically you would put tests here
+    # typically you would put tests here or standalone program
     assert(add(2, 3) == 5)
     print("This will run when my_mod.py is called normally")
     my_gar = Garage()
-    
+else: # generally you do not need this else when importing
+    print("I was imported! My __main__ is", __name__)
