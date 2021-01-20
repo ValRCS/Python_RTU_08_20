@@ -19,6 +19,8 @@ def summator(*args):
     return result
 
 summator(23,3,234,2235)
+summator(23,3,234,2235,1000)
+summator()
 
 
 def mult(*args, multiplier=1):
