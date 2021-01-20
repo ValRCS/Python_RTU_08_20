@@ -11,3 +11,21 @@ print(new_list_2)
 # a bit hacky not that often used
 res = [print(n) for n in mylist] 
 print(res)  
+# filter
+new_list_even = [n+100 for n in mylist if n % 2 == 0]
+print(new_list_even)
+
+new_list = []
+for n in range(10):
+    new_list.append(n)
+    new_list.append(n+0.5)
+print(new_list)
+
+n_list = [[n,n+0.5] for n in range(10)]
+print(n_list)
+# this recipe will flatten 2D list into 1d list but not that easy to read
+flat_list = [item for sublist in n_list for item in sublist]
+print(flat_list)
+
+flat_2 = [n+a for n in range(10,16,2) for a in range(100,105)]
+print(flat_2)
