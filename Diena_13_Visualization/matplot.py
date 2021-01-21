@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt  # very typical
 # https://realpython.com/python-matplotlib-guide/
 # https://matplotlib.org/3.3.2/tutorials/index.html
 # print("Making some images")
-fig = plt.figure()
+# fig = plt.figure()
 
 x = list(range(11))
 y = [n**2 for n in x]
