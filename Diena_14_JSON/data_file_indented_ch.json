@@ -1,0 +1,24 @@
+{
+    "firstName": "Jane",
+    "lastName": "Doe",
+    "hobbies": [
+        "running",
+        "sky diving",
+        "dancing"
+    ],
+    "age": 43,
+    "children": [
+        {
+            "firstName": "Alice",
+            "age": 7
+        },
+        {
+            "firstName": "Bob",
+            "age": 13
+        },
+        {
+            "firstName": "\u010carlijs",
+            "age": 14
+        }
+    ]
+}
