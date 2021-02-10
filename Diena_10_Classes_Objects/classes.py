@@ -85,8 +85,7 @@
 
 
 class Garage:
-    g_name = "just a garage" # better to sparingly we can run in some weird effects
-#     # _nail_color = "metalic" # by convention private
+    g_name = "just a garage" # not needed better to use sparingly we can run in some weird effects
 # #     # classes constructor method called when we make a new object instance from this class
 # #     # dunder syntax __init__
     def __init__(self, color="green", nails=0, name="My garage", nail_color="metal"):
