@@ -1,14 +1,15 @@
 # continue
-# i = 1
-# while i < 30:
-#     i+=1 # careful with continue we need an increment to avoid forever loop
-#     if i % 2 == 0:
-#         print("Even Number!", i)
-#         print("Jumping to the start of the loop")
-#         continue # so continue jumps back to the start of the loop
-#     print("Hmm must be odd!", i)
-#     i+=10
-# i = 1
+i = 1
+while i < 30:
+    i+=1 # careful with continue we need an increment to avoid forever loop
+    if i % 2 == 0:
+        print("Even Number!", i)
+        print("Jumping to the start of the loop")
+        continue # so continue jumps back to the start of the loop
+    # so sort of like else here
+    print("Hmm must be odd!", i)
+    i+=10
+i = 1
 # while i < 10:
 #     if i % 2 == 0:
 #         print("Even number!", i)
