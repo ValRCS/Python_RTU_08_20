@@ -1,105 +1,114 @@
 
 print("My string Fun")
 
-# food = "kartupelis"
-# print(type(food))
-# food = "auzu putra"
-# food = "kartupelis"
+food = "kartupelis"
+print(type(food))
+food = "auzu putra"
+food = "kartupelis"
 # # # # # food
 # # # # # # Python Slicing syntax
 # # # # print(food)
-# print(food[0])  # why zero index, historic reasons
+print(food[0])  # why zero index, historic reasons
 
-# food_len = len(food)
+food_len = len(food)
 
-# print(food_len)
-# print(food[9])  # so index 9 means 10th element
-# print(food[len(food)-1])  # not pythonic, avoid! Not needed
-# print(food[-1])  # this is Pythonic way of getting last character of string
-# print(food[-2])
-# print(food[2])  # what will be printed ?
-# # print(food[555]) # IndexError: string index out of range
-# # print(food[-11])
+print(food_len)
+print(food[9])  # so index 9 means 10th element
+print(food[len(food)-1])  # not pythonic, avoid! Not needed
+print(food[-1])  # this is Pythonic way of getting last character of string
+print(food[-2])
+print(food[2])  # what will be printed ?
+# print(food[555]) # IndexError: string index out of range
+# print(food[-11])  # IndexError: string index out of range
 
 # # # # # # when slicing we do not include the last index so 5 would be 6th element which we do not include
-# print(food[0:5], food[:5])  # so index 5(6th element) is not included so we get 1st 5 elements
-# print(food[:9015])  # when slicing end index can be out of range
-# print(food[-3000:9015])  # when slicing beginning and end index can be out of range
-# print(food[-3000:])  # when slicing beginning and end index can be out of range
-# print(food[:]) #not much point for strings but for other sequences it makes a copy
+print(food[0:5], food[:5])  # so index 5(6th element) is not included so we get 1st 5 elements
+print(food[:9015])  # when slicing end index can be out of range
+print(food[-3000:9015])  # when slicing beginning and end index can be out of range
+print(food[-3000:])  # when slicing beginning and end index can be out of range
+print(food[:]) #not much point for strings but for other sequences it makes a copy
+print(food)
 
-# print(food[5:10], food[5:], food[-5:])
-# food = "Auzu putra ar avenēm"
-# print(food[5:10], food[5:], food[-5:], sep="\n")
+print(food[5:10], food[5:], food[-5:])
+food = "Auzu putra ar avenēm"
+print(food[5:10], food[5:], food[-5:], sep="\n")
 # # # # print(food[400]) # so too much positive will give IndexError
 # # # # print(food[-320])  # so too much negative will give IndexError
 # # print(food[-320:400]) # we can do this though
 # # print(food[-10:400]) # we can do this though
 
-# # # # # # food[5:], food[1:]
-# print(food[0:20:2]) # step can be any whole number
-# print(food[:20:2])
-# print(food[::2]) # this would get 2nd character of any strings
+print(food[5:], food[1:])
+print(food)
+print(food[0:20:2]) # step can be any whole number
+print(food[:20:2])
+print(food[::2]) # this would get 2nd character of any strings
+print(food[1::2]) # this would get 2nd character of any strings starting with 2nd char
 # # # # # print(len(food))
 
 # # # # # # reversing a string
-# print(food[::-1])  # so we go backwards
-# my_reverse_string = food[::-1]  # if I need to save it
-# print(my_reverse_string)
+print(food[::-1])  # so we go backwards
+my_reverse_string = food[::-1]  # if I need to save it
+print(my_reverse_string)
 
 # # # if i need ' inside string then I can use " outside
-# my_text = "Alice told the rabbit 'go down the hole' and then followed"
-# print(my_text)
-# another_text = 'The bottle said "Eat me!" and Alice couldn not write single quotes'
-# print(another_text)
-# multi_line_string = """We can write whatever even go to a 
-# new line
-#     or use tab
-#     use single ' and also "
-#     and so o n
+my_text = "Alice told the rabbit 'go down the hole' and then followed"
+print(my_text)
+another_text = 'The bottle said "Eat me!" and Alice couldnt not write single quotes'
+print(another_text)
+multi_line_string = """We can write whatever even go to a 
+new line
+    or use tab
+    use single ' and also "
+    and so o n
 
-# """
-# print(multi_line_string)
-# escaped_string = "text meaning \" and also \' \n \t and of course \\ so on "
-# print(escaped_string)
+"""
+print(multi_line_string)
+escaped_string = "text meaning \" and also \' \n \t and of course \\ so on "
+print(escaped_string)
 # # # # # food[::-2]
-# print(f"Min ({min(food)}), max({max(food)}), len:{len(food)}") #min and max use unicode codes
-# print(ord(" "), ord("e"), ord("ē"))  # Return the Unicode code point for a one-character string
+print(f"Min ({min(food)}), max({max(food)}), len:{len(food)}") #min and max use unicode codes
+print(ord(" "), ord("e"), ord("ē"))  # Return the Unicode code point for a one-character string
 
 # # # # # this will not work
-# # # # food[3] = "Z" # will not work
+# food[3] = "Z" # will not work
 # # # # # # strings are immutable so we need to create new strings
-# new_food = food.replace('u', 'ū') #replaces in all places by default
-# print(new_food)
-# print("X"*len(new_food))
+new_food = food.replace('u', 'ū') #replaces in all places by default
+print(new_food)
+print("X"*len(new_food)) #i can multiple strings with numbers so 20 Xses
 
-# print(food[:3])
-# print(food[3]) # so we will not keep this one in the new string
-# print(food[4:])
-# ze_food = food[:3] + "ZXZ" + food[4:] # so build a new string
-# ze_food_2 = f"{food[:3]}*Jaunais*{food[4:]}"
-# print(ze_food)
-# print(ze_food_2)
-# food = "mazaiSSS karTUPelis jaukais"
+print(food[:3])
+print(food[3]) # so we will not keep this one in the new string
+print(food[4:])
+ze_food = food[:3] + "ZXZ" + food[4:] # so build a new string
+print(ze_food)
+ze_food_2 = f"{food[:3]}*Jaunais*{food[4:]}"
+print(ze_food_2)
+food = "mazaiSSSS karTUPelis jaukais"
 # # cap_food = food.capitalize() # so first word in capital letters
-# print(food.capitalize())
-# print(food.title()) # Title Gives Uppercase To Each Word
-# print(food.upper())
-# print(food.lower())
+print(food.capitalize())
+print(food.title()) # Title Gives Uppercase To Each Word
+print(food.upper()) # yelling
+print(food.lower())
 
-# print(food.swapcase())
+print(food.swapcase())
 
-# print(food.count("S"))
+print(food.count("S"))
+print(food.count("SS")) # answer should be 2 because we have SSS
+print(food.count("SS")) # answer should be 2 because we have SSS
+print(food.count("ai")) 
 # # # # # print(food.capitalize())
 # print(food.upper().replace("A", "Y")) # i can chain operations on strings
-# print(food[-5:].upper())
+print(food[-5:].upper())
 # print(food.count('a'))
-# print(food.index('z')) # z is 3rd element so index is 2
-# # print(food.index("kart")) # so index throws ValueError if not found
+print(food.index('z')) # z is 3rd element so index is 2
+print(food.index('i')) # i is 5th element so index is 4
+print(food[4])
+# print(food.index("kart")) # so index throws ValueError if not found
+print(food.lower().index("kart"))
 # print(food.find('z'))
 # print(food.find('kart'))
 # print(food.lower().find('kart'))
-# print(food[9:9+4])
+print(food[10:10+4])
 # # # # # print(food.index('ž')) # index raises an error 
 # # print(food.find('ž')) # retursn -1
 # # # # print(food.find('z'))
@@ -111,38 +120,41 @@ print("My string Fun")
 # # # # # ze_food.index("valdis")
 # # # # # ze_food.find("ZZ")
 
-# print("kar" in food) # so in gives us simple Boolean whether substring exists in string
-# is_found = "kar" in food
-# print(is_found)
+print("kar" in food) # so in gives us simple Boolean whether substring exists in string
+print("kart" in food) # so in gives us simple Boolean whether substring exists in string
+print("kart" in food.lower()) # so in gives us simple Boolean whether substring exists in string
+print("karT" in food) # so in gives us simple Boolean whether substring exists in string
+is_found = "kar" in food
+print(is_found)
 
-# for c in food:
-#     print(c, end=":")
+for c in food:
+    print(c, end=":") # so instead of default newline \n i used : as endpoint
 
-# for c in food[3:8]:
-#     print(c)
+for c in food[3:8]:
+    print(c)
 
 # # # # # print(food.index('a')) 
-# count = 0
-# char = "S"
-# clean_text = ""
-# for c in food:
-#     if c == char:
-#         count += 1
-#     else:
-#         clean_text += c # create new string by adding char to old string
-# print(f"There are {count} {char}s in {food}")
-# print(f"Cleaned {clean_text=}") # this syntax is starting from Python
-# print(food.replace("S",""))
+count = 0
+char = "S"
+clean_text = ""
+for c in food:
+    if c == char:
+        count += 1
+    else:
+        clean_text += c # create new string by adding char to old string
+print(f"There are {count} {char}s in {food}")
+print(f"Cleaned {clean_text=}") # this syntax is starting from Python
+print(food.replace("S",""))
 
 # # # # # food, clean_text
 
-# fresh_text = ""
-# for c1, c2 in zip(food, clean_text):  # you can zip many sequences
-#     if c1 == c2:
-#         fresh_text += c1  # also c2 would work
-#     else:  # mismatch
-#         fresh_text += "_"
-# print(fresh_text)
+fresh_text = ""
+for c1, c2 in zip(food, clean_text):  # you can zip many sequences
+    if c1 == c2:
+        fresh_text += c1  # also c2 would work
+    else:  # mismatch
+        fresh_text += "_"
+print(fresh_text)
 
 # # # isArtFound = "art" in food
 # # # print(isArtFound)
