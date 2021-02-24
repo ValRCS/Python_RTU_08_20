@@ -1,6 +1,39 @@
-And sorry I could not travel both
-And be one traveler, long I stood
-And looked down one as far as I could
-And having perhaps the better claim,
-And both that morning equally lay
-And that has made all the difference.
+My filtered file
+
+
+Two roads diverged in a yellow wood,
+Two roads diverged in a wood, and I—
+Two roads diverged in a yellow wood,
+
+Two roads diverged in a wood, and I—
+
+****************************************
+Two roads diverged in a yellow wood,
+
+Two roads diverged in a wood, and I—
+****************************************
+Two roads diverged in a yellow wood,
+Two roads diverged in a wood, and I—
+
+****************************************
+0
+1
+2
+3
+4
+
+****************************************
+2021-02-24 18:43:14.887265
+0
+1
+2
+3
+4
+
+****************************************
+2021-02-24 18:43:28.683560
+0
+1
+2
+3
+4
