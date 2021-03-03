@@ -125,6 +125,9 @@ text(0.5, 0.3, "Axes")
 circle(-0.3, 0.65)
 text(-0.3, 0.45, "Figure")
 
+#Big Circle
+circle(2.5,2.5,radius=0.75)
+
 color = 'blue'
 ax.annotate('Spines', xy=(4.0, 0.35), xycoords='data',
             xytext=(3.3, 0.5), textcoords='data',
