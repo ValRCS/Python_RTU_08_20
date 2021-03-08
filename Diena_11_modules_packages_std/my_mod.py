@@ -1,3 +1,4 @@
+# import math 
 txt = "Quick brown fox"
 mlist = [1, 2, 3, 9]
 
@@ -11,8 +12,8 @@ def add(a, b):
     return a+b
 
 # my own sorted function, so possible namespace collision with built in sorted
-def sorted(seq):
-    return seq[::-1] # not sorted :)
+# def sorted(seq):
+#     return seq[::-1] # not sorted :)
 
 # best to keep Classes in separate module
 # big class could have its own file with name such as klase.py
