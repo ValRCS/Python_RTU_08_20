@@ -1,8 +1,8 @@
 import csv
 
-with open("test.csv", encoding="utf-8") as f:
-    my_data = [line.split(",") for line in f]
-print(my_data)
+# with open("test.csv", encoding="utf-8") as f:
+#     my_data = [line.split(",") for line in f]
+# print(my_data)
 
 with open("test.csv", encoding="utf-8") as f:
     spamreader = csv.reader(f, delimiter=',', quotechar='"')
