@@ -18,7 +18,7 @@ print("Hello Jupyter Notebooks!")
 
 # In[9]:
 
-
+name = "Valdis"
 print(name) 
 # as soon as cell is run, the contents are available in the notebook
 
