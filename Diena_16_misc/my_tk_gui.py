@@ -11,7 +11,7 @@ class Application(tk.Frame):
     def create_widgets(self):
         self.hi_there = tk.Button(self)
         self.hi_there["text"] = "Hello World\n(click me)"
-        self.hi_there["command"] = self.say_hi
+        self.hi_there["command"] = self.say_hi #binding say_hi method to click
         self.hi_there.pack(side="top")
 
         self.quit = tk.Button(self, text="QUIT", fg="red",
