@@ -9,5 +9,7 @@ def hello_world():
 @app.route('/user/<username>')
 def show_user_profile(username):
     # show the user profile for that user
-    return f"Hello User {escape(username)}" # remember we do not trust users :)
+    return f"Hello User <strong>{escape(username)}</strong>" # remember we do not trust users :)
     # return 'User %s' % escape(username)
+    
+
