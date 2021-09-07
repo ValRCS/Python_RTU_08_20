@@ -1,6 +1,6 @@
 # https://docs.python.org/3/library/functions.html#built-in-functions
 my_results = [True, True, 2*2==4, True]
-print(all(my_results))
+print(all(my_results)) # all statements in the sequence should be truthy to get True else we get False
 my_results.append(False)
 print(my_results)
 print(all(my_results)) #In logic this is called universal quantor, all my)_results must be truthy for all to return True

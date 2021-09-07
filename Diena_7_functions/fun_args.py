@@ -19,8 +19,8 @@ def summator(*args):
     return result
 
 summator(23,3,234,2235)
-summator(23,3,234,2235,1000)
-summator()
+# summator(23,3,234,2235,1000)
+# summator()
 
 
 def mult(*args, multiplier=1):
@@ -28,6 +28,7 @@ def mult(*args, multiplier=1):
     for arg in args:
         # could add an if here to check data type if we are not sure of numbers
         result *= arg
+    return result 
     
     
 print("Checking Mult")
@@ -36,7 +37,7 @@ print(mult(2, 10, 5))
 print(mult(2, 10, 5, -3.6))
 print(mult(2, 10, 5, -3.6, multiplier=1000))
 
-print(mult(2, 10, 5, -3.6, multiplier=0))
+# print(mult(2, 10, 5, -3.6, multiplier=0))
 
 
 # # print("A", 5, mult(3, 6))
