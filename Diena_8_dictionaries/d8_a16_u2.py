@@ -27,5 +27,5 @@ print(replace_dict_value({"a": 5, "b": 6, "c": 5}, 5, 10))
  
 replace_dict_value({'a': 5, 'b': 6, 'c': 5}, 5, 10)
 
-alpha_dict = dict(zip(string.ascii_lowercase, string.ascii_uppercase))
+alpha_dict = dict(zip(string.ascii_lowercase, range(26)))
 print(alpha_dict)
