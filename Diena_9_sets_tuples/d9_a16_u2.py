@@ -12,11 +12,11 @@ print(get_common_elements("abcd", ["a", "b","d"], ("b", "c", "d", "e")))
 # 2b. Uzdevums:
  
 def get_common_elements(*my_sequences):
-    my_sets = [set(seq) for seq in my_sequences]
+    my_sets = [set(seq) for seq in my_sequences] # so we get a list of sets
     # result = my_sets[0] # we need something, can't start with empty
     # for my_set in my_sets[1:]:
     #     result = result & my_set
-    result = set.intersection(*my_sets)
+    result = set.intersection(*my_sets) # so star divides our list into individual items
     # result = set.intersection(*map(set, my_sequences)) # same as above in one line
     return tuple(result)
  
