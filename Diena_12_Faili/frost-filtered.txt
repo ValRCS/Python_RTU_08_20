@@ -3,37 +3,18 @@ My filtered file
 
 Two roads diverged in a yellow wood,
 Two roads diverged in a wood, and I—
-****************************************
 Two roads diverged in a yellow wood,
 
 Two roads diverged in a wood, and I—
 
 ****************************************
-2021-03-11 18:31:24.376114
-0
-1
-2
-3
-4
 Two roads diverged in a yellow wood,
 
 Two roads diverged in a wood, and I—
-
+****************************************
 
 ****************************************
-2021-03-11 18:31:43.859086
-0
-1
-2
-3
-4
-Two roads diverged in a yellow wood,
-
-Two roads diverged in a wood, and I—
-
-
-****************************************
-2021-03-11 18:32:26.152419
+2021-09-20 19:19:52.317560
 0
 1
 2
