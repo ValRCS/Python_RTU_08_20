@@ -2,8 +2,9 @@
 txt = "Quick brown fox"
 mlist = [1, 2, 3, 9]
 
+# typically a library would not have standalone lines like this
 print("THis will run no matter what") # generally you'd want to avoid things that always run
-
+print(txt, mlist)
 # TODO move add to my utilities module
 
 
