@@ -8,6 +8,10 @@ print(all(my_results)) #In logic this is called universal quantor, all my)_resul
 print(any(my_results)) # any just needs one true result inside, existences kvantors, one or more items are true
 
 print(len(my_results))
-print(max(my_results)) # we only have 1 or 0 in my_results
-print(sum(my_results)) # well when summing booleans True is 1 and False is 0
-print(min(my_results))
+my_results.append(9000)
+print("max", max(my_results)) # we only have 1 or 0 in my_results
+my_results.append(-30)
+print(my_results)
+print("min", min(my_results))
+print("summa", sum(my_results)) # well when summing booleans True is 1 and False is 0
+# print(min(my_results))
