@@ -8,5 +8,9 @@
     },
     50,
     60,
-    70
+    70,
+    null,
+    true,
+    false,
+    "Something"
 ]
