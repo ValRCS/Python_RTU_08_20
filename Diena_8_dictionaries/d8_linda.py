@@ -18,6 +18,7 @@ print(get_char_count("Abracadabra magija mana"))
 n_dict = {n:0 for n in range(10)}
 print(n_dict)
 
+# using Python standard library
 count = Counter(count_letters)
 print(count)
 print(count.most_common())
