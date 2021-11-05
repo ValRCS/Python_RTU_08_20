@@ -13,8 +13,17 @@
 # # # # usually we import standard libary first
 import sys # sys is standard library package, for functionality dealing with system function
 print(sys.path)  # this shows where Python will look for modules in order
+import string # string is standard library package, for functionality dealing with strings
+print(string.digits) # this will print all digits
+# but we imported our string...
+import my_string_mod # this will import my_string_mod.py
+print(my_string_mod.my_stringie) # so our module was imported... hmm
 
 # import my_mod  #works if the module is in same directory
+# my_mod.add(10,20)
+# print(my_mod.txt)
+# print(my_mod.mlist)
+# print(my_mod.add(10,20))
 
 # # import pkg.my_utils  #import pkg not much good
 # # pkg.my_utils.pkg_add(10,20)
@@ -42,8 +51,8 @@ print(sys.path)  # this shows where Python will look for modules in order
 
 # # # TIP: do not name your files the same name as standard library imports 
 
-# import pkg.my_utils
-# pkg.my_utils.pkg_add(10,20)
+import pkg.my_utils  # import pkg standalone not much good
+pkg.my_utils.pkg_add(10,20)
 
 # import pkg.my_utils as mu  # typical to rename modules
 # mu.pkg_add(10,20)
@@ -51,11 +60,11 @@ print(sys.path)  # this shows where Python will look for modules in order
 # from pkg.my_utils import pkg_add
 # pkg_add(10,20)  # this is the same as mu.pkg_add(10,20) previously
 
-from pkg.my_utils import pkg_add as pkg_add_new
-pkg_add_new(10,20) # same as pkg_add(10,20) previously
+# from pkg.my_utils import pkg_add as pkg_add_new
+# pkg_add_new(10,20) # same as pkg_add(10,20) previously
 
-import my_lib.my_tools
-my_lib.my_tools.complex_fun(5,6)
+# import my_lib.my_tools
+# my_lib.my_tools.complex_fun(5,6)
 
 # # # # # import my_lib will not do much
 # # # # from my_lib import my_mod

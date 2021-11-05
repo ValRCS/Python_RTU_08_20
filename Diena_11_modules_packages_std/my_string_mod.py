@@ -1,0 +1,1 @@
+my_stringie = "abcdefghijklmnopqrstuvwxyz"
