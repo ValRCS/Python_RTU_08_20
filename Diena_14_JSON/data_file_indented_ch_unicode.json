@@ -20,5 +20,6 @@
             "firstName": "Čarlijs",
             "age": 14
         }
-    ]
+    ],
+    "likes_cats": false
 }
