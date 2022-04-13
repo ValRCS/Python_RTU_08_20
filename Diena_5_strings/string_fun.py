@@ -133,3 +133,10 @@ for char in food: # instead of char i could call it c, n, etc.
         new_string += char  
 
 print(new_string)
+
+c = "z"
+print(c.isalpha()) # is it a letter?
+c = "ķ"
+print(c.isalpha() or c.isspace()) # is it a letter or space?
+c = " "
+print(c.isspace()) # is it a space?
