@@ -1,10 +1,11 @@
 # # # # # # # # # for loops are for definite iteration
-# # # # # # # # # # 
-# for num in range(5):  # range is sort of half ready number sequence
-#     print("Hello there!")
-#     print("Number is", num)
-#     # so no need for num += 1 
-# print("out of loop", num)
+# # # # # # # # # #
+# so we come up with some name for loop variable - num here
+for num in range(5):  # range is sort of half ready number sequence
+    print("Hello there!")
+    print("Number is", num)
+    # so no need for num += 1 
+print("out of loop", num)
 # # # # # # # # # so range takes range(start(default 0), end(not included), step)
 # # # # # #
 # # # # # so from 1 to 10 included
@@ -15,20 +16,24 @@
 # import datetime
 # print(datetime.datetime.now())  # time stamp
 # total = 0
-# for i in range(100_000):
+# for i in range(1_000_000):
 #     # i am not printing
 # #     pass  # empty instruction for syntax reasons
 #     total += i
 # print(datetime.datetime.now())
-# print(i)
-# print(sum(range(100_000))) # even quicker to sum sequence of numerics
+# 
+# # print(i)
+# print(datetime.datetime.now())
+# also_total = sum(range(1_000_000)) # even quicker to sum sequence of numerics
+# print(datetime.datetime.now())
 # # # for (int i = 0;i<500;i++) 
 # # # # # 
 # my_name = "Valdis Saul 😀"
-# # # # # my_name = "Kaķis Ņauva"
+# # # # # # my_name = "Kaķis Ņauva"
 # for c in my_name: # c could be also char, or my_c, c is just shorter
 #     print("Letter ", c)
 #     print(f"Letter {c} Unicode is {ord(c)}")
+    
 # # # #     if c < "a": # this would include digits space,etc
 # # #     if c.isupper():  #works  even on Latvian capital letters such as Ņ Ā etc
 # # #         print("You are using capital letters are you not?", c)
@@ -41,19 +46,19 @@
 # # # # # # range with 2 parameters we have start inclusive and until end exclusive
 # for n in range(20,25):
 #     print(n)
-# # # # # # # # # #
-# # # # # 
+# # # # # # # # # # #
+# # # # # # 
 # for my_num in range(100,110+1,2): # i can add step to range
 #     print(my_num)
 # print(f"Done with loop and my_num is {my_num}")
-# # # # #     
+# # # # # #     
 # for my_num in range(30,10-1,-5): # i can add step to range
 #     print(my_num)
 # # # # # #     
 # start = 20
 # end = 38
 # step = 4
-# early_break = 27
+# early_break = 1127
 # fence_post = 1
 # for my_num in range(start,end+fence_post,step): # i can add step to range
 #     print(my_num)
@@ -62,35 +67,36 @@
 #         break
 #     else:
 #         print("still good", my_num)
-# # # # # # # rarely used is else for for loop
-# # # # else: # when for loop terminates normally - without breaks
-# # # #     print("no early break, so loop ended normally", my_num)
-# # # # print("Normal main flow")
+# # # # # # # # rarely used is else for for loop
+# else: # when for loop terminates normally - without breaks
+#     print("no early break, so loop ended normally", my_num)
+# print("Normal main flow")
 # # # # # # #     
 # # # # # # #     
 # # # # # # # 
 # # # # # # # # # # 
-# # # # # # # # # # 
-# for _ in range(3):  # _ means that we do not care about the variable, i just want to do something 3 times
-#     print("We do not need the number in this case")
+# # # # # # # # # #
+# repeat without caring for loop variable
+for _ in range(3):  # _ means that we do not care about the variable, i just want to do something 3 times
+    print("We do not need the number in this case")
     # do more stuff
 # # # # # # # # #
 # # # # # # # 
-# # # # big_total = 0
-# # # # even_number_count = 0
-for i in range(10,50,10): # outer loop
-    for j in range(1, 3+1):  #inner loop
-        result = i * j
-        print(f"{i}x{j}={result}")
-# # #         big_total += result  # big_total = big_total + result
-# # #         if result % 2 == 0:
-# # #             print("oh even number", result)
-# # #             even_number_count += 1
-# # # # # # # # #     
+# big_total = 0
+# even_number_count = 0
+# for i in range(10,50,5): # outer loop
+#     for j in range(1, 3+1):  #inner loop
+#         result = i * j
+#         print(f"{i}x{j}={result}")
+#         big_total += result  # big_total = big_total + result
+#         if result % 2 == 0:
+#             print("oh even number", result)
+#             even_number_count += 1
+# # # # # # # # # #     
 my_name = "Valdis"
 for c in my_name:
     print("Letter ", c)
-    
+#     
 # Python way of obtaining index for some sequence we are looping through
 for index, c in enumerate(my_name):
     print("Letter ", c)
@@ -156,15 +162,15 @@ for n in range(1,21):
     else:  # reminder is 1 so odd
         print(f"{n} is odd", end=",")
 print() # prints newline 
-import string
-print(string.digits) # contains digits
+# import string
+# print(string.digits) # contains digits
 print(" "*10+"*"*6)  # could be useful in 2nd assignment today
 # # # # # # #
 # # # # # # # print by default has end value \n - newline
 # # # # # # # we can change this
-# # # # # print("Fizz", end=",")
+print("Fizz", end=",")
 # # # # # print("Buzz", end=",")
-# # # # # print("342", end="****")
+print("342", end="****\n\n*_*\n")
 # # # # # # 
 # # print(" "*10+"*"*6)
 # # for n in range(5):
