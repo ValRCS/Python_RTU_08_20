@@ -10,6 +10,7 @@ ir ="ir"
 slikts = "slikts"
 labs = "labs"
  
+# we needed to add an extra check to see if nav is before slikts
 if nav in text and slikts in text and text.find(nav) < text.find(slikts):
     print(text[:text.find(nav)] + ir + ' ' + labs + text[text.find(slikts) + len(slikts):])
 else:
