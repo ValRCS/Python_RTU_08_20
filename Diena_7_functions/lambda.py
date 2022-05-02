@@ -2,7 +2,7 @@ my_words = ["Hello", "my", "name", "is", "John"]
 print(sorted(my_words))
 print(sorted(my_words, key=len))
 
-# lambda expression - anonymous function
+# # lambda expression - anonymous function
 print(sorted(my_words, key=lambda x: x[-1])) # sort by last letter
 
 def get_last_letter(word):
