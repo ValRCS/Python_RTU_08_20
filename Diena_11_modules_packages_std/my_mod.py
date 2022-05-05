@@ -9,7 +9,7 @@ mlist = [1, 2, 3, 9]
 
 
 def add(a, b):
-    print(f"adding {a=} and {b=}")
+    print(f"my_mod adding {a=} and {b=}")
     return a+b
 
 # my own sorted function, so possible namespace collision with built in sorted
@@ -30,9 +30,11 @@ class Garage:
         print(f"Garage initialized! {self.gname=}")
 
 
-# this will also on import
+# this will also run  on import
+# bad practice to run code on import
 # print("Running my_mod")
 
+# name guard
 # this will only run when not imported
 if __name__ == "__main__":
     # typically you would put tests here or standalone program
