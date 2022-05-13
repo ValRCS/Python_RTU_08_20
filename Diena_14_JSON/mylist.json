@@ -9,8 +9,14 @@
     50,
     60,
     70,
+    3.1415926,
     null,
     true,
     false,
-    "Something"
+    "Something",
+    [
+        1,
+        2,
+        6
+    ]
 ]
