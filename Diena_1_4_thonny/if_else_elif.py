@@ -46,6 +46,11 @@ elif answer == "c":
     print("gamma")
 else:
     print("you entered unclear", answer)
+    
+# starting with Python 3.10 there will be an alternative
+# to long if elif chains
+# https://peps.python.org/pep-0636/
+
 #     
 # # print("This will run on matter what")
 # # a = 7

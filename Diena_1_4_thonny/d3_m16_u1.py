@@ -1,7 +1,7 @@
 answer = float(input("Ievadi temperatūru "))
 if answer < 35:
     print("Auksti")
-elif answer <= 37:
+elif answer <= 37:  # we already know that we have at least >= 35
     print("OK")
 else: # all that remains is answer > 37
     print("Drudzis")
