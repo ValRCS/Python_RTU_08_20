@@ -39,6 +39,7 @@ class Garage:
 if __name__ == "__main__":
     # typically you would put tests here or standalone program
     assert(add(2, 3) == 5) # assert will raise AssertError if eval is False
+    # i could add tests here
     print("This will run when my_mod.py is called normally")
     my_gar = Garage()
 # else: # generally you do not need this else when importing
