@@ -19,13 +19,16 @@ print(sys.path)  # this shows where Python will look for modules in order
 # # # # # but we imported our string...
 # # # # # import my_string_mod # this will import my_string_mod.py
 # # # # # print(my_string_mod.my_stringie) # so our module was imported... hmm
-
+# import june_mod
+# print(june_mod.a) # this will print 42
+# june_mod.some_func()
 # import my_mod  #works if the module is in same directory
 # import antigravity # this will import antigravity.py
 # print(antigravity.geohash("Riga"))
 # my_mod.add(10,20)
 # print(my_mod.txt)
 # print(my_mod.mlist)
+
 # # # # # # # # print(my_mod.add(10,20))
 # my_garage = my_mod.Garage()
 # print(my_garage.gname)
@@ -35,19 +38,19 @@ print(sys.path)  # this shows where Python will look for modules in order
 
 # # # my_mod_2.my_fun()
 
-# # # import pkg.my_utils  #import pkg not much good
-# # # pkg.my_utils.pkg_add(10,20)
+# import pkg.my_utils  #import pkg not much good
+# pkg.my_utils.pkg_add(10,20)
 
 
-# # # import pkg.my_utils as mu # shorter way
-# # # mu.pkg_add(10,20)
-# # # print(mu.MY_CONST)
+# import pkg.my_utils as mu # shorter way
+# mu.pkg_add(10,20)
+# print(mu.MY_CONST)
 
 # # # # # # i could go 2 folders deeper and import sub_utils
-# # # import pkg.subp.sub_utils as su # shorter way
-# # # su.subadd(10,20)
-# # # su.badprint()
-# # # print(su.MAGIC_PI)
+# import pkg.subp.sub_utils as su # shorter way
+# su.subadd(10,20)
+# su.badprint()
+# print(su.MAGIC_PI)
 
 # # # # If I have a big module, I can import specific parts of it
 
@@ -63,21 +66,21 @@ print(sys.path)  # this shows where Python will look for modules in order
 # #     return a-b+100
 
 # # # # # we import a single function from module 2 levels down - with alias which name collision
-# # from pkg.subp.sub_utils import subadd as add # this will import only subadd and badprint
-# # add(51,55)
+# from pkg.subp.sub_utils import subadd as add # this will import only subadd and badprint
+# add(51,55)
 
-# # # # if i have a naming conflict I can import with alias
+# # # # # if i have a naming conflict I can import with alias
 # from my_mod import add as my_super_add
 # my_super_add(10,20)
 
-# # # # # my_mod.add(45,23)
+# my_mod.add(45,23)
 # # # # # new_garage = my_mod.Garage()
 # # # # # print(my_mod.mlist)
 # # # # # print(my_mod.txt)
 
-import my_mod as mm # rename module basically, mm can be anything
-mm.add(3,65)
-print(mm.mlist)
+# import my_mod as mm # rename module basically, mm can be anything
+# mm.add(3,65)
+# print(mm.mlist)
 
 # # # # # if I am sure that there are no naming conflicts
 # # # # # from my_mod import add, txt # just one function, make sure no name conflicts
@@ -116,9 +119,9 @@ print(mm.mlist)
 # # # # # # from my_lib.my_tools import tool_fun as tf #importing one function and renaming
 # # # # # # tf("This should also work")
 
-import pkg.subp.sub_utils as su # import pkg standalone not much good
-su.badprint()
-print(su.MAGIC_PI)
+# import pkg.subp.sub_utils as su # import pkg standalone not much good
+# su.badprint()
+# print(su.MAGIC_PI)
 
 # # # # # # from pkg.subp import sub_utils # so sub_utils.py is two folders deep pkg/subp/sub_utils.py
 # # # # # # print(sub_utils.MAGIC_PI)
