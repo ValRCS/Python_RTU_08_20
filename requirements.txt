@@ -14,7 +14,7 @@ entrypoints==0.3
 flake8==3.8.4
 Flask==1.1.2
 ipykernel==6.3.0
-ipython==7.27.0
+ipython==8.10.0
 ipython-genutils==0.2.0
 itsdangerous==1.1.0
 jedi==0.18.0
