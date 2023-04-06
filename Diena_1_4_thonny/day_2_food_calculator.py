@@ -13,6 +13,8 @@ print(f"Wow! That's a nice name {name}! I like it...")
 food = input(f"Now {name} what is your favorite food?")
 print(f"Oh {name} you like {food}. I am not adverse to {food} myself.")
 price = input(f"How much is/are {food} in your neck of woods?")
+# we could replace all , in price with .
+price = price.replace(",", ".")
 print(f"Aha! {price} for {food} that's inflation for you")
 # quantity = input(f"How many kg of {food} do you want to buy today?")
 # i could type cast immediately
