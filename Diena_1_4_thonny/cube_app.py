@@ -15,9 +15,10 @@ print("Welcome to Cube App!")
 print("*"*40)
 while True:
     txt = input("Please enter a number to cube or q to quit")
-    if txt == "q":
+#     if txt == "q":
+    if txt.lower().startswith("q"): # will be True on QUit, quelle utt
         print("quitting app")
-        break
+        break # goes to line 31
     try:
         num = float(txt)
         # if converstion to float will fail
@@ -26,7 +27,7 @@ while True:
         print("Please try again")
         continue # will return to line 16
     # here we know that num is a valid float
-    cube = num**3
+    cube = round(num**3, 2)
     print(f"{num} cubed is {cube}")
     
 print("Cleanup of the application")
