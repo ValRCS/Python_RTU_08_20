@@ -4,6 +4,7 @@
 # a1064 = 332 # not a very good way to store a lot of data
 # # # # # # # # # # # # # There has to be a better way
 
+# https://docs.python.org/3/tutorial/datastructures.html#more-on-lists
 # # # # # # # # # # # # # # # What is a list after all?
 # # # # # # # # # # # # # # # * ordered
 # # # # # # # # # # # # # # # * collection of arbitrary objects (anything goes in)
