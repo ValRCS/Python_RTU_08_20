@@ -813,3 +813,9 @@ for n in my_numbers.copy(): # important to use copy() here
         my_numbers.remove(n)
 print(my_numbers)
 
+
+list_5_9 = list(range(5, 10))
+list_40_52 = list(range(40, 53))
+# lets use zip to go through two lists at the same time
+for n, m, c in zip(list_5_9, list_40_52, "Valdis"):
+    print(n, m, c)
