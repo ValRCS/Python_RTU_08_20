@@ -44,25 +44,25 @@ name = "Valdis"
 university = "RTU"
 cabinet = 422
 
-# I did not have to convert cabinet to string
-email_footer = f"{name} from {university} at room {cabinet}"
-
-multi_line_text = f"""I can write anything
-any lines put {name} inside
-put some numbers such as {a}
-and so on
-"""
-print(email_footer)
-
-print(multi_line_text)
-
-# I can use inside {for some operations}
-print(f"{a} + {b} == {a+b}")
-greeting = f"Hello {name}"
-print(greeting)
-big_number = 10**100
-# i could be doing something else and only need big_number later
-print(big_number)
+# # I did not have to convert cabinet to string
+# email_footer = f"{name} from {university} at room {cabinet}"
+# 
+# multi_line_text = f"""I can write anything
+# any lines put {name} inside
+# put some numbers such as {a}
+# and so on
+# """
+# print(email_footer)
+# 
+# print(multi_line_text)
+# 
+# # I can use inside {for some operations}
+# print(f"{a} + {b} == {a+b}")
+# greeting = f"Hello {name}"
+# print(greeting)
+# big_number = 10**100
+# # i could be doing something else and only need big_number later
+# print(big_number)
 
 
 
