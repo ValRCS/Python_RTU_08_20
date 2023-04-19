@@ -97,6 +97,102 @@ print("False or True is", False or True)
 print("False or False is", False or False)
 print("is_spring or is_raining", is_spring or is_raining)
 
+## Branching with if
+# if is a keyword in Python
+# it is used to create a branch in the code
+# if some condition is True then we execute some code
+# otherwise we skip it
+
+# let's create a simple program that will ask for a number
+# and then print if it is even or odd
+
+# we will use input() function to get user input
+# input() function returns a string
+# so we need to convert it to integer using int() function
+
+# we will use % operator to check if number is even
+
+# we will use if statement to check if number is even
+number = int(input("Please enter a number "))
+if number % 2 == 0:
+    # we are inside if block
+    print(f"{number} is even")
+    # this is indented so it will only run if number is even
+    print("This will only run if number is even")
+else: # else is optional
+    # we are inside else block
+    print(f"{number} is odd")
+    # this is indented so it will only run if number is odd
+    print("This will only run if number is odd")
+# this will run always we are in main block
+print("This will run always")
+
+if is_raining:
+    print("It is raining")
+    print("Take an umbrella")
+else:
+    print("It is not raining")
+    print("No need for an umbrella")
+
+# we also have elif which is short for else if
+# we use it when we have more than two options
+# like in the fairy tale of road with three forks - only one is correct
+
+# let's create a simple program that will ask for a number
+# and then print if it is over 42 or under 42 or exactly 42
+
+# number = int(input("Please enter a number "))
+if number > 42:
+    print(f"{number} is over 42")
+    # we could have more lines here
+elif number < 42:
+    print(f"{number} is under 42")
+    # we could have more lines here
+else:
+    print(f"{number} is exactly 42")
+    print("This is the answer to the Ultimate Question of Life, the Universe, and Everything")
+
+# normal code that runs always continues after if block
+print("This will run always")
 
 
+# we could have nested if statements
 
+if is_spring:
+    print("It is spring")
+    if is_raining:
+        print("It is raining")
+    else:
+        print("It is not raining") 
+else:
+    print("It is not spring")
+    if is_raining:
+        print("It is raining but not in spring")
+    else:
+        print("It is not raining but not in spring") 
+
+# so we have 4 options in the nested if
+
+# Error handling
+# we can use try except to handle errors
+
+# let's try to convert a string to integer
+# number = int("Valdis")
+# print(number)
+
+# we can use try except to handle errors
+text = input("Please enter a number ")
+try:
+    number = int(text) # if we have error here we will jump to except
+    print(number) # will not run if we have ValueError
+except ValueError as e: # good practice to handle specific error
+    print(f"Something went wrong {e}")
+    # we could assign default value
+    number = 0 # to continue working
+
+# so try except is a bit similar to if else
+
+# we use try except when we are not sure if something will work - untrusted input for one
+
+# so idea of try is to try something and if it fails we will handle it
+# otherwise the program will crash - we will get an error
