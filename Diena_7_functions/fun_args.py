@@ -67,3 +67,5 @@ print("Valdis", 33, 1414 , sep=" -\*/- ", end="\n\n\n")
 # # # # fun(required="hmm") # so hmm will be assigned to required
 # # # # fun(1,2, "oho", required="hmm") # so hmm will be assigned to required
 # # # # fun(1,2, "oho", required="hmm", my_default="changed default") # so hmm will be assigned to required
+
+
