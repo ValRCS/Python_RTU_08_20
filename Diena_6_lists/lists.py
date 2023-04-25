@@ -20,6 +20,9 @@ my_list = [5, 6, "Valdis", True, 3.65, "alus"] # most common way of creating a l
 print(my_list) # [5, 6, 'Valdis', True, 3.65, 'alus']
 print(type(my_list)) # <class 'list'>
 
+# thus we can store anything in a list
+# philosophically it is beter to store similar things in a list
+
 # Access
 #
 # # # # lists have dual indexing - first index is 0, last index is -1
@@ -817,6 +820,7 @@ print(my_numbers)
 
 list_5_9 = list(range(5, 10))
 list_40_52 = list(range(40, 53))
-# lets use zip to go through two lists at the same time
+
+# lets use zip to go through threelists at the same time
 for n, m, c in zip(list_5_9, list_40_52, "Valdis"):
     print(n, m, c)
