@@ -188,18 +188,18 @@ class Garage:
         print(f"Initialized class instance with {self.color=} {self.nails=} {self.name=}")
 
 # # # # # # # # #     # will be useful when we want to print our object
-#     def __str__(self): # this is responsible for string representation for print etc
-#         return f"Garage name: {self.name} color {self.color} nails: {self.nails} secret: {self.__secret_stash}"
+    def __str__(self): # this is responsible for string representation for print etc
+        return f"Garage name: {self.name} color {self.color} nails: {self.nails} secret: {self.__secret_stash}"
     
-#     def __add__(self, other): # + operator overloading in other languages
-#         # return self.nails + other.nails
-#         new_color = self.color+"_"+other.color  # TODO make your color mixer
-#         new_nails = self.nails + other.nails
-#         return Garage(color=new_color, nails=new_nails) # i create new instance  with new attributes
+    def __add__(self, other): # + operator overloading in other languages
+        # return self.nails + other.nails
+        new_color = self.color+"_"+other.color  # TODO make your color mixer
+        new_nails = self.nails + other.nails
+        return Garage(color=new_color, nails=new_nails) # i create new instance  with new attributes
 
-#     def __eq__(self, other): # so == will work
-#         # we come up some logic for object comparison
-#         return self.color == other.color and self.nails == other.nails # not a full comparison
+    def __eq__(self, other): # so == will work
+        # we come up our own logic for object comparison
+        return self.color == other.color and self.nails == other.nails # not a full comparison
 
 # # # # # # # # #     # i could just live with __str__ no need for simple_print anymore
     def simple_print(self): # so this name i just made up myself
@@ -262,7 +262,7 @@ simple_garage.add_nails(12)
 simple_garage.add_nails() # adds a single nail because default value is 1
 
 # simple_garage.simple_print()
-# print(simple_garage)  # will look nice with __str__ defined
+print(simple_garage)  # will look nice with __str__ defined
 # # # # # # # # # # # # print(simple_garage.__secret_stash) # so __property is renamed using name mangling
 # # # # # # # # # # # print(simple_garage.get_secret()) # using getter to obtain private information
 
@@ -272,18 +272,20 @@ simple_garage.add_nails() # adds a single nail because default value is 1
 # # # # # # # # # # # # # # to avoid always initalize by hand constructors were created
 
 # # # # # # # # # # # # # # # # create new objects based on class definition
-# homer_garage = Garage(color="yellow", nails=33, name="Homer's garage")
-# flanders_garage = Garage(color="blue", nails=55, name="Property of Flanders")
-# print(homer_garage) #this works because we wrote our own __str__ method
-# print(flanders_garage)
-# mutant_garage = homer_garage + flanders_garage # we created our own __add__ method
-# mut_garage = homer_garage.__add__(flanders_garage) # same as above
-# print(mutant_garage)
-# print(mut_garage)
-# # print("Two objects have same contents? ", mut_garage == mutant_garage) # we defined our garage __eq__ should be True
-# print("Two objects have same address in memory - are actually same object?", mut_garage is mutant_garage) # two different objects , so False
-# print("Valdis".__add__("ssss")) # this is how we can add strings to strings usually we would use +
+homer_garage = Garage(color="yellow", nails=33, name="Homer's garage")
+flanders_garage = Garage(color="blue", nails=55, name="Property of Flanders")
+print(homer_garage) #this works because we wrote our own __str__ method
+print(flanders_garage)
+mutant_garage = homer_garage + flanders_garage # we created our own __add__ method
+mut_garage = homer_garage.__add__(flanders_garage) # same as above
+print(mutant_garage)
+print(mut_garage)
+print("Two objects have same contents? ", mut_garage == mutant_garage) # we defined our garage __eq__ should be True
+print("Two objects have same address in memory - are actually same object?", mut_garage is mutant_garage) # two different objects , so False
+print("Valdis".__add__("ssss")) # this is how we can add strings to strings usually we would use +
 
+## Full list of dunder methods
+# https://docs.python.org/3/reference/datamodel.html#special-method-names
 # # # # # # # # # # garage_obj_1 = Garage()
 # # # # # # # # # # garage_obj_2 = Garage()
 # # # # # # # # # # print("Objects have same contents based on our __eq__ method", garage_obj_1 == garage_obj_2) # to compare we'd need to define our __eq__ method
@@ -295,7 +297,7 @@ simple_garage.add_nails() # adds a single nail because default value is 1
 # # # # # # # # # # # so with return self i can chain the calls on the smae object
 
 # mutant_garage.simple_print().add_nails(77).simple_print().set_nails(500).add_nails(10).simple_print()
-# homer_garage.add_nails(50).add_nails(170).simple_print() # so return self lets me chain methods
+homer_garage.add_nails(50).add_nails(170).simple_print() # so return self lets me chain methods
 # # # # # # homer_garage.set_secret("secret_stash").simple_print()
 # # # # # # print(homer_garage.get_secret())
 # # # # # # # # # # # # # # # print(homer_garage.__secret_stash) # so __variables get name mangled
@@ -305,8 +307,8 @@ simple_garage.add_nails() # adds a single nail because default value is 1
 # # # # # # # # # # # # # # # # flanders_garage.simple_print()
 
 
-# # # millhouse_garage = Garage(color="purple", nails=100, name="Millhouse's garage")
-# # # millhouse_garage.simple_print()
+millhouse_garage = Garage(color="purple", nails=100, name="Millhouse's garage")
+millhouse_garage.simple_print()
 # # # # # I can chain those methods which return self
 # # # # millhouse_garage.add_nails(750).simple_print().add_nails(200).simple_print()
 # # # # print(millhouse_garage)
@@ -345,45 +347,46 @@ simple_garage.add_nails() # adds a single nail because default value is 1
 # # # # # # # # # # # # # # # # # # FancyGarage will inherit everything from Garage
 
 # # # # # # # # # # # # # # # # inheritance
-# class FancyGarage(Garage): # so I say that this class blueprints use all methods and attributes from Garage class
-# # #     # Class Attributes
-#     gtype = "Fancy"  # gtype could be any other name
-#     total_travel = 0
+class FancyGarage(Garage): # so I say that this class blueprints use all methods and attributes from Garage class
+# #     # Class Attributes
+    gtype = "Fancy"  # gtype could be any other name
+    total_travel = 0
 
 # # # # # # # # # # # #     # constructor method, called when we created object from this class
 # # # # # # # # # # # # if i am not happy with parent constructor, notice the single tuple
 # # # # # # # # # # # # we do not put lists as default values to avoid trouble
-#     def __init__(self, cars=("Buggati",), wines=("Rioja","Temparillo"), color="Gold",name="Garage"):
-# # #         # I call my parent class constructor
-# # #         # Python 3.x+ we call our parent class constructor
-#         super().__init__(color, nails=2000, name=name) # so this will call Garage constructor
-#         # self.color = color  # for color this would work, but we would have no nails!!
-#         self.cars = list(cars) # converting to list since I want to mutate
-#         self.wines = list(wines)
-#         print("Fancy Garage Created")
-#         self.pretty_print()
+    def __init__(self, cars=("Buggati",), wines=("Rioja","Temparillo"), color="Gold",name="Garage"):
+# #         # I call my parent class constructor
+# #         # Python 3.x+ we call our parent class constructor
+        super().__init__(color, nails=2000, name=name) # so this will call Garage constructor
+        # self.color = color  # for color this would work, but we would have no nails!!
+        self.cars = list(cars) # converting to list since I want to mutate
+        self.wines = list(wines)
+        print("Fancy Garage Created")
+        self.pretty_print()
 
 # # # # # # # # # # # #     # we have to give self argument for all methods inside classes
-#     def pretty_print(self):
-#         print(f"{self.gtype=}, {self.cars=}, {self.wines=}, {self.total_travel=}")
-#         return self
+    def pretty_print(self):
+        print(f"{self.gtype=}, {self.cars=}, {self.wines=}, {self.total_travel=}")
+        return self
 
-#     def drive(self, distance):
-#         print(f"Driving {self.cars} a distance of {distance}")
-#         self.total_travel += distance
-#         return self  # Allows chaining of objects
+    def drive(self, distance):
+        print(f"Driving {self.cars} a distance of {distance}")
+        self.total_travel += distance
+        return self  # Allows chaining of objects
 
-#     def get_longest_wine(self):
-#         wines_length = sorted(self.wines, key=len, reverse=True)
-#         return wines_length[0]
+    def get_longest_wine(self):
+        wines_length = sorted(self.wines, key=len, reverse=True)
+        return wines_length[0]
 
-# new_fancy_garage = FancyGarage(name="Cool name")
+new_fancy_garage = FancyGarage(name="Cool name")
 # print(new_fancy_garage) # so everything from Garage works! we inherited all methods and attributes
-# print(new_fancy_garage.set_secret("silver").set_nails(55).simple_print().get_secret())
-# print(new_fancy_garage.total_travel)  # something new from FancyGarage
+print(new_fancy_garage.set_secret("silver").set_nails(55).simple_print().get_secret())
+new_fancy_garage.drive(100).drive(200).drive(300).pretty_print()
+print(new_fancy_garage.total_travel)  # something new from FancyGarage
 
-# burns_garage = FancyGarage(["Bentley"], ["Rioja", "Temparillo", "Riesling"], color="Gray",name="Mr. Burn's Garage")
-# crusty_garage = FancyGarage(["Rolls","Ferrari"], ["Cabernet", "Cheap Wine"], "Bright Red", name="Crusty's Garage")
+burns_garage = FancyGarage(["Bentley"], ["Rioja", "Temparillo", "Riesling"], color="Gray",name="Mr. Burn's Garage")
+crusty_garage = FancyGarage(["Rolls","Ferrari"], ["Cabernet", "Cheap Wine"], "Bright Red", name="Crusty's Garage")
 
 # print(burns_garage)  # __str__ comes from Garage definition
 # burns_garage.pretty_print()  # method from FancyGarage class definition
