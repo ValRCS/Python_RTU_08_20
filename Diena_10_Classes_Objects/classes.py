@@ -6,130 +6,140 @@
 # # # # # # # # # # # # # # # # # Objects: concrete realization of those blueprints
 # # # # # # # # # # # # # # # # # https://docs.python.org/3/tutorial/classes.html
 
-# # # print(type(5))  # even int is a class
+# print(type(5))  # even int is a class
 
 # # # # # # # # # # # # # # # # # how to store and process data about garage
-# # # # # # # # # # # # # # my_garage = ["paint can", "old papers", "rotting potatoes"]
-# # # # # # # # # # # # # # my_garage_d = {"paints": ["white", "black"], "food": "potatoes"}
+# my_garage = ["paint can", "old papers", "rotting potatoes"]
+# my_garage_d = {"paints": ["white", "black"], "food": "potatoes"}
 
 # # # # # # # # # # # # # # # # # empty class definition
 # # # # # # # # # # # # # 
 
-# class EmptyClass: #EmptyClass is just a name I made up, Classes start with Capital letter
-#     pass #pass is empty instruction
+class EmptyClass: #EmptyClass is just a name I made up, Classes start with Capital letter
+    pass #pass is empty instruction
 
 
 # # # # # # # # # # # # # # # # # # # # # i create an  based on class blueprint
 
-# # empty_class_instance_object = EmptyClass() # creating an object
-# # print(type(empty_class_instance_object))
-# # print(empty_class_instance_object)  # shows location in memory by default
+# empty_class_instance_object = EmptyClass() # creating an object
+# print(type(empty_class_instance_object))
+# print(empty_class_instance_object)  # shows location in memory by default
 # # # # # # # # # # # # # # # # # # # # # not great OOP style but i can add to an existing object
-# # empty_class_instance_object.paint = ["red", "blue"] # i can add arbitrary properties
-# # # # # # # # # # empty_class_instance_object.papers = ["Diena"]
-# # print(empty_class_instance_object.paint)
+# empty_class_instance_object.paint = ["red", "blue"] # i can add arbitrary properties
+# empty_class_instance_object.papers = ["Diena"]
+# print(empty_class_instance_object.paint)
 
 # # # # # # # # # # # # # # # # # print(empty_class_instance_object)
 # # # # # # # # # # # # # # # # # # empty_class_instance_object
-# # empty_2 = EmptyClass() # so different object based on same EmptyClass
-# # empty_2.painter = "Picasso"
-# # empty_2.paint = "Guasha"
-# # print(empty_2.paint, empty_class_instance_object.paint)
+# empty_2 = EmptyClass() # so different object based on same EmptyClass
+# empty_2.painter = "Picasso"
+# empty_2.paint = "Guasha"
+# print(empty_2.painter, empty_2.paint)
+# print(empty_2.paint, empty_class_instance_object.paint)
 
 # # # # # # # # # # # # # # # # # the simplest empty class definition
 
 # # # # # # # # # # # # # # # # color = "Global color"
 # # # # # no_house_sorry = House() # cant create object before class definition
 
-# class House:
+class House:
 # # # # # # # #     # class method example meaning method we can use without any objects created
 # # # # # # # #     # a library could be created by grouping class methods
-#     @classmethod # this works even when no objects are made from House class
-#     def add(cls, a, b):
-#         print(a,b,a+b, cls.all_house_prop, cls.chimney)
-#         return a+b
+    @classmethod # this works even when no objects are made from House class
+    def add(cls, a, b):
+        print(a,b,a+b)
+        # i can also access class properties
+        print(cls.all_house_prop, cls.chimney)
+        return a+b
 
 # #     # regular method
-#     def mult(self, a, b):
-#         return a*b  #not self since we need something
+    def mult(self, a, b):
+        return a*b  #not self since we need something
 
-#     all_house_prop = "Brick" # class property generally meant to be shared among instances
-#     chimney = "metal"
+    all_house_prop = "Brick" # class property generally meant to be shared among instances
+    chimney = "metal"
 # # # # # # # # # # # #     # do not share lists, dictionaries other mutable structures in class properties
-#     def print_house_prop(self):  # self refers to concrete object - this is other languages
-#         print(f"This house is built from {self.all_house_prop} and its chimney is from {self.chimney}")
+    def print_house_prop(self):  # self refers to concrete object - this is other languages
+        print(f"This house is built from {self.all_house_prop} and its chimney is from {self.chimney}")
 
 # # # # # # # # # #     # so __init__ has to be exact name for constructor to be called
 # # # # # # # # # #     # __init__ is so called double under - dunder method
-#     def __init__(self, color="green", nails=0): # constructor method called upon creation of object
+    def __init__(self, color="green", nails=0): # constructor method called upon creation of object
 # # # # #         # we add everything that we want done when we first create object from our class blueprints
-#         print("Starting House construction - constructor method is called")
-#         self.color = color # create a new class property/attribute
-#         # self.set_color(color) # this lets us performe extra validation
-#         self.nails = nails
-#         print(f"Initialized class instance with {self.color=} {self.nails=} {self.all_house_prop=}")
-#         self.print_house_prop()  # i can call methods from class definition
+        print("Starting House construction - constructor method is called")
+        # self.color = color # create a new class property/attribute
+        self.set_color(color) # this lets us performe extra validation
+        self.nails = nails
+        print(f"Initialized class instance with {self.color=} {self.nails=} {self.all_house_prop=}")
+        self.print_house_prop()  # i can call methods from class definition
+        print("INIT DONE *******")
 
 # # # # # # # # # #     # regular methods, so method is a function declared in class definition
-#     def build_house(self):
-#         print(f"Building a house of {self.all_house_prop}")
-#         print(f"It's color will be {self.color}")
-#         return self  # if method has nothign good to return then return self will let call the same object methods again
+    def build_house(self):
+        print(f"Building a house of {self.all_house_prop}")
+        print(f"It's color will be {self.color}")
+        print(f"Using {self.nails} nails")
+        print("House built")
+        return self  # if method has nothign good to return then return self will let call the same object methods again
 
-#     def simple_print(self):
-#         print(f"Oh {self.color=} {self.nails=}")
-#         return self # this lets us chain our methods
+    def simple_print(self):
+        print(f"Oh {self.color=} {self.nails=}")
+        return self # this lets us chain our methods
 
-# # so called setter method
-#     def set_color(self, new_color):
-#         # some verification on sane color here maybe
-#         self.color = new_color
-#         print(f"Changed color to {self.color}")
-#         return self
+# # so called setter method set_color is arbitrary name
+    def set_color(self, new_color):
+        # some verification on sane color here maybe
+        # you could place if statements here
+        self.color = new_color
+        print(f"Changed color to {self.color}")
+        return self
 
-#     def set_nails(self, new_nails):
-#         self.nails = new_nails
-#         print(f"Changed nails to {self.nails}")
-#         return self
+    def set_nails(self, new_nails):
+        self.nails = new_nails
+        print(f"Changed nails to {self.nails}")
+        return self
 
-#     def get_nails(self):
-#         # some verification logic
-#         return self.nails
+    def get_nails(self):
+        # some verification logic
+        return self.nails
 
 
 
 # # # # # # # # # no houses yet, so this is class method
-# # print(House.add(5,11)) # could be useful for library
-# # # print(House.mult(43,52)) # not possible since this is not a static class method
+# print(House.add(5,11)) # could be useful for library
+# # # # print(House.mult(43,52)) # not possible since this is not a static class method
 
-# # new_house = House()  # I create a new object from House class blueprint, 
-# # print(new_house.mult(5,1541)) # this is a regular method
+# new_house = House()  # I create a new object from House class blueprint, 
+# print(new_house.mult(5,1541)) # this is a regular method
 # # # # # # # # # in above line __init__ will be called if one exists
-# # print(new_house.all_house_prop)  # I can access class property from object
-# # print(new_house.chimney) # I can access another class property from object as well
-# # new_house.print_house_prop() #i can access something inside object through method
-# # # # # # # print("This particular house is built from", new_house.all_house_prop)  # direct access to property
-# # # # # # # print("This house chimney is made from", new_house.chimney)
+# print(new_house.all_house_prop)  # I can access class property from object
+# print(new_house.chimney) # I can access another class property from object as well
+# new_house.print_house_prop() #i can access something inside object through method
+# print("This particular house is built from", new_house.all_house_prop)  # direct access to property
+# print("This house chimney is made from", new_house.chimney)
 
-# # another_house = House() # so each time we creat a new object __init__ is called for that object
-# # print(another_house.chimney)
-# # another_house.print_house_prop()
-# # another_house.all_house_prop = "Straw"
-# # another_house.print_house_prop()  # the objects properties will be different now
-# # new_house.print_house_prop()
-# # new_house.chimney = "Fireproof bricks"
-# # new_house.print_house_prop()
+# another_house = House() # so each time we creat a new object __init__ is called for that object
+# print(another_house.chimney)
+# another_house.print_house_prop()
+# another_house.all_house_prop = "Straw"
+# another_house.print_house_prop()  # the objects properties will be different now
+# new_house.print_house_prop()
+# new_house.chimney = "Fireproof bricks"
+# new_house.print_house_prop()
 
 # # # # # # # # # two different objects from same class blueprint now have different properties
 # # # # # # # # print(new_house.all_house_prop, another_house.all_house_prop) 
 
 # # # # # # # # # third object from same blueprint / class definition
-# # my_house = House(color="red", nails=9_000) # creaing new object, in other class instance
-# # # # print(my_house.color, my_house.nails)
-# # # # # # print(my_house.all_house_prop)
-# # my_house.build_house()
+# my_house = House(color="red", nails=9_000) # creaing new object, in other class instance
+# print(my_house.color, my_house.nails)
+# # my_house.color = "blue" # i can change the color of my house
+# # # # # # # print(my_house.all_house_prop)
+# # # my_house.build_house()
 
-# # my_house.build_house().build_house().build_house().print_house_prop()  #possible because of return self
+# ## METHOD CHAINING
+# # if method returns self then we can chain methods
+# my_house.build_house().build_house().build_house().print_house_prop()  #possible because of return self
 # # # # # # # # # # # # my_house.all_house_prop = "Clay" # not very OOP style to mutate
 # # # # # # # # # # # # print(my_house.all_house_prop)
 # # # # # # # # # # # # my_house.build_house() # i am calling a method, notice no self needed
@@ -160,17 +170,22 @@
 # # # # # # # # # # # # # # # # def inside class defines method (so function which is called by class or object)
 
 
-# class Garage:
-#     g_name = "just a garage" # not needed better to use sparingly we can run in some weird effects
+class Garage:
+    g_name = "just a garage" # not needed better to use sparingly we can run in some weird effects
 # # # # # # # #     # classes constructor method called when we make a new object instance from this class
 # # # # # # # #     # dunder syntax __init__
-#     def __init__(self, color="green", nails=0, name="My garage", nail_color="metal", secret="gold"):
-#         self.color = color
-#         self.nails = nails
-#         self.name = name
-#         self._nail_color = nail_color # convention of private do not touch properties
-#         self.__secret_stash = secret # private property whose name is mangled to outside
-#         print(f"Initialized class instance with {self.color=} {self.nails=} {self.name=}")
+    def __init__(self, 
+                 color="green", 
+                 nails=0, 
+                 name="My garage", 
+                 nail_color="metal", 
+                 secret="gold"):
+        self.color = color
+        self.nails = nails
+        self.name = name
+        self._nail_color = nail_color # convention of private do not touch properties
+        self.__secret_stash = secret # private property whose name is mangled to outside
+        print(f"Initialized class instance with {self.color=} {self.nails=} {self.name=}")
 
 # # # # # # # # #     # will be useful when we want to print our object
 #     def __str__(self): # this is responsible for string representation for print etc
@@ -187,27 +202,28 @@
 #         return self.color == other.color and self.nails == other.nails # not a full comparison
 
 # # # # # # # # #     # i could just live with __str__ no need for simple_print anymore
-#     def simple_print(self): # so this name i just made up myself
-#         print(f"Oh {self.name=} {self.color=} {self.nails=}")
-#         return self
+    def simple_print(self): # so this name i just made up myself
+        print(f"Oh {self.name=} {self.color=} {self.nails=}")
+        return self
 
-#     def add_nails(self, new_nails=1):
-#         # here could be code for checking validity of new nails
-#         self.nails += new_nails
-#         return self
+    def add_nails(self, new_nails=1):
+        # here could be code for checking validity of new nails
+        self.nails += new_nails
+        return self
     
 # # # # # #     # so i can control how secret is to be given out
-#     def get_secret(self):
-#         # here i could check if secret should be given out and how
-#         return self.__secret_stash
+    def get_secret(self):
+        print("Internal method for getting secret")
+        # here i could check if secret should be given out and how
+        return self.__secret_stash
 
-#     def set_secret(self, new_secret):
-#         self.__secret_stash = new_secret
-#         return self # for chaining
+    def set_secret(self, new_secret):
+        self.__secret_stash = new_secret
+        return self # for chaining
 
-#     def set_nails(self, new_nail_count=0):
-#         self.nails = new_nail_count
-#         return self
+    def set_nails(self, new_nail_count=0):
+        self.nails = new_nail_count
+        return self
 
 #     @classmethod # decorator
 #     def add(cls, a ,b):
@@ -220,21 +236,31 @@
 #         return a+b
 
 # # # # # #     # OOP getters method
-#     def get_current_nails(self):
-#         # formatting, data sanitation, so on
-#         return self.nails
+    def get_current_nails(self):
+        # formatting, data sanitation, so on
+        return self.nails
 # # # # # # # # # # # end of our class definition, that is end of our blueprint
 
 # Garage.add(30,15) # this is a class method
 
-# simple_garage = Garage()
-# print(simple_garage) # without __str__ definition not very useful
-# print(simple_garage._nail_color)  # accesible property still, just means meant for internal use
-# # print(simple_garage.__secret_stash) # this name has been mangled/sort of hidden
+simple_garage = Garage()
+print(simple_garage) # without __str__ definition not very useful
+print(simple_garage._nail_color)  # accesible property still, just means meant for internal use
+try:
+    print(simple_garage.__secret_stash) # this name has been mangled/sort of hidden
+except AttributeError as e:
+    print(e)
+    print("Secret is hidden")
 # # # turns out __secret_stash is private property, hidden vai name mangling
-# print(simple_garage.get_secret())  # getter method
-# simple_garage.simple_print()
-# simple_garage.add_nails(15)
+print(simple_garage.get_secret())  # getter method
+# i can change secret with setter set_secret
+simple_garage.set_secret("silver")
+print(simple_garage.get_secret())  # getter method
+simple_garage.simple_print()
+simple_garage.add_nails(15)
+simple_garage.add_nails(12)
+simple_garage.add_nails() # adds a single nail because default value is 1
+
 # simple_garage.simple_print()
 # print(simple_garage)  # will look nice with __str__ defined
 # # # # # # # # # # # # print(simple_garage.__secret_stash) # so __property is renamed using name mangling
