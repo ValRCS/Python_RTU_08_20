@@ -23,34 +23,65 @@
 # print(june_mod.a) # this will print 42
 # june_mod.some_func()
 # import my_mod  #works if the module is in same directory
-# import antigravity # this will import antigravity.py
-# print(antigravity.geohash("Riga"))
+# # import that your modules are in the same directory
+# # also your modules should not same names as standard library modules
+
+# # import antigravity # this will import antigravity.py
+# # print(antigravity.geohash("Riga"))
 # my_mod.add(10,20)
 # print(my_mod.txt)
 # print(my_mod.mlist)
 
-# # # # # # # # print(my_mod.add(10,20))
+# print(my_mod.add(10,250))
 # my_garage = my_mod.Garage()
 # print(my_garage.gname)
 
-# # # # typically all imports go in the top of the file
-# # # import my_mod_2 #works if the module is in same directory
+# # # # # typically all imports go in the top of the file
+# import my_mod_2 #works if the module is in same directory
 
-# # # my_mod_2.my_fun()
+# my_mod_2.my_fun()
+
+
+# # so what is Python package?
+# # package is a collection of modules
+
 
 # import pkg.my_utils  #import pkg not much good
 # pkg.my_utils.pkg_add(10,20)
+# print(pkg.my_utils.MY_CONST)
 
 
-# import pkg.my_utils as mu # shorter way
+# import pkg.my_utils as mu # shorter way 
+# # make sure mu is not used anywhere else
 # mu.pkg_add(10,20)
 # print(mu.MY_CONST)
 
+# # we can also import my_mod with alias
+# import my_mod as mm # shorter way
+# mm.add(25,45)
+
+# if module is big we can import specific parts of it
+# from my_mod import add 
+# # just make sure add is not used anywhere else
+# add(10,20)
+# from my_mod import add, txt, mlist # this will import only add and txt and mlist
+
+# i can also import specific parts of my_mod with alias
+# from my_mod import add as my_super_add
+# my_super_add(10,20)
+
+
 # # # # # # i could go 2 folders deeper and import sub_utils
 # import pkg.subp.sub_utils as su # shorter way
+# # again make sure su is not used anywhere else
 # su.subadd(10,20)
 # su.badprint()
 # print(su.MAGIC_PI)
+# i could just import subadd with alias
+# from pkg.subp.sub_utils import subadd as add # this will import only subadd and badprint
+
+# AVOID THIS! - this will import all functions and variables from my_mod
+# from my_mod import * # this will import all functions and variables from my_mod
 
 # # # # If I have a big module, I can import specific parts of it
 
@@ -213,3 +244,10 @@
 # # # # # # # # # # # # # garage_3 = mlib_mod.Garage("Baismigā")
 # # # # # # # # # # # # # mlib_mod.mlist.append(9000)
 # # # # # # # # # # # # # print(mlib_mod.mlist)
+
+# lets say I want to use only Garage from my_mod
+from my_mod import Garage
+
+new_garage = Garage()
+another_garage = Garage("Lielaa")
+small_garage = Garage("Maza")
