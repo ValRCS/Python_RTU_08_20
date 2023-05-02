@@ -12,8 +12,8 @@
 # # # # # # # # # # # # # # if not found in current directly
 # # # # # # # # # # # # # # Python will look for my_mod.py in paths defined in PYTHONPATH enviroment variable
 # # # # # # # # usually we import standard libary first
-import sys # sys is standard library package, for functionality dealing with system function
-print(sys.path)  # this shows where Python will look for modules in order
+# import sys # sys is standard library package, for functionality dealing with system function
+# print(sys.path)  # this shows where Python will look for modules in order
 # # # # import string # string is standard library package, for functionality dealing with strings
 # # # # print(string.digits) # this will print all digits
 # # # # # but we imported our string...
