@@ -1,4 +1,4 @@
-import matplotlib.pyplot as plt  # very typical
+import matplotlib.pyplot as plt  # very typical to rename to something shorter
 # Mathplotlib library
 # inspired by MATLAB
 # https://matplotlib.org/3.3.2/contents.html
@@ -19,6 +19,7 @@ plt.plot(x, y, 'r', label='y')  # r stands for red
 plt.plot(x, y2) # line chart
 plt.scatter(x, y3) # scatter plot
 # # there is also an option to plot separate graphs
+# it will save image in current working directory
 plt.savefig("bildeJun27.png") #jpg i think also gif formats are supported
 
 plt.show() #this will open interactive window
