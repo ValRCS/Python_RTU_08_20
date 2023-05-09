@@ -4,7 +4,8 @@
     "hobbies": [
         "running",
         "sky diving",
-        "dancing"
+        "dancing",
+        "singing"
     ],
     "age": 43,
     "children": [
@@ -15,6 +16,10 @@
         {
             "firstName": "Bob",
             "age": 13
+        },
+        {
+            "firstName": "Čarlijs",
+            "age": 14
         },
         {
             "firstName": "Čarlijs",
