@@ -1,5 +1,4 @@
-﻿arcade==2.5.5
-art==5.1
+﻿art==5.1
 attrs==20.3.0
 autopep8==1.5.7
 backcall==0.2.0
