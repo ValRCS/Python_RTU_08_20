@@ -10,3 +10,4 @@ print(f"{name} what is your favorite city?")
 # city = input() #no extra text needed
 city = input("-->")
 print(f"Aha! {name} I see you like {city}. Me too!")
+# we are left with a problem of converting numbers from strings
