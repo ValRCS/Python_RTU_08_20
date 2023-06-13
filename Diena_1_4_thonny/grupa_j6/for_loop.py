@@ -99,9 +99,19 @@ for n in range(10):
     if user_input == "y":
         print("Alrighty, lets quit this loop")
         break # jumps to 107 - regular block of code
+    elif user_input == "": # user pressed Enter
+        print("hmm just enter")
+        continue # goes to start t loop
     # just normal loop stuff
     print("Still", n)
 else: # part of for loop when no break is called
     print("Loop ended normally")
 
 print("Regular block of code after loop",n)
+
+# checking if numbers are odd or even
+for n in range(10):
+    if n % 2 == 0: # so using reminder , even numbers divided by 2 have no reminder
+        print(f"Number {n} is even")
+    else:
+        print(f"Number {n} is odd")
