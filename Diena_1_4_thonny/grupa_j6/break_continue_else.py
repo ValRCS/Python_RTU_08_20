@@ -66,4 +66,5 @@ while i < 15:
         print("We are continuing normally")
 else: # we enter this when while loop finished normally
     print("Finished normally")
+# next line will work no matter how we quit our while
 print("Always prints")
