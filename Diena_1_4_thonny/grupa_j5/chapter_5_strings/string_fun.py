@@ -106,3 +106,6 @@ print(escaped_string_with_everything)
 raw_string = r"raw string with \my backslash"
 # otherwise we would have to write \\my backslash instead
 print(raw_string)
+
+# full list of escape characters
+# https://docs.python.org/3/reference/lexical_analysis.html#string-and-bytes-literals
