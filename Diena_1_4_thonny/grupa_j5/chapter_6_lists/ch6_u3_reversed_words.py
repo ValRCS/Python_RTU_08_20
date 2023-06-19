@@ -8,11 +8,11 @@
 
 sentence = input("Ievadiet vienu vai vairākus vārdus: ")
 # deconstruction of the above line
-word_list = sentence.split() # by default uses any whitespace to split - returns a list
+words = sentence.split() # by default uses any whitespace to split - returns a list
 
 # create a new list with reversed words
 reversed_word_list = []
-for word in word_list:
+for word in words:
     reversed_word_list.append(word[::-1]) # minimalistic solution
     # if word[0].isupper():
     #     reversed_word_list.append(word[::-1].capitalize())
