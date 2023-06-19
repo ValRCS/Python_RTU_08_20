@@ -58,3 +58,38 @@ my_beer_list.append("Helles") # copy will not change but alias will
 print(my_beer_list)
 print(my_beer_list_copy)
 print(my_beer_list_alias)
+
+# let's clear our list
+my_beer_list.clear() # IN PLACE method - removes all items from the list!!!
+print(my_beer_list)
+
+my_beer_list = my_beer_list_copy.copy() # so let's restore our list
+# i did lose Helles beer
+print(my_beer_list)
+
+# let's find an index of a beer
+print(my_beer_list.index("APA")) # returns the index of the first match
+# we use try except to handle the case when item is not found
+try:
+    print(my_beer_list.index("Helles"))
+except ValueError:
+    print("Helles not found")
+
+# let's count how many times a beer is in our list
+print(my_beer_list.count("APA")) # returns the count of the items in the list
+# let's add another APA
+my_beer_list.append("APA")
+print(my_beer_list.count("APA")) # returns the count of the items in the list
+
+print(my_beer_list)
+# finally we can insert into our list
+my_beer_list.insert(2, "Helles") # IN PLACE method inserts before the index specified
+# so index 2 will become the new item rest will be shifted to the right
+# this can be slow for large lists
+print(my_beer_list)
+my_beer_list.reverse() # IN PLACE method reverses the list
+# new_reverse_list = reversed(my_beer_list) # OUT OF PLACE method returns a new reversed list
+new_reverse_list = my_beer_list[::-1] # OUT OF PLACE method returns a new reversed list
+
+print(my_beer_list)
+print(new_reverse_list)
