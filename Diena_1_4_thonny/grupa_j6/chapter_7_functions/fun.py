@@ -71,3 +71,8 @@ def eat_from_plate(foods):
 
 my_foods = ["burger", "salad", "soup", "pizza", "sandwich"] # list of foods
 eat_from_plate(my_foods) # we pass the list to the function
+
+# what are function arguments and parameters?
+# arguments are the values passed to the function
+# parameters are the variables inside the function that hold the arguments
+# in practice we use these terms interchangeably - but it is good to know the difference
