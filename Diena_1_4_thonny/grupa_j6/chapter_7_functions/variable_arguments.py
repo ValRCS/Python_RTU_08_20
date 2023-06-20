@@ -48,3 +48,7 @@ def add_many_with_positional(a, b, *args, debug=False):
 print(add_many_with_positional(2, 3, 4, 5)) # 14
 # print(add_many_with_positional(2)) # Error - missing b
 print(add_many_with_positional(2, 3, 10, -5, debug=True)) # 5
+
+# we can also use **kwargs to indicate that 
+# we will have variable number of named arguments
+# for that we would need to use dictionary - those are next chapter
