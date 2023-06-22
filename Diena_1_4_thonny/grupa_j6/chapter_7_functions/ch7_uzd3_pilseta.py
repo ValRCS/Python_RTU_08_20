@@ -33,6 +33,8 @@ def get_city_year(p0, perc, delta, p, debug=False):
     year = 0
     while p0 < p:
         increase = p0 * (perc / 100) + delta
+        # possibly increase should be rounded down - int(increase)
+        # humans can't be fractions - good argument
         if debug:
             print(f"Year {year} Increase {increase}")
         # turns out floating point numbers are not precise
