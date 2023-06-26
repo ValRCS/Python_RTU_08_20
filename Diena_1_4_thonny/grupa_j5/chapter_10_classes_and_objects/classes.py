@@ -59,7 +59,29 @@ mini_robot = SimpleRobot()
 
 # mini_robot.move_backward("backward") # works, but not very elegant
 
+# let's talk about composition
+# our robot could consist of many parts
+# let's make a new class for a robot part
+class RobotHead:
+    def __init__(self, eye_color="black", shape="round", eyes=2):
+        self.color = eye_color
+        self.shape = shape
+        self.eyes = eyes
+        print(f"New head created with color {self.color}, shape {self.shape} and {self.eyes} eyes")
 
+    def describe_myself(self):
+        print(f"I am a {self.color} {self.shape} with {self.eyes} eyes")
+        return self
+
+    def blink(self):
+        print("Blinking")
+        # insert call to actual hardware here
+        return self # again we return self so we can chain methods
+    # we do this when we do not need to return anything else
+
+    def look_around(self):
+        print("Looking around")
+        return self
 
 
 class Robot:
@@ -75,27 +97,80 @@ class Robot:
         self.color = color
         self.weight = weight
         self.height = height
-        self.speed = speed
+        # for names that are for internal use only we use single underscore
+        # for example _speed
+        # this does not prevent us from accessing the attribute from outside
+        # simply a convention - hey, this is for internal use only
+        self._speed = speed
         self.y = y
         self.x = x
+        self.head = RobotHead(eye_color="blue")
+   
+
+        self.__secret_password = "1234" # this is private attribute, cannot be accessed from outside
+        # note the double underscore in front of the attribute name
+        # the name is mangled - it is changed to _Robot__secret_password
+        # technically it is still possible to access it from outside but it is not recommended
         print(f"Robot {self.name} created")
         print("Properties:")
         print(self.__dict__)
 
     def move_forward(self, distance=1):
         self.y += distance
+        # if I am not returning anything, I might as well return self
+        # this way I can chain methods
+        return self
 
     def describe_myself(self):
         print(f"Hi, I am {self.name} and I am {self.color}")
+        return self
 
     def print_my_location(self):
         print(f"My location is {self.x}, {self.y}")
+        return self
+    
+    # i could add read sensors method
+    def read_sensors(self):
+        print("Reading sensors")
+        # here would be real code call to harware sensors
+        # emulator
+        import random
+        self._speed = random.randint(0, 150) # random speed between 0 and 150
+        return self._speed # notice not self
+    
+    def get_password(self):
+        # so called getter method
+        # here would go code to check if the password is correct
+        # whether the robot is allowed to read the password etc
+        print("Password is", self.__secret_password)
+        return self.__secret_password
+    
+    def set_password(self, new_password):
+        # so called setter method
+        # here would go code to check if the password is correct
+        # whether the robot is allowed to change the password etc
+        # check validity of the new password
+        if len(new_password) < 4: # very simple check
+            print("Password too short")
+            return self
+        self.__secret_password = new_password
+        print("Password changed")
+        return self # so we can chain methods
 
     def __str__(self):
         # so whenever we print the object, this method is called
         # we override the default __str__ method which was basically useless
         return f"Robot {self.name} with color {self.color} at location {self.x}, {self.y}"
     # i could return anything in __str__ method as long as it is a string
+
+    # let's make a method that will allows us to add two robots together
+    def __add__(self, other_robot):
+        # we are overriding the default __add__ method for + operator
+        # so new name will be Mega + original name + name of the other robot
+        new_name = "Mega" + self.name + other_robot.name
+        # new speed will be average of the two robots
+        new_speed = (self._speed + other_robot._speed) / 2
+        return Robot(name=new_name, speed=new_speed) # return new robot
 
 # again nothing is happening here because we are just defining the class
 
@@ -143,3 +218,188 @@ bender.print_my_location()
 print(mini_robot) # this is not very useful, just shows memory location
 print(bender) # now this should be useful
 
+# now I can chain those methods that return self
+bender.move_forward(10).print_my_location().describe_myself().move_forward(15).print_my_location()
+
+# again I can read any attribute of the object as long as it is not private
+print(bender.name)
+print(bender.color)
+print(bender.weight)
+# print(bender.__secret_password) # this will not work
+# instead we need to use the method that returns the password
+bender.get_password()
+
+# i can even change the password
+bender.set_password("new_password").get_password()
+bender.set_password("123").get_password() # this will not change because the password is too short
+# note set_password returns self so I can chain methods
+# read_password returns the password so my chain is broken
+
+monster_robot = bender + robbie # possible because we have defined __add__ method
+print(monster_robot)
+
+# so i could keep making new methods and attributes
+
+# but what if I want to make a new class that is very similar to Robot?
+
+# let's make a new class that inherits from Robot
+class SuperRobot(Robot): # notice Robot in parentheses
+    # this means that SuperRobot everything that Robot has
+    # it is possible to define __init__ method again
+    # however that is not required
+    # it would inolve calling the __init__ method of the parent class - a bit more advanced
+    # instead we are just using the __init__ method of the parent class- Robot
+
+    # and we can add new methods and attributes
+    def super_move_forward(self, distance=1):
+        self.y += distance
+        self.x += distance
+        return self
+    
+# in real life inheritance is not always the best solution
+# composition is often better
+
+# let's make a super robot
+super_robot = SuperRobot("SuperRobot", "green", 100, 200, 50)
+
+# super robot can do anything robot can do
+super_robot.move_forward(10).print_my_location().describe_myself()
+# only new ability is super_move_forward
+super_robot.super_move_forward(15).print_my_location().describe_myself()
+
+super_robot.head.blink().describe_myself() # describe_myself is from RobotHead class
+super_robot.describe_myself() # describe_myself is from SuperRobot class
+
+# let's make RobotLeg class
+class RobotLeg:
+    def __init__(self, color="white", length=100):
+        self.color = color
+        self.length = length
+        self._speed = 0
+    
+    def kick(self):
+        print("Kicking")
+        return self
+    
+    def bend(self):
+        print("Bending")
+        return self
+    
+    def __str__(self):
+        return f"Robot leg with color {self.color} and length {self.length}"
+    
+
+# how about RobotArm class?
+class RobotArm:
+    def __init__(self, color="white", length=100):
+        self.color = color
+        self.length = length
+        self._speed = 0
+    
+    def wave(self):
+        print("Waving")
+        return self
+    
+    def bend(self):
+        print("Bending")
+        return self
+    
+    def __str__(self):
+        return f"Robot arm with color {self.color} and length {self.length}"
+    
+# finally RobotBody class
+class RobotBody:
+    def __init__(self, color="white", length=100):
+        self.color = color
+        self.length = length
+        self._speed = 0
+    
+    def bend(self):
+        print("Bending")
+        return self
+    
+    def __str__(self):
+        return f"Robot body with color {self.color} and length {self.length}"
+    
+
+# let's make a new composable Robot class
+class HumanoidRobot:
+    def __init__(self, name="Anonymous", color="white", weight=100, height=200, speed=0):
+        print("Creating a new humanoid robot")
+        self.name = name
+        self.color = color
+        self.weight = weight
+        self.height = height
+        self._speed = speed
+        self.head = RobotHead() # so i create a head instance using the RobotHead class
+        self.body = RobotBody(color=color, length=height/2) # so body is half the height
+        self.left_arm = RobotArm(color=color)
+        self.right_arm = RobotArm(color=color)
+        self.left_leg = RobotLeg(color=color)
+        self.right_leg = RobotLeg(color=color) 
+        self.x = 0
+        self.y = 0   
+        print(f"For your information, my name is {self.name}")
+    
+    def move_xy(self, x=0, y=0):
+        self.x += x
+        self.y += y
+        return self
+    
+    def print_my_location(self):
+        print(f"{self.name} location is {self.x}, {self.y}")
+        return self
+    
+    def __str__(self):
+        return f"Robot {self.name} with color {self.color} at location {self.x}, {self.y}"
+
+# let's make a new humanoid robot
+# its name is Robocop
+robocop = HumanoidRobot(name="Robocop", color="silver", weight=200, height=220, speed=10)
+print(robocop)
+# let's move robocop
+robocop.move_xy(10, 20).move_xy(-5, 10)
+print(robocop)
+
+# of course I could inherit from HumanoidRobot and make a new class 
+# with some new methods and attributes
+# we will callit EthicsRobot
+class EthicsRobot(HumanoidRobot):
+    # print Asimov's laws of robotics
+    def print_laws(self):
+        print("Asimov's laws of robotics:")
+        print("1. A robot may not injure a human being or, through inaction, allow a human being to come to harm.")
+        print("2. A robot must obey the orders given it by human beings except where such orders would conflict with the First Law.")
+        print("3. A robot must protect its own existence as long as such protection does not conflict with the First or Second Law.")
+        return self
+    
+# let's make a new ethics robot
+ethics_robot = EthicsRobot(name="EthicsRobot", color="white", weight=100, height=200, speed=0)
+print(ethics_robot)
+# let's move ethics robot
+ethics_robot.move_xy(10, 20).move_xy(-5, 10)
+print(ethics_robot)
+# let's print the laws
+ethics_robot.print_laws()
+
+# there are also class methods - methods that belong to the class not to the instance
+
+# we could create a dictionary of HumanoidRobot instances
+names = ["Alice", "Bob", "Charlie", "Diana"]
+#, "Eve", "Frank", "Grace", "Heidi", "Ivan", "Judy"]
+robots = {}
+for name in names:
+    robots[name] = HumanoidRobot(name=name, color="white", weight=100, height=200, speed=0)
+
+# alternatively we could have had a class RobotStorage or RobotFactory
+# that would have a dictionary of robots inside
+
+# let's print the robots
+for name, robot in robots.items():
+    print(robot)
+
+# let's move the robots in various directions
+robots["Alice"].move_xy(10, 20).print_my_location()
+robots["Bob"].move_xy(-5, 10).print_my_location()
+robots["Charlie"].move_xy(20, -10).print_my_location()
+robots["Diana"].move_xy(-10, -20).print_my_location()
