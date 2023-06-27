@@ -407,3 +407,28 @@ def create_robot():
 # i can call class methods without creating objects
 another_robot = Robot.create_robot_interactively() # notice no self again, no cls either
 
+# there is data class module in Python 3.7 and above
+# it is a decorator that can create a class with attributes and methods
+# it is a bit like a named tuple but with methods
+# it is a bit like a Java Bean
+# it is a bit like a C struct
+# in C# it is called a record
+# in Scala it is called a case class
+
+from dataclasses import dataclass
+# lets make one for person
+@dataclass # this add some nice methods to our class
+class Person:
+    name: str
+    age: int
+    height: float
+    weight: float
+    # so __init__ method is created for us
+    # we can add methods
+    def bmi(self):
+        return self.weight / (self.height / 100) ** 2
+    
+# now we can create a person
+valdis = Person("Valdis", 50, 180, 100)
+print(valdis) # this should be a nice __str__ method
+
