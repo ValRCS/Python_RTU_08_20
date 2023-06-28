@@ -1,0 +1,32 @@
+[
+    {
+        "name": "R1",
+        "build_year": 2020,
+        "is_flying": false,
+        "foods": [
+            "apple",
+            "banana",
+            "orange"
+        ]
+    },
+    {
+        "name": "Džonijs",
+        "build_year": 2021,
+        "is_flying": false,
+        "foods": [
+            "apple",
+            "banana",
+            "orange"
+        ]
+    },
+    {
+        "name": "R3",
+        "build_year": 2022,
+        "is_flying": false,
+        "foods": [
+            "apple",
+            "banana",
+            "orange"
+        ]
+    }
+]
