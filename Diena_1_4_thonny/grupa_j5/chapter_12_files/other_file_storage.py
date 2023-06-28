@@ -14,6 +14,7 @@ import sqlite3
 
 # let's change our working directory to chapter_12_files
 os.chdir('Diena_1_4_thonny/grupa_j5/chapter_12_files')
+# not needed if we run this file from chapter_12_files directory 
 
 # let's create a list of numbers
 numbers = [1, 2, 3, 4, 5]
