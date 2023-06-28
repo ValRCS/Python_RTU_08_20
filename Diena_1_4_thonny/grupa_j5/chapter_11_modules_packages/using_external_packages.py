@@ -1,6 +1,7 @@
 # to use external packages
 # # first we need to install them
 # find packages on https://pypi.org/
+# curated suggestions awesome python on github: https://github.com/vinta/awesome-python
 # look for updated and popular packages
 # for example go to terminal and type
 # pip install requests - to install requests package for web requests
