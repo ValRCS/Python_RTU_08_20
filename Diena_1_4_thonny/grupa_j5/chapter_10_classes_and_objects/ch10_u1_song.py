@@ -127,5 +127,27 @@ def create_song():
 
 # let's create a song using our function
 # jauna_dziesma = create_song()
-jauna_dziesma = Song.create_song() # this can be called even before any Song instance is created
-jauna_dziesma.sing()
+# jauna_dziesma = Song.create_song() # this can be called even before any Song instance is created
+# jauna_dziesma.sing()
+
+class Rap(Song):
+    # Rap class inherits everything from Song class
+    # plus adds some new functionality
+    def break_it(self, max_lines=-1, drop="YEAH"):
+        self.print_song_info()
+        lyrics = self.lyrics.copy() # Out of place
+        if max_lines > 0:
+            lyrics = lyrics[:max_lines] 
+        for line in lyrics:
+            modified_line = "" # te glabāsies pārveidotā repa rinda
+            words = line.split() 
+            for word in words:
+                modified_line += word + " " + drop + " " 
+            print(modified_line.strip()) 
+        return self # lai varētu ķēdēt
+    
+ballejam=Rap("Ballējam, neguļam","B2st", 
+              "Ballējam, neguļam,\nLīdz rītam izturam!\n".splitlines())
+
+ballejam.break_it(drop="YEAH")
+ballejam.sing().yell().break_it(1, "oh")
