@@ -27,3 +27,14 @@ for i in tqdm(range(10_000_000)):
 
 print(total)
 
+# we can use pip freeze to see what we have installed and save to a file
+# usually we save to requirements.txt
+# pip freeze > requirements.txt
+
+# then I can install ALL packages from requirements.txt
+# pip install -r requirements.txt
+# might require sudo on linux - not necessarily
+
+# finally we can have >= or <= or == or > or < or != in requirements.txt
+# to specify version numbers
+
