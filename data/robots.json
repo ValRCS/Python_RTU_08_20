@@ -1,0 +1,67 @@
+[
+    {
+        "name": "Robot 1",
+        "build_year": 2020,
+        "potential_physical": 0.5,
+        "potential_psychic": 0.5,
+        "flying": false,
+        "likes": [
+            "tv",
+            "cooking",
+            "reading",
+            "riešana"
+        ]
+    },
+    {
+        "name": "Robot 2",
+        "build_year": 2021,
+        "potential_physical": 0.5,
+        "potential_psychic": 0.5,
+        "flying": false,
+        "likes": [
+            "tv",
+            "cooking",
+            "reading",
+            "riešana"
+        ]
+    },
+    {
+        "name": "Robot 3",
+        "build_year": 2022,
+        "potential_physical": 0.5,
+        "potential_psychic": 0.5,
+        "flying": false,
+        "likes": [
+            "tv",
+            "cooking",
+            "reading",
+            "riešana"
+        ]
+    },
+    {
+        "name": "Robot 4",
+        "build_year": 2023,
+        "potential_physical": 0.5,
+        "potential_psychic": 0.5,
+        "flying": false,
+        "likes": [
+            "tv",
+            "cooking",
+            "reading",
+            "riešana"
+        ]
+    },
+    {
+        "name": "Robot 5",
+        "build_year": 2024,
+        "potential_physical": 0.5,
+        "potential_psychic": 0.5,
+        "flying": false,
+        "likes": [
+            "tv",
+            "cooking",
+            "reading",
+            "riešana"
+        ]
+    }
+]
