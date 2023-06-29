@@ -1,0 +1,23 @@
+First 5 lines of stopping_frost.txt
+print is a bit slower than write
+1. Stopping by Woods on a Snowy Evening
+2. by Robert Frost
+3. Tulkojums Latviešu valodā? - 
+5. Whose woods these are I think I know.
+6. His house is in the village though;
+7. He will not see me stopping here
+8. To watch his woods fill up with snow.
+10. My little horse must think it queer
+11. To stop without a farmhouse near
+12. Between the woods and frozen lake
+13. The darkest evening of the year.
+15. He gives his harness bells a shake
+16. To ask if there is some mistake.
+17. The only other sound's the sweep
+18. Of easy wind and downy flake.
+20. The woods are lovely, dark and deep,
+21. But I have promises to keep,
+22. And miles to go before I sleep,
+23. And miles to go before I sleep.
+********************
+Time stamp: 2023-06-29 19:38:32
