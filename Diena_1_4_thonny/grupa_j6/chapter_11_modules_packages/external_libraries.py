@@ -16,6 +16,9 @@
 # composer for php
 # maven for java
 
+# so to install tqdm we need to run
+# pip install tqdm in terminal - once
+
 from tqdm import tqdm
 
 total = 0
