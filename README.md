@@ -86,4 +86,4 @@ Generators and closures
 Processing files
 Working with real files
 
-Updated for 2021
+Updated for 2023
