@@ -22,5 +22,7 @@ print(f"Wow so {quantity} kg of {food} costs {total}. Inflation, eh?")
 print(f"Wow so {quantity} kg of {food} costs {total:.2f}. Inflation, eh?")
 # i can also use built in round to modify original / or save to new variable
 total = round(total, 2) # so round to 2 digits after comma
+# i can add number of how many spaces to allocate
+
 print(f"Wow so {quantity} kg of {food} costs {total:10.2f}. Inflation, eh?")
 
