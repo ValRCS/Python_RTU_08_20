@@ -1,7 +1,8 @@
 # on string methods we have split method which lets us split string into list of strings
 
 sentence = "Man ļoti patīk    jūrnieku dziesmas"
-my_list = sentence.split() # by default we split by whitespace
+my_list = sentence.split() # by default we split by any whitespace
+# note: we can split by any character or substring
 print(my_list) # first time we get a list
 
 # so what is a list?
