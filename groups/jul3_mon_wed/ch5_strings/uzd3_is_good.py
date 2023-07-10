@@ -12,3 +12,5 @@ if trig_one in user_text and trig_two in user_text and user_text.find(trig_one) 
 else:
     # print original
     print(user_text)
+
+# TODO how to make this more generic
