@@ -28,3 +28,5 @@ if need_replacement:
     print(text[:not_index] + "ir lab" + text[bad_index + len(bad_string):])
 else:
     print(text)
+
+# TODO make it work with multiple bad words
