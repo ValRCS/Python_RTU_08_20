@@ -15,7 +15,7 @@ You install Python either using package manager or build it from source or have 
 
 ## MicroPython
 
-MicroPython is stripped down version that implements most features of Python up to 3.5 or so. It includes partial support for such niceties as f-strings (found in 3.6)
+[MicroPython](https://micropython.org/) is stripped down version that implements most features of Python up to 3.5 or so. It includes partial support for such niceties as f-strings (found in 3.6)
 
 Advantage: MicroPython runs on much devices with lower specifications.
 
