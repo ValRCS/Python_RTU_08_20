@@ -11,7 +11,7 @@ eat("a burger") # this will eat a burger
 # so we should strive to provide sane defaults for our functions
 
 # we can provide default values for multiple arguments
-def add(a=0, b=0, debug=False):
+def add(a=0, b=0, debug=False) -> int:
     if debug:
         print(f"adding {a} and {b}")
     return a + b
@@ -80,3 +80,15 @@ print(age) # 42
 print(age) # 42
 # _ will be a list
 print(_) # ['John', 'Doe', 'Golf']
+
+
+def int_add(a:int, b:int) -> int:
+    return a + b
+
+print(int_add(50, 11))
+# pylance will cry but code will work
+print(int_add(3, 1.47))
+print(int_add("Valdis", "Līga"))
+print(int_add([1,2,5],[32,27,7,1]))
+
+# so type hints good to use but not required
