@@ -67,3 +67,16 @@ print(*numbers, sep=",") # I passed valued one by one
 # above is same as print(1, 2, 3, 4, 5, sep=",")
 # compare with normal print where I give whole list
 print(numbers) # [1, 2, 3, 4, 5]
+
+# let's make a function that returns 3 values
+def get_user():
+    return "John", "Doe", "Golf", 42
+
+# i can assign the result to a tuple
+_, _, _, age = get_user() # i am not interested in first two values
+print(age) # 42
+# even better I can just get tail
+*_, age = get_user()
+print(age) # 42
+# _ will be a list
+print(_) # ['John', 'Doe', 'Golf']
