@@ -197,4 +197,21 @@ for key in list(phone_book.keys()): # we need to make a copy of keys
     if phone_book[key] == bad_value:
         del phone_book[key] # this will change the size of dictionary
 
+# we also have clear method to delete all key-value pairs
+phone_book.clear() # IN PLACE - modifies the original dictionary
+print(phone_book)
+
+# set default value for a key - works only if key does not exist
+phone_book.setdefault("Valdis", 26451112)
+print(phone_book)
+phone_book.setdefault("Valdis", 11881188) # this will not change the value
+# because key Valdis already exists
+print(phone_book)
+
+# so setdefault is just like checking for key and if it does not exist then adding it
+if "Valdis" not in phone_book:
+    phone_book["Valdis"] = 11881188
+else:
+    print("I already have Valdis as key")
+
 
