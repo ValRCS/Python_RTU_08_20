@@ -31,3 +31,16 @@ print(robots)
 # how about getting terminator in separate variable?
 terminator = robots[-1]
 print(terminator)
+# so I have a list of dictionaries
+# some dictionaries have same keys, some have different keys
+# some values are strings, some are lists, some are numbers
+# how about adding a new skill to terminator?
+# how about protecting Sarah Connor?
+# if we have dictionary in a variable we can use it like any other variable
+# terminator["skills"].append("protecting Sarah Connor")
+# if we need to get dictionary from a list we would do the following
+robots[-1]["skills"].append("protecting Sarah Connor")
+# we have 3 possible failures here
+# first robots might be empty list, so we need to check that
+# just keep in mind that possible key skills might not exist in all dictionaries
+# also value for key skills might not be a list
