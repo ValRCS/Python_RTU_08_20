@@ -136,10 +136,21 @@ class Robot:
     # __init__ is a special method so it has double underscores
     # Python classes has about 100 special methods that we can use
     # full list of special methods https://docs.python.org/3/reference/datamodel.html#special-method-names
-    def __init__(self, name="R2D2", color="blue", weight=100, height=75, speed=10, battery=100, x=0, y=0):
+    def __init__(self, 
+                 name="R2D2", 
+                 color="blue", 
+                 weight=100, 
+                 height=75, 
+                 speed=10, 
+                 battery=100, 
+                 x=0, 
+                 y=0,
+                 api_key="1234567890",
+                 debug=True):
         # self is a reference to the object itself
         # we can use self to access and modify object attributes
-        print("Creating a new Robot")
+        if debug:
+            print("Creating a new Robot")
         self.name = name
         self.color = color
         self.weight = weight
@@ -148,10 +159,15 @@ class Robot:
         self.battery = battery
         self.x = x
         self.y = y
-        print("Robot created")
-        # i can call other methods from my constructor
-        self.print_robot() # we can call other methods from our constructor 
-        print(self) # we can print our object will use __str__ method
+        self.is_api_key_set = self.set_api_key(api_key) # we can use double underscore to make an attribute private
+        # private attributes are not accessible from outside of the class
+        # we can use getters and setters to access private attributes
+        # we can use getters and setters to validate data
+        if debug:
+            print("Robot created")
+            # i can call other methods from my constructor
+            self.print_robot() # we can call other methods from our constructor 
+            print(self) # we can print our object will use __str__ method
 
     # let's make print_robot method - this is arbitrary name
     def print_robot(self):
@@ -208,6 +224,33 @@ class Robot:
     # there are __sub__ __mul__ __div__ methods as well for -, *, / operators
     # there are also comparison methods __lt__ __gt__ __eq__ __ne__ __le__ __ge__ for <, >, ==, !=, <=, >= operators
 
+    # let's make a method to get our api key
+    def get_api_key(self):
+        # here I could add some logic to check if the user is authorized to get the api key
+        # for now I will just return the api key
+        if self.is_api_key_set:
+            return self.__api_key # here we can not return self because we are returning a string
+        else:
+            return "Api key is not set" # could return None or False as well
+    
+    # let's make a method to set our api key
+    def set_api_key(self, api_key): # we can add some validation here
+        # let's make sure our key is a string
+        api_key = str(api_key)
+        # let's make sure our key is at least 10 characters long
+        if not self.__is_key_valid(api_key):
+            print("Api key is too short")
+            return False
+        self.__api_key = api_key
+        # we could return self here as well
+        return True
+    
+    # i can create private methods for internal use only
+    # private methods are not accessible from outside of the class
+    # we can use double underscore to make a method private
+    def __is_key_valid(self, key, length=10):
+        return len(key) >= length
+    
 # let's create some robots
 r2d2 = Robot() # r2d2 is an instance of Robot class
 print(r2d2.name)
@@ -231,3 +274,167 @@ c3po.move(-10, -10).print_robot().move_vertically(-3).move_horizontally(-2).prin
 
 # now we can use + to add our robots
 r2d2_c3po = r2d2 + c3po # this works because I have defined __add__ method
+
+# let's try to get at r2d2_c3po api key
+try:
+    print(r2d2_c3po.__api_key) # this will not work because __api_key is private
+except AttributeError as e:
+    print(f"Error: {e}")
+
+# let's try to get the api key with a getter
+print(r2d2_c3po.get_api_key())
+
+# let's make a robot with short api key
+terminator = Robot(name="Terminator", api_key="0000")
+print(terminator.get_api_key())
+
+# we can create a huge list of random robots
+import random
+robots = []
+for i in range(1000):
+    robots.append(Robot(name=f"Robot_{i}", 
+                        api_key=random.randint(1000000000, 9999999999), 
+                        debug=False))
+
+# now we can get the api key of any robot
+# let's get the api key of the first robot
+print(robots[0].get_api_key())
+# how about last robot let's print
+print(robots[-1])
+# so is_key_valid method is private and can not be called from outside of the class
+try:
+    print(robots[0].__is_key_valid(34325))
+except AttributeError as e:
+    print(f"Error: {e}")
+
+
+
+# now let's try to make a flying Robot
+# we could create a fresh class for flying robot but we can also inherit from Robot class
+
+class FlyingRobot(Robot): # so note Robot is in the parentheses this means FlyingRobot inherits from Robot
+    # for now we have __init__ from Robot class
+    # it does not have z coordinate
+    # so let's make our own __init__ method
+    def __init__(self, 
+                 name="Flying Robot", 
+                 color="white",
+                weight=100, 
+                height=100, 
+                speed=10, 
+                battery=100, 
+                x=0, 
+                y=0, 
+                z=0, 
+                api_key=None, 
+                debug=True):
+        # let's add z coordinate
+        self.z = z # i need to add z first because print(self) will use it
+        # we can call the parent class __init__ method with super()
+        # instead I could have done init myself but this is easier
+        super().__init__(name=name,
+                            color=color,
+                            weight=weight,
+                            height=height,
+                            speed=speed,
+                            battery=battery,
+                            x=x,
+                            y=y,
+                            api_key=api_key,
+                            debug=debug)
+
+
+    # we can overwrite __str__ method that was inherited from Robot class
+    def __str__(self):
+        return f"""Name: {self.name}, 
+Color: {self.color}, 
+Weight: {self.weight}, 
+Height: {self.height}, 
+Speed: {self.speed}, 
+Battery: {self.battery}, 
+X: {self.x}, Y: {self.y}, Z: {self.z}"""
+    
+    
+    # now we can add new methods to our FlyingRobot class
+    def fly(self, x, y, z, battery_use=10):
+        self.x += x
+        self.y += y
+        self.z += z # we have a problem here because Robot class does not have z
+        self.battery -= battery_use
+        return self
+    
+# now let's make a flying robot
+flying_robot = FlyingRobot(name="Flying Robot", z=10)
+# let's print our flying robot
+
+# there is ongoing discussion on inheritance vs composition
+
+# composition is when you use other classes as attributes
+
+# let's make generic legs, arms, head, body, etc classes
+class Legs:
+    def __init__(self, name="Legs", weight=10, height=20, color="brown"):
+        self.name = name
+        self.weight = weight
+        self.height = height
+        self.color = color
+    
+    def __str__(self):
+        return f"Name: {self.name}, Weight: {self.weight}, Height: {self.height}, Color: {self.color}"
+    
+class Arms:
+    def __init__(self, name="Arms", weight=10, height=20, color="brown"):
+        self.name = name
+        self.weight = weight
+        self.height = height
+        self.color = color
+    
+    def __str__(self):
+        return f"Name: {self.name}, Weight: {self.weight}, Height: {self.height}, Color: {self.color}"
+    
+class Head:
+    def __init__(self, name="Head", weight=10, height=20, color="brown"):
+        self.name = name
+        self.weight = weight
+        self.height = height
+        self.color = color
+    
+    def __str__(self):
+        return f"Name: {self.name}, Weight: {self.weight}, Height: {self.height}, Color: {self.color}"
+    
+class Body:
+    def __init__(self, name="Body", weight=10, height=20, color="brown"):
+        self.name = name
+        self.weight = weight
+        self.height = height
+        self.color = color
+    
+    def __str__(self):
+        return f"Name: {self.name}, Weight: {self.weight}, Height: {self.height}, Color: {self.color}"
+    
+# now we can build our HumanoidRobot class
+# it will take Legs, Arms, Head, Body as attributes
+
+class HumanoidRobot:
+    def __init__(self, name="Humanoid Robot", legs=None, arms=None, head=None, body=None):
+        self.name = name
+        self.legs = legs
+        self.arms = arms
+        self.head = head
+        self.body = body
+        
+    def __str__(self):
+        return f"Name {self.name}, Legs: {self.legs}, Arms: {self.arms}, Head: {self.head}, Body: {self.body}"
+    
+# now we can make a humanoid robot
+# first create legs, arms, head, body objects
+legs = Legs()
+arms = Arms()
+head = Head()
+body = Body()
+humanoid_robot = HumanoidRobot(name="Humanoid Robot", legs=legs, arms=arms, head=head, body=body)
+
+print(humanoid_robot)
+
+# let's make a robot with legs, arms, head, body directly
+another_humanoid_robot = HumanoidRobot(name="Robot", legs=Legs(), arms=Arms(), head=Head(), body=Body())
