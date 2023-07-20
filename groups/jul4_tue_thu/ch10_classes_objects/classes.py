@@ -180,6 +180,8 @@ class Robot:
     # it is almost like constructor in other languages
     # we can pass in parameters to __init__ method and then use them to create our object
     # we can also set default values for our parameters - use sane defaults meaning common values
+    # one warning - we should not use mutable objects as default values such as lists or dictionaries!!
+    # we can pass in lists or dictionaries as parameters but we should not use them as default values
 
     # we will use self to refer to the object we are creating
     def __init__(self, 
@@ -192,8 +194,10 @@ class Robot:
                  battery=100,
                  x=0,
                  y=0,
-                 api_key="1234567890"): # we can have as many parameters as we want):
-        print("Starting to create a new Robot")
+                 api_key="1234567890",
+                 debug=True): # we can have as many parameters as we want):
+        if debug:
+            print("Starting to create a new Robot")
         self.name = name
         self.color = color
         self.speed = speed
@@ -210,8 +214,9 @@ class Robot:
         # the concept is called information hiding or encapsulation
         # in other we hide our dirty laundry from outside world
         # technically it is done through process called name mangling - we change the name of the attribute
-        print("Finished creating a new Robot now let's print it")
-        self.print_robot() # we can call other methods from inside our class EVEN before we finish creating the object
+        if debug:
+            print("Finished creating a new Robot now let's print it")
+            self.print_robot() # we can call other methods from inside our class EVEN before we finish creating the object
 
     # let us explore more dunder methods
     # there are about 100 of them
@@ -220,6 +225,29 @@ class Robot:
     # this is a method that is called when we try to print our object
     def __str__(self): # only requirement is that we return some sort of string
         return f"Robot {self.name} is at {self.x}, {self.y} and is facing {self.direction}"
+    
+    # we can also override __repr__ method
+    # this is a method that is called when we try to print our object in a list or other collection
+    def __repr__(self): # only requirement is that we return some sort of string
+        return f"REPR: Robot {self.name} is at {self.x}, {self.y} and is facing {self.direction}"
+    
+    # let's create our own add method
+    # we will use it to add two robots together
+    # we will return a new robot with combined attributes
+    def __add__(self, other_robot):
+        # we will first create new attributes for our new robot
+        new_name = self.name + "_" + other_robot.name
+        new_color = self.color + "_" + other_robot.color
+        new_speed = (self.speed + other_robot.speed) / 2 # make up your own formula
+        new_x = self.x + other_robot.x
+        new_y = self.y + other_robot.y
+        new_weight = self.weight + other_robot.weight
+        # we could do more complex calculations here
+        # we could also add some randomness, for now we use some defaults as well
+        new_robot = Robot(name=new_name, color=new_color, 
+                          speed=new_speed, weight=new_weight,
+                          x=new_x, y=new_y)
+        return new_robot
 
     # let's createa a method to print our robot
     def print_robot(self): # so same syntax as for functions but we have to add self as first parameter
@@ -297,3 +325,160 @@ print(r2d2.get_api_key())
 print(r2d2) # so this is not very useful but shows that we have two different objects in memory
 print(c3po)
 print(c3po.__str__()) # same as above - usually there is no need to call dunder methods directly
+
+# now let's try adding our robots together
+r2c3 = r2d2 + c3po # so this will call our __add__ method
+# same as r2c3 = r2d2.__add__(c3po) # syntactic sugar for the win!
+print(r2c3)
+
+# i could even create a list of robots
+robot_list = [r2d2, c3po, r2c3]
+print(robot_list) # this uses __repr__ method
+for robot in robot_list:
+    print(robot) # this uses our __str__ method
+
+# we could create a big list of robots if we want
+big_robot_list = []
+# let's use random to add randome locations
+import random # usually imported at the top of the file
+
+for i in range(100):
+    random_x = random.randint(-100, 100)
+    random_y = random.randint(-100, 100)
+    random_face = random.choice(["N", "S", "E", "W"]) # random face
+    # good for putting robots on a field somewhere
+    big_robot_list.append(Robot(name=f"Robot_{i}", 
+                                x=random_x,
+                                y=random_y,
+                                direction=random_face,
+                                debug=False)) # i could adjust some parameters here
+
+# let's print our last robot
+print(big_robot_list[-1])
+# let's print first 3 robots
+print(big_robot_list[:3])
+# of course we could have stored our 
+# robots in a dictionary as well by key or id or robot_name if it unique
+
+# now let's talk a  litle bit about inheritance
+# let's make a flying robot class but we will inherit from our Robot class
+# we do not want to repeat all the code from Robot class
+
+# let's create a FlyingRobot class
+class FlyingRobot(Robot): # so we pass in the class we want to inherit from
+    # so we have default constructor from Robot
+    # we have all the methods from robot
+    # let's make a new method for flying
+    # we could add z here
+    # z = 0 # so we have z coordinate fixed for start
+    # better idea would be to override our __init__ method
+    def __init__(self,
+                    name="R2D2",
+                    color="blue",
+                    speed=1,
+                    direction="N",
+                    weight=100,
+                    height=100,
+                    battery=100,
+                    x=0,
+                    y=0,
+                    z=0,
+                    debug=True):
+        # first we should init our own attributes
+        self.z = z 
+        # why first because our parent class might need some of our attributes
+        # we can call the parent class constructor
+        # we can do that using super() method
+        # super() will call the constructor from the parent class
+        super().__init__(name=name, color=color, speed=speed, direction=direction, weight=weight, height=height, battery=battery, x=x, y=y, debug=debug)
+
+        # our own constructor is done here
+
+    def fly(self, delta_x, delta_y, delta_z, battery_drain_factor=0.1):
+        self.x += delta_x
+        self.y += delta_y
+        self.z += delta_z # this will have a problem because we do not have z in our Robot class
+        # let's decrease battery using amount of movement
+        self.battery -= (abs(delta_x) + abs(delta_y) + abs(delta_z)) * battery_drain_factor
+        # the changes are IN PLACE so we do not need to return anything
+        # for convenience we could return the robot anyway
+        return self
+    
+    # let's override our __str__ method to include z
+    def __str__(self): # only requirement is that we return some sort of string
+        return f"Flying Robot {self.name} is at {self.x}, {self.y}, {self.z} and is facing {self.direction}"
+
+    # let's overwrite our print_robot method
+    # but we want to use the print_robot method from Robot class
+    # we can do that by using super() method
+    # super() will call the method from the parent class
+    def print_robot(self): # so same syntax as for functions but we have to add self as first parameter
+        # so self is a reference to the concrete object itself
+        super().print_robot() # this will call the print_robot method from Robot class
+        # print z
+        print(f"Robot {self.name} is at {self.z} meters above ground")
+        return self
+
+# let's create a flying robot
+flying_robot = FlyingRobot(name="Icarus")
+print(flying_robot) # so we can print it
+# let's try to fly
+flying_robot.fly(10, 10, 10).print_robot() # so we can fly
+
+# there is long ongoing discussion between inheritance and composition
+
+# in composition we store objects inside other objects
+
+# let's create a new class called RobotWorld
+class RobotWorld:
+    def __init__(self, name="Robot World", robot_list = (), debug=True):
+        self.name = name
+        self.debug = debug
+        self.robot_list = list(robot_list) # so important that default value is not mutable
+        if self.debug:
+            print(f"Creating a new Robot World called {self.name}")
+    
+    def add_robot(self, robot):
+        if self.debug:
+            print(f"Adding robot {robot.name} to {self.name}")
+        self.robot_list.append(robot)
+        return self
+    
+    def print_robots(self):
+        print(f"Printing robots in {self.name}")
+        for robot in self.robot_list:
+            print(robot)
+        return self
+    
+    def move_robots(self, delta_x, delta_y, delta_z):
+        if self.debug:
+            print(f"Moving robots in {self.name}")
+        for robot in self.robot_list:
+            # check that robot is flying
+            if isinstance(robot, FlyingRobot):
+                robot.fly(delta_x, delta_y, delta_z)
+            elif isinstance(robot, Robot):
+                robot.move_robot(delta_x, delta_y)
+            else:
+                print(f"Unknown robot type {type(robot)}")
+        return self
+    
+
+# let's create a new robot world
+robot_world = RobotWorld(name="Robot World")
+# let's add some robots
+robot_world.add_robot(r2d2)
+robot_world.add_robot(c3po)
+robot_world.add_robot(r2c3)
+robot_world.add_robot(flying_robot)
+
+# let's move our robots
+robot_world.move_robots(10, 10, 10)
+# print our robots
+robot_world.print_robots()
+# of course we can still move individual robots inside our robot world
+robot_world.robot_list[0].move_robot(10, 10) # so this will move r2d2
+robot_world.print_robots()
+
+# another way of using composition would be to build a robot from parts
+# say separate class for head, body, legs, arms, etc
