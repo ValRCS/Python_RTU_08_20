@@ -127,4 +127,148 @@ print(text_again[:50])
 # we could play it again if we rewind it
 # hard drives we have heads to read data - so we can read again
 
+# you will have to determine encoding of file yourself
+# Python supports wide variety of encodings
+# utf-8 is most common
+# full list: https://docs.python.org/3/library/codecs.html#standard-encodings
+
+# let's read text as lines
+# for text line means sequence of characters ending with \n
+# so we can use readlines() method
+
+file_name = frost_files[0]
+print("Opening file:", file_name)
+with open(file_name, mode="r", encoding="utf-8") as f:
+    lines = f.readlines() # line keep \n
+    # file still open
+# here file is closed automatically
+print("File closed:", file_name)
+
+#print first 5 lines
+print(lines[:5])
+
+# we could strip newlines if we want
+stripped_lines = [line.strip() for line in lines] # or rsrtip()
+print(stripped_lines[:5])
+
+# let's keep rows which start with letter H
+# we can use startswith() method
+# we can use list comprehension
+
+h_lines = [line for line in stripped_lines if line.startswith("H")]
+print(h_lines[:5])
+
+# so let's write those lines to a new file
+# we can use write() method or write lines with writelines() method
+
+# let's create a new file
+# new_file_name = "data\\frost_h_lines.txt" # this is windows specific
+# let's use Path instead
+new_file_name = Path("data") / "frost_h_lines.txt" # so Path class overloads / operator
+# print if file exists
+print("File exists:", new_file_name.exists()) # could use if statement to check
+
+print("Creating file:", new_file_name)
+with open(new_file_name, mode="w", encoding="utf-8") as f: # note w mode
+    # in w mode file is overwritten if it exists
+    # file still open
+    f.writelines(h_lines) # no newlines - not what we want most likely
+    # file still open
+    f.write("\n") # add newline	
+    # file still open
+    f.writelines([line + "\n" for line in h_lines]) # add newlines including last line
+    # file still open
+    # lets write some * to separate lines
+    f.write("*" * 50 + "\n")
+    # file still open
+    f.write("\n\n".join(h_lines)) # add two newlines excluding last line
+    # if we want to add newline at the end we need to add it manually
+    # file still open
+# here file is closed automatically
+print("File closed:", new_file_name)
+
+# let's add a timestampt to file name
+# we can use datetime module
+from datetime import datetime
+# let's get current time
+now = datetime.now()
+# let's format it nicely
+now_str = now.strftime("%m_%d_%H_%M") # adjust as needed could add Y and s as well
+# let's create new file name
+new_file_name = Path("data") / f"frost_h_lines_{now_str}.txt"
+print("Creating file:", new_file_name)
+with open(new_file_name, mode="w", encoding="utf-8") as f: # note w mode
+    f.write("\n".join(h_lines)) # add newlines
+
+# let's append to file
+# so appending is adding to the end of file no matter what
+# we can use a mode a
+# let's add some more lines to new_file_name
+with open(new_file_name, mode="a", encoding="utf-8") as f: # note a mode
+    f.write("\n" + "*" * 50 + "\n")
+    # let's add some date and time
+    f.write(now.strftime("%Y-%m-%d %H:%M:%S") + "\n")
+
+# for large files we might want to work with file line by line
+# this will work even on 10TB file as long as each row/line fits in memory
+# we can use for loop
+# let's open first file again
+with open(frost_files[0], mode="r", encoding="utf-8") as f: #mode - r is default, not really needed
+    # now I have a file object f representing stream of bytes
+    for row in f:
+        # add your own logic to process row
+        if row.startswith("H"):
+            print(row.strip()) # without strip we would have 2 newlines
+            # i could add this to some list or dictionary or set
+
+
+# for large files we can also read and write two files at the same time
+
+# let's let's open file_name for reading and new_file_name for writing
+# theortically we could open in dual mode for writing and reading at once
+# but it is not recommended
+# all flags are here: https://docs.python.org/3/library/functions.html#open
+
+# here we use \ to split long line
+with open(file_name, mode="r", encoding="utf-8") as f_in:
+    with open(new_file_name, mode="w", encoding="utf-8") as f_out:
+        # now I have a file object f_in representing stream of bytes incoming
+        # now I have a file object f_out representing stream of bytes outgoing
+        for row in f_in: # here I will iterate over f_in
+            # add your own logic to process row
+            if row.startswith("H"): # add as many conditions as you want
+                f_out.write(row)
+    # here f_out is closed automatically
+    # i could still do someting with f_in but I would need to seek(0) first
+# here f_in is closed automatically
+
+# so opening file in binary format is similar - we use b mode
+
+# let's open first file again
+with open(frost_files[0], mode="rb") as f: #mode - r is default, not really needed
+    # now I have a file object f representing stream of bytes
+    # let's read into memory
+    data = f.read() # read all bytes
+    # file still open
+# here file is closed automatically
+
+# let's look at first 50 bytes
+print(data[:100])
+
+# print xc4 in binary and also decimal
+print(bin(0xc4), int(0xc4))
+# print(bin(0xc4),) # 0b11000100
+# print \x81 in binary
+print(bin(0x81), int(0x81)) # 0b10000001
+# but 'ā' is 257 in utf-8	
+print(chr(257)) # ā
+# so how utf-8 encodes Unicode see: https://www.johndcook.com/blog/2019/09/09/how-utf-8-works/
+# so unicode value is from last 5 bits of first byte and last 6 bits of second byte
+# so 0xc4 0x81 is 0b11000100 0b10000001
+# so 0b00001000 0b00000001
+# let's print int value of (0b00001000 0b00000001)
+print(int(0b100000001)) # 257
+
+
+
 
