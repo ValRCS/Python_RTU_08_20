@@ -33,3 +33,7 @@ class Android(Robot):
     # has everything that Robot has plus what I add here
     def speak(self):
         print("I am a human android")
+
+class Terminator(Robot):
+    def kill(self, name="Sarah Connor"):
+        print("I am killing " + name)
