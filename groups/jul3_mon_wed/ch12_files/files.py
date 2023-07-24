@@ -113,7 +113,7 @@ with open(frost_files[0], mode="r", encoding="utf-8") as f: #mode - r is default
     f.seek(0) # reset file pointer to beginning of file
     # we could have seeked at asome other position as well
     # possibly this could be useful for binary files and some rare encoding issues
-    text_again = f.read() # nothing to read!
+    text_again = f.read() # nothing to read without seek(0)!
     # file still open
 # # here file is closed automatically
 
