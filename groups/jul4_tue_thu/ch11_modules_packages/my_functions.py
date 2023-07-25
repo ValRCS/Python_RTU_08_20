@@ -3,6 +3,9 @@
 def say_hi(name):
     print(f"Hi, I am {name}")
 
+def say_bye(name):
+    print(f"Bye, bye, {name}")
+
 # make utility functions
 def pretty_name(name):
     return name.title().replace("_", " ")

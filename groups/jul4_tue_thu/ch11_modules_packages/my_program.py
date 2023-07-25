@@ -36,3 +36,68 @@ my_functions.say_hi("Valdis")
 print(my_math.Math.add(2, 3))
 print(my_math.Math.sub(2, 3))
 print(my_math.Math.circle_area(10))
+
+# we can import only certain functions from a module
+from my_functions import say_hi, say_bye
+
+say_hi("Valdis")
+say_bye("Valdis")
+
+# so this is convenient but we might have name clashes - 
+# if we had say_hi and/or say_bye defined locally or by some other module
+# then we would have to use my_functions.say_hi() or my_functions.say_bye()
+
+# if i want to keep namespace but make it shorter I can provide an alias
+import my_functions as mf # very common among larger libraries
+# we keep the namespace but we can use shorter name
+
+mf.say_hi("Valdis")
+mf.say_bye("Valdis")
+
+# it goes without saying we only need one approach for each module
+
+# finally we can import specific things from a module with an alias
+from my_functions import say_hi as sh, say_bye as sb # again careful of name clashes
+sh("Valdis")
+sb("Valdis")
+
+# we can import everything from a module DO NOT USE THIS!!
+# from my_functions import * # again careful of name clashes
+# AVOID because it does not truly import everything and also can cause name clashes
+
+# again avoid naming your modules after standard library modules
+# so avoid random.py, sys.py, math.py etc 
+
+# now onto packages
+# what is package in Python?
+# a package is a folder (used to require __init__.py file but not anymore)
+
+# let's import my_mod1 from my_package
+# we could import with a long name
+import my_package.my_mod1
+# then we have to use the long name
+my_package.my_mod1.lets_rock("Valdis")
+# typically we would rename the module
+import my_package.my_mod1 as mm1 # again no need to do it twice in real
+mm1.lets_rock("Valdis")
+
+# importing just the my_package will not work
+
+# of course we can import just the specific function
+from my_package.my_mod1 import lets_rock
+lets_rock("Valdis")
+# and we can even rename it
+from my_package.my_mod1 import lets_rock as lr #not good practice
+lr("Valdis")
+
+# generally we want to rename modules but keep original names for functions,classes
+
+# exception might be something like ET for element tree
+# import xml.etree.ElementTree as ET
+# this is class for parsing XML files from standard library
+# import xml.etree.ElementTree as ET
+
+# so what is a library then?
+# a library is a collection of packages and modules
+# we use the name library but there is no special meaning in Python
+# standard library is a collection of modules and packages that come with Python
