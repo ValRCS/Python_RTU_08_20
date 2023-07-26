@@ -1,0 +1,35 @@
+{
+    "name": "Valdis",
+    "age": 99,
+    "occupation": "Pythonist",
+    "likes": [
+        "snowboarding",
+        "programming",
+        "eating",
+        "šahs"
+    ],
+    "friends": [
+        {
+            "name": "Voldemars",
+            "age": 101,
+            "occupation": "Pythonist",
+            "likes": [
+                "snowboarding",
+                "programming",
+                "eating"
+            ],
+            "is_cool": true
+        },
+        {
+            "name": "Alice",
+            "age": 98,
+            "occupation": "Pythonista",
+            "likes": [
+                "skating",
+                "programming",
+                "eating"
+            ],
+            "favorite_skating_rink": null
+        }
+    ]
+}
