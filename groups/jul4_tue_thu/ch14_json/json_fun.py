@@ -1,0 +1,1 @@
+# Lecture starts at 18:00 )
