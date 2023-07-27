@@ -1,0 +1,1 @@
+{"name": "Valdis", "age": 49, "children": ["R\u016bta", "Maija", "Ed\u012bte"], "isMarried": true, "cars": [{"model": "Tesla X", "year": 2019}, {"model": "Tesla S", "year": 2017}], "friends": [{"name": "Aivars", "age": 49}, {"name": "Aivis", "age": 49}, {"name": "Aigars", "age": 49, "cars": [{"model": "Tesla X", "year": 2019}, {"model": "Tesla 3", "year": 2022}]}]}
