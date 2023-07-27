@@ -1,0 +1,34 @@
+[
+    {
+        "product_name": "Muesli passion fruit",
+        "generic_name": "",
+        "manufacturer": "",
+        "carbohydrates_100g": 69.3,
+        "fat_100g": 2.4,
+        "proteins_100g": 10.7
+    },
+    {
+        "product_name": "Coca Cola Zero",
+        "generic_name": "Boisson rafraîchissante aux extraits végétaux, avec édulcorants",
+        "manufacturer": "0",
+        "carbohydrates_100g": 0,
+        "fat_100g": 0,
+        "proteins_100g": 0
+    },
+    {
+        "product_name": "Pringles Original",
+        "generic_name": "Snack Salé",
+        "manufacturer": 1,
+        "carbohydrates_100g": 56,
+        "fat_100g": 31,
+        "proteins_100g": 5.9
+    },
+    {
+        "product_name": "Spaghetti n.5",
+        "generic_name": "Spaghetti",
+        "manufacturer": "0",
+        "carbohydrates_100g": 71,
+        "fat_100g": 2,
+        "proteins_100g": 13
+    }
+]
