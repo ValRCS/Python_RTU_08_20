@@ -18,3 +18,19 @@ while True:
 # after break we will be here
 print("Whew we should be free now")
 print(f"Counter is {counter}")
+
+# there is so called do while loop i some languages
+# i call it "Shoot first and ask questions later"
+# we do something at least ONCE only then we might possibly leave
+
+i = 8000
+while True:
+    print("Doing something important")
+    print(f"i is {i}")
+    if i > 5:
+        print("Quitting time! i is", i)
+        break
+    i+=1
+    
+# what will i be at the end?
+print("i is", i)
