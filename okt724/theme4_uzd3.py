@@ -12,6 +12,8 @@ while True:
         else:
             print("Cool you entered an integer!", num)
             is_prime = True # hipotēze visi skaitļi ir pirmskaitļi
+            # we do not have to loop until n-1
+            # it is enought to check up to square root of n including this root
             
             for n in range(2, int(num**0.5)+1):
                 if num % n == 0:
