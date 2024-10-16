@@ -37,3 +37,17 @@ for char in text:
         buffer += char # we keep the original
     print("Current", buffer)
 print("Buffer", buffer)
+
+
+# sometimes it is useful to loop through two sequences at once
+food = "Kebabs"
+drink = "Alus"
+# we will have a pair of variables in each iteration of loop
+for f,d in zip(food,drink): # we will loop until one of zipped runs out
+    print(f"f is {f} from {food}")
+    print(f"d is {d} from {drink}")
+    
+# sometimes we need an index of what we are looping
+# then we use enumerate
+for i,c in enumerate(drink):
+    print(f"index {i} is {c} for {drink}")
