@@ -127,3 +127,66 @@ big_result = add(multiply(2,3), add(4,5)) # we can nest functions
 # the inner functions will be evaluated first
 
 print("Big result", big_result)
+
+# often we have some sensible default values but we also want the ability to change them
+
+def order_food_default(food="a pizza"): # we define a default value for the parameter food
+    print("I'm very hungry, let's go eat")
+    print(f"I want to order {food}")
+
+# now I have two ways of calling the function
+order_food_default() # will order a pizza
+# i can order anything else
+order_food_default("a salad")
+
+# defaults should be sensible, meaning something that is often used
+# if I want a healthier lifestyle I could change the default to a salad or something else
+
+# let's make a calculator function with some defaults
+def calculator(a, b=0, operation="add"):
+    if operation == "add":
+        return a + b
+    elif operation == "subtract":
+        return a - b
+    elif operation == "multiply":
+        return a * b
+    elif operation == "divide":
+        # could add a check for division by zero
+        return a / b
+    else:
+        return "Unknown operation"
+    
+# now I can call add by default
+result = calculator(5, 7) # will add 5 and 7 since add is default
+print("Default add", result)
+# i could pass multiply
+result = calculator(5, 7, "multiply")
+print("Multiply", result)
+# since I added default values I can also call the function without them
+result = calculator(5) # will add 5 and 0
+print("Default add", result)
+
+# let's imagine I want to keep b as 0 but use multiply
+# then I pass the operation as a keyword argument
+result = calculator(5, operation="multiply") # will multiply 5 and 0
+
+# remember how we used print with sep and end arguments
+# that is the same idea
+# let's add smiley to end
+print(result, end=" :)\n") # will print the result and then a smiley
+
+# i could make a function with all default arguments
+def print_with_smiley(text="Hello", sep=" ", end=" :)\n"):
+    print(text, sep=sep, end=end)
+# we've just created so called wrapper function
+# wrapper functions are functions that call other functions with some default values
+
+# now I can call the function with nothing
+print_with_smiley() # will print Hello :)
+# i could call it with some or other values
+print_with_smiley("Goodbye", sep=" - ") # will print Goodbye - :)
+
+# one restriction on default values they must come after non-default values
+
+# you are not required to use default values
+# but they make life more pleasant
