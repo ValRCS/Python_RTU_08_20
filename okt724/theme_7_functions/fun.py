@@ -190,3 +190,152 @@ print_with_smiley("Goodbye", sep=" - ") # will print Goodbye - :)
 
 # you are not required to use default values
 # but they make life more pleasant
+
+# returning multiple values
+# how do we return multiple values?
+# we can return a tuple
+# tuple is simply an immutable list
+# we return tuples using , syntax
+
+# return min and max for list
+def min_max(numbers):
+    # of course I could have made a list and returned a list
+    # but tuples are more common for small number of values
+    # tuples are a bit faster than lists since they are immutable
+    return min(numbers), max(numbers)
+
+# let's test the function
+numbers = [5, 7, 3, 9, 2]
+
+# we can immediately unpack the tuple into separate variables
+min_value, max_value = min_max(numbers)
+print("Min value", min_value)
+print("Max value", max_value)
+
+both_values = min_max(numbers)
+print("Both values", both_values) # prints the tuple note the normal parenthesis
+# first value
+print("First value", both_values[0])
+# second value
+print("Second value", both_values[1]) # so similar to list or string indexing
+
+# lets make a function that returns min max and len
+def min_max_len(numbers):
+    return min(numbers), max(numbers), len(numbers)
+
+# we can unpack the tuple into separate variables
+min_value, max_value, length = min_max_len(numbers)
+print("Min value", min_value)
+print("Max value", max_value)
+print("Length", length)
+
+# now let us make our functions friendlier
+
+# we can add docstrings to functions
+# docstrings are a way to document functions
+# they are enclosed in triple quotes
+# let's make a function that returns sum, length and average
+
+def sum_len_avg(numbers):
+    """
+    Returns sum, length and average of the numbers
+
+    Input:
+
+    numbers: list of numbers
+
+    Output:
+
+    triple of sum, length and average
+    sum: sum of the numbers
+    length: number of numbers
+    average: average of the numbers
+    Constraints:
+    numbers should be a list of numbers
+    """
+    sum_numbers = sum(numbers)
+    length = len(numbers)
+    average = sum_numbers / length
+    return sum_numbers, length, average
+
+# let's test the function
+sum_numbers, length, average = sum_len_avg(numbers)
+print("Sum", sum_numbers)
+print("Length", length)
+print("Average", average)
+
+# now how about providing some hints to the user on data types
+# often the Python interpreter will not complain if you pass in wrong data type
+
+# let's make a function that adds two numbers
+# we can provide type hints in the function definition
+def add_ints(a:int, b:int) -> int:
+    """
+    Adds two numbers
+
+    Input:
+
+    a: number
+    b: number
+
+    Output:
+
+    sum of a and b
+    """
+    return a + b
+
+# let's test the function
+result = add_ints(50, 70)
+print("Result", result)
+# how about two floats
+result = add_ints(50.5, 70.5)
+print("Result", result) # will add the floats
+# how about two strings?
+result = add_ints("50", "70") 
+print("Result", result) # will concatenate the strings
+# how about two lists?
+result = add_ints([5,6], [7,8])
+print("Result", result) # will concatenate the lists
+
+# type hints are not used by Python interpreter
+# type hints are used by linting tools
+
+# now let's talk about passing in mutable data types such as lists
+# in Python arguments are passed by object reference
+# for immutable values we basically get a copy
+# for mutable values we have a reference to the original
+
+# let's make a function called mutate a list
+
+def add_something_list(some_list:list, item:any) -> None:
+    """
+    IN PLACE modifier of list
+    """
+    # now we will call append here
+    some_list.append(item) # this will MODIFY the original list!!
+    # we could return this list but we don't need to
+
+# let's test the function
+original_list = [5, 7, 3]
+print("Original list", original_list)
+# let's add 9 to the list
+add_something_list(original_list, 9)
+print("Modified list", original_list)
+
+# we could also make a function that returns a new list without changing the original
+def add_something_list_new(some_list:list, item:any) -> list:
+    """
+    Returns a new list with item added - OUT OF PLACE modifier of list
+    """
+    # we will return a new list
+    new_list = some_list.copy() # we make a copy of the original list
+    new_list.append(item) # we add the item to the new list
+    # we need to return the new list else we lose it
+    return new_list
+
+# let's test the function
+print("Original list", original_list) # we have 9 in the list
+# let's add 11 to the list
+new_list = add_something_list_new(original_list, 11)
+print("Original list", original_list) # original list is unchanged
+print("New list", new_list) # new list has 11 added
