@@ -339,3 +339,42 @@ print("Original list", original_list) # we have 9 in the list
 new_list = add_something_list_new(original_list, 11)
 print("Original list", original_list) # original list is unchanged
 print("New list", new_list) # new list has 11 added
+
+# let's make a function that will take a list or tupleand return sum of its squares
+# return could be int or float
+def sum_squares(numbers:list|tuple) -> int|float:
+    """
+    Returns sum of squares of numbers
+
+    Input:
+
+    numbers: list of numbers
+
+    Output:
+
+    sum of squares
+    """
+    # we will use list comprehension
+    # squares = [x**2 for x in numbers]
+    # return sum(squares)
+    # we could just use a number
+    total = 0
+    for num in numbers:
+        total += num**2
+    return total
+
+# let's test the function on list and tuple
+numbers = [5, 7, 3]
+result = sum_squares(numbers)
+print("List result", result)
+number_tuple = (5, 7, 3.1415926) # parenthesis are optional
+result = sum_squares(number_tuple)
+print("Tuple result", result)
+
+# another question when should tuples be used?
+# tuples are used when you want to return multiple values
+# tuples are for different types of data
+# tuples are for immutable data
+
+# lists are for mutable data
+# lists are for similar data
