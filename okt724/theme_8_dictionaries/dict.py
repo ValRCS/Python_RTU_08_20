@@ -287,3 +287,90 @@ print(tel_dict_alias) # because it was the same dictionary!!
 print("tel_dict_backup after clear:")
 print(tel_dict_backup) # because it was a copy of the original dictionary
 
+# now let's add some values to our dictionary
+# let's just add Alice, Bob, Charlie and David back , Alice and David have same number
+tel_dict.update({"Alice": 123456, "Bob": 654321, "Charlie": 987654, "David": 123456})
+print("Telephone book with Alice, Bob, Charlie and David:")
+print(tel_dict)
+# alias will also have the same values
+print("Telephone book alias:")
+print(tel_dict_alias)
+
+# now let's do a simple reversal of keys and values
+# reversed_tel_dict = {value: key for key, value in tel_dict.items()} # this is dictionary comprehension
+# let's do this with a loop
+reversed_tel_dict = {}
+for key, value in tel_dict.items():
+    reversed_tel_dict[value] = key
+print("Reversed telephone book:")
+print(reversed_tel_dict)
+# now I can use 123456 to see who has that number
+print("Who has number 123456?")
+print(reversed_tel_dict[123456])
+
+# we lost Alice, but we can get her back
+
+# let's make a function to reverse a dictionary but preserve all keys as lists
+def reverse_dict(tel_dict):
+    reversed_dict = {}
+    # we iterate over ALL key-value pairs
+    for key, value in tel_dict.items():
+        if value not in reversed_dict: # value is not yet a key in our reversed dictionary
+            reversed_dict[value] = [key] # we add first key as a list
+        else: # means we already have at least one key with this value
+            reversed_dict[value].append(key)
+    return reversed_dict
+
+# let's test it with our telephone book
+reversed_tel_dict = reverse_dict(tel_dict)
+print("Reversed telephone book:")
+print(reversed_tel_dict)
+
+# now I can use 123456 to see who has that number
+print("Who has number 123456?")
+print(reversed_tel_dict[123456])
+
+# we can also see why I do not particularly like using numbers as keys
+# why?
+# because the remind too much of lists and indexes
+
+# when should numbers be used as keys?
+# when keys are sparse and we need to access them by index
+# it would not make much sense to have a dictionary with keys 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+# a list would be much more appropriate
+
+# one thing of note is that we can use dictionaries as values in dictionaries
+# let's say Valdis has a dictionary of phone numbers - primary, personal, work, home
+# we could have a dictionary with Valdis as key and a dictionary as value
+# let's make a dictionary with dictionaries
+valdis_dict = {"primary": 123456, "personal": 654321, "work": 987654, "home": 111222}
+tel_dict["Valdis"] = valdis_dict
+print("Telephone book with Valdis:")
+print(tel_dict)
+# so how would I get Valdis work number?
+print("Valdis work number is", tel_dict["Valdis"]["work"])
+
+# how could we do this chaining if we are not sure if the keys exist?
+# we could use get method
+# let's try to get Valdis work number
+# if Valdis is not in the dictionary, we will get None
+
+print("Valdis work number is", tel_dict.get("Valdis", {}).get("work")) # note {} is default
+# if Valdis does not have a work number, we will get None
+# if Valdis does not exist in the dictionary, we will also get None
+# we used this trick because None does not have a get method
+# let's try with Pēteris
+print("Pēteris work number is", tel_dict.get("Pēteris", {}).get("work")) # this will be None
+
+# one last thing is to be a bit careful when changing size of dictionary while iterating over it
+
+# you should iterate over a copy of the dictionary then
+# let's say we want to remove all entries with number 123456
+# we could do this with a loop
+for key, value in tel_dict.copy().items(): # we iterate over a copy of the dictionary
+    if value == 123456:
+        del tel_dict[key] # we remove the key-value pair
+
+print("Telephone book without 123456:")
+print(tel_dict)
+
