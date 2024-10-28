@@ -257,3 +257,33 @@ print("Finding users with first name Valdis:")
 valdis_users = get_first_name_users(tel_dict, "Valdis")
 print(valdis_users)
 
+# best dictionaries have same type of keys and same type of values
+# but Python does not enforce this
+# at this moment I have strings, and tuple with strings as keys
+# and values are all numbers - value could have been anything
+
+# let's make an alias for our dictionary
+tel_dict_alias = tel_dict # this will not create a new dictionary, but just another reference to the same dictionary
+# if I change tel_dict, tel_dict_alias will also change
+
+# let's make a backup of our dictionary
+tel_dict_backup = tel_dict.copy() # this will create a new dictionary with same key-value pairs
+
+# let's compare contents of our dictionaries
+print("Do tel_dict and tel_dict_alias have same content?", tel_dict == tel_dict_alias) # this will be True
+print("Do tel_dict and tel_dict_backup have same content?", tel_dict == tel_dict_backup) # this will be True
+print("Are tel_dict and tel_dict_alias the same object?", tel_dict is tel_dict_alias) # this will be True
+print("Are tel_dict and tel_dict_backup the same object?", tel_dict is tel_dict_backup) # this will be False
+
+# now I can use clear method to empty the dictionary
+tel_dict.clear() # this will remove all key-value pairs from the dictionary
+print("tel_dict after clear:")
+print(tel_dict)
+# tel_dict_alias will also be cleared
+print("tel_dict_alias after clear:")
+print(tel_dict_alias) # because it was the same dictionary!!
+
+# our backup is not affected
+print("tel_dict_backup after clear:")
+print(tel_dict_backup) # because it was a copy of the original dictionary
+
