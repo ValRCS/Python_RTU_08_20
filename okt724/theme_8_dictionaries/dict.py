@@ -218,4 +218,42 @@ print(tel_dict)
 tel_dict.setdefault("Līga", 654321) # this will not change the value for Līga
 print("Telephone book with Līga:")
 print(tel_dict)
+# if we have multiple Līgas as keys we simply use more specific key
+
+key = "Līga S."
+tel_dict.setdefault(key, 654321) # this will add Līga S. to the dictionary
+print("Telephone book with Līga S.:")
+print(tel_dict)
+# even better would be to use tuples as keys
+# let's say we have Valdis Saulespurēns
+# we could use ("Valdis", "Saulespurēns") as key
+# we have Valdis Dombrovskis
+# we have Valdis Zatlers
+
+# let's add them
+tel_dict[("Valdis", "Saulespurēns")] = 123456
+# so we use a tuple of strings as key
+# this is a very powerful feature of dictionaries
+# we can use tuples as keys
+# let's add Dombrovskis and Zatlers first
+tel_dict[("Valdis", "Dombrovskis")] = 654321
+tel_dict[("Valdis", "Zatlers")] = 987654
+print("Telephone book with Valdis Saulespurēns, Dombrovskis and Zatlers:")
+print(tel_dict)
+
+# how would I find all users that have Valdis as first name?
+# we could loop over all keys and check if the key is a tuple and if the first element is Valdis
+# let's write a function
+def get_first_name_users(tel_dict, first_name):
+    result_dict = {} # I create a new dictionary
+    for key, value in tel_dict.items():
+        # key could be tuple, could be string could be anything hashable
+        if isinstance(key, tuple) and key[0] == first_name:
+            result_dict[key] = value
+    return result_dict
+
+# let's test the function
+print("Finding users with first name Valdis:")
+valdis_users = get_first_name_users(tel_dict, "Valdis")
+print(valdis_users)
 
