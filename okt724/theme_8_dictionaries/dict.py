@@ -370,6 +370,7 @@ print("Pēteris work number is", tel_dict.get("Pēteris", {}).get("work")) # thi
 for key, value in tel_dict.copy().items(): # we iterate over a copy of the dictionary
     if value == 123456:
         del tel_dict[key] # we remove the key-value pair
+        # same goes for adding new key-value pairs here
 
 print("Telephone book without 123456:")
 print(tel_dict)
