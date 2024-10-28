@@ -93,3 +93,129 @@ print("Eve's number is", tel_dict.get("Eve")) # this will return 999999
 print("eve's number is", tel_dict.get("eve")) # this will return None
 # we can also specify a default value
 print("eve's number is", tel_dict.get("eve", "No number")) # this will return "No number"
+
+# first let's see how we can iterate over a dictionary
+# we can iterate over keys
+print("Iterating over keys:")
+for key in tel_dict:
+    print("Key:", key, "Value:", tel_dict[key]) # no need for get here, we know the key is in the dictionary
+    # i could use get but no need in this case
+
+# we can iterate over values - this is less common
+print("Iterating over values:")
+for value in tel_dict.values():
+    print("Value:", value) # we have no idea what the key is, but we have the value
+
+# more common is both key and value
+print("Iterating over key-value pairs:")
+for key, value in tel_dict.items():
+    print("Key:", key, "Value:", value, tel_dict[key]) # we have both key and value
+    # tel_dict[key] is not needed, but just to show that we can use key to get value
+
+# let's get rid of George
+print(f"Length of tel_dict before removing George is {len(tel_dict)}")
+del tel_dict["George"] # this will remove George from the dictionary
+print(f"Length of tel_dict after removing George is {len(tel_dict)}")
+# removal is also very fast (O(1)) on large dictionaries
+# if i try again to remove George, I will get a KeyError
+try:
+    del tel_dict["George"]
+except KeyError as e:
+    print("KeyError:", e)
+
+# instead of del we could use pop method
+# pop will return the value and remove the key-value pair
+popped_value = tel_dict.pop("Eve") # this will remove Eve from the dictionary
+print("Eve is removed from the dictionary")
+print("Popped value is", popped_value)
+# if I try to pop Eve again, I will get a KeyError
+try:
+    popped_value = tel_dict.pop("Eve") # will raise a KeyError
+except KeyError as e:
+    print("KeyError:", e)
+
+# print dictionary after popping Eve
+print("Telephone book after popping Eve:")
+print(tel_dict)
+
+# let's add Eve with same number as Alice
+tel_dict["Eve"] = 123456
+print("Telephone book with Eve:")
+print(tel_dict)
+
+# we can add multiple key-value pairs at once with update method
+tel_dict.update({"Frank": 111, "Grace": 222}) # we use a dictionary as argument
+print("Telephone book with Frank and Grace:")
+print(tel_dict)
+
+# we could store the dictionary first
+new_numbers = {"Helen": 123456, "Ivars": 444, "Janis": 555}
+tel_dict.update(new_numbers) # note update is IN-PLACE operation modifies the dictionary tel_dict
+print("Telephone book with Helen and Ivars:")
+print(tel_dict)
+
+# let's find out who has number 123456
+# we could loop over the dictionary
+for key, value in tel_dict.items(): # we have to go through all key-value pairs could be slow on large dictionaries
+    if value == 123456:
+        print(f"{key} has number 123456")
+
+# let's generalize this with a function
+# let the function return a new dictionary with names as keys and numbers as values
+
+def get_number_dict(tel_dict, number): # number could be called needle in general
+    result_dict = {} # I create a new dictionary
+    for key, value in tel_dict.items():
+        if value == number:
+            result_dict[key] = value
+    return result_dict
+
+# let's test the function
+print("Finding number 123456:")
+tel_dict_123456 = get_number_dict(tel_dict, 123456)
+print(tel_dict_123456)
+
+# we could also create a function to return a list of names
+# since we know the number is unique, we can return a list of names
+def get_names_list(tel_dict, number):
+    result_list = [] # I create a new list
+    for key, value in tel_dict.items():
+        if value == number:
+            result_list.append(key)
+    return result_list
+
+# let's test the function
+callers_123456 = get_names_list(tel_dict, 123456)
+print("Callers with number 123456:")
+print(callers_123456)
+
+# i could extract these names (since those are keys) from dictionary
+callers_123456_names = list(tel_dict_123456.keys())
+print("Callers with number 123456:")
+print(callers_123456_names)
+# of course I could get the values as well
+callers_123456_numbers = list(tel_dict_123456.values())
+print("Callers with number 123456:") # all of these will be the same
+print(callers_123456_numbers)
+
+# let's try adding some values to the dictionary but only if the key does not exist
+
+# we could check first if the key is in the dictionary
+if "Kārlis" not in tel_dict:
+    tel_dict["Kārlis"] = 123456
+else:
+    print("Kārlis is already in the dictionary")
+
+print("Telephone book with Kārlis:")
+print(tel_dict)
+
+# we could also use setdefault method
+# setdefault will only set value for key if the key is not in the dictionary
+tel_dict.setdefault("Līga", 123456) # this will add Līga to the dictionary
+print("Telephone book with Līga:")
+print(tel_dict)
+# trying it with different number
+tel_dict.setdefault("Līga", 654321) # this will not change the value for Līga
+print("Telephone book with Līga:")
+print(tel_dict)
+
