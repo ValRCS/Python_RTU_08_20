@@ -10,7 +10,7 @@ class Animal:
                  age=1, 
                  weight=1, 
                  color="Black", 
-                 food="Cookies", 
+                 foods=("Cookies","Milk"), # do not pass a list as a default value! use tuple instead 
                  sound="hmmmm", 
                  species="alien",
                  secret="I am an alien"):
@@ -18,7 +18,7 @@ class Animal:
         self.age = age
         self.weight = weight
         self.color = color
-        self.food = food
+        self.foods = list(foods) # i will convert tuple to list so we can add more foods
         self.sound = sound
         self.species = species
         # in OOP we have the concept of private properties
@@ -48,7 +48,7 @@ class Animal:
         # we will create a new color
         new_color = self.color + other.color
         # we will create a new food
-        new_food = self.food, other.food
+        new_food = self.foods + other.foods
         # we will create a new sound
         new_sound = self.sound + other.sound
         # we will create a new weight
@@ -59,6 +59,11 @@ class Animal:
         new_animal = Animal(new_name, new_age, new_weight, new_color, new_food, new_sound, new_species)
         return new_animal
 
+    def print_foods(self):
+        for food in self.foods:
+            print(food)
+        return self # so we can chain multiple methods
+    
     # let's create a method that will print the sound of the animal	
     def make_sound(self):
         # note how self is used to access the properties of the object
@@ -137,7 +142,7 @@ horse = Animal(name="Zirgs",
                age=7, 
                weight=200, 
                color="Brown", 
-               food="Grass", 
+               foods=("Grass",),  # single element tuple
                sound="neigh", 
                species="Horse")
 
@@ -211,8 +216,10 @@ class Dog(Animal):
         return self
     
 # let's make another Dog - we still have to pass vau and Dog to the constructor
-rex = Dog("Rex", 10, 20, "Black", "Meat")
+rex = Dog("Rex", 10, 20, "Black", ("Meat", "Bones"))
 # print secret, ALL methods are inherited from Animal
 print(rex.get_secret()) # I am a dog
 # let's make Rex bark
 rex.bark() # Rex says vau vau vau - this is unique to Dog, Animal doesn't have this method
+
+rex.print_foods()
