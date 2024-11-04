@@ -63,3 +63,45 @@ mana_dziesma.sing().yell(2)
 rudens = Song("Rudens","Prāta vētra",["Rudens kā rudens","Biezie un gājputni laižas uz Nīlu","Pēkšņi man likās","Tu esi mans draugs un es tevi","Mazliet mīlu"])
 rudens.sing()
 rudens.yell()
+
+# 1.B
+# Tie kas jūtas komfortabli, uztaisiet Rap klasi kas manto no Song
+# Papildu metode break_it ar diviem noklusētiem parametriem max_lines un drop vienādu ar "yeah", kura līdzīga sing, bet pievienot drop aiz katra vārda...
+# zrap = Rap("Ziemeļmeita", "Jumprava", ["Gāju meklēt ziemeļmeitu","
+# Garu, tālu ceļu veicu"])
+# zrap.break_it(1, "yah")
+# Ziemeļmeita - Jumprava
+# Gāju YAH meklēt YAH ziemeļmeitu YAH
+ 
+class Rap(Song):
+    # so we need to create our own __init__ method if we want to add some initialization
+    # otherwise we can use the one from the parent class
+    # def __init__(self, title: str = '', author: str = '', lyrics: tuple = tuple()):
+    #     print("Rap init")
+    #     super().__init__(title, author, lyrics)
+    #     # we could add our own Rap related initialization here
+    #     print("Rap init done")
+ 
+    def break_it(self, max_lines: int = -1, drop: str = 'yeah'):
+        # if not (self.author == '') or not(self.title == ''):
+        #     print(f'{self.author} - {self.title}')
+        self._print_info() # we can use the parent class method
+            
+        if max_lines == -1:
+            for line in self.lyrics:
+                # line_mod = ''
+                tokens = line.split()
+                # for word in tokens:
+                #     line_mod += word + " " + drop + " "
+                # tokens = " ".join([f"{word} {drop}" for word in tokens]) # alternative
+                line_mod = f" {drop} ".join(tokens) + f" {drop}" # 3rd alternative
+                print(line_mod)
+        else:
+            for i in range(max_lines):
+                print(self.lyrics[i])
+        return self
+    
+ 
+rap = Rap("Ziemeļmeita", "Jumprava", ["Gāju meklēt ziemeļmeitu","Garu, tālu ceļu veicu"])
+rap.break_it()
+rap.break_it(drop="YO")
