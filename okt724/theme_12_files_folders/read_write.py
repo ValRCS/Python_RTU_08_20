@@ -167,12 +167,49 @@ with open(new_file_name, mode='w', encoding='utf-8') as file:
 # we will write to frost_and.txt
 
 # open both files
-with open('frost_filtered.txt', encoding='utf-8') as read_file, open('frost_and.txt', mode='w', encoding='utf-8') as write_file:
-    # write the lines that start with And
-    # we loop/iterate over each line in read_file, without reading it all into memory
-    for line in read_file: # we read the rows as we go
-        if line.startswith('And'): # we could have used some fancy regex here as well
-            write_file.write(line) # similarly we write line by line as we go
+# with open('frost_filtered.txt', encoding='utf-8') as read_file, open('frost_and.txt', mode='w', encoding='utf-8') as write_file:
+# instead of using , we could use nested with statements
+with open('frost_filtered.txt', encoding='utf-8') as read_file:
+    with open('frost_and.txt', mode='w', encoding='utf-8') as write_file:
+        # rememer w will overwrite the file if it exists!!
+        # write the lines that start with And
+        # we loop/iterate over each line in read_file, without reading it all into memory
+        for line in read_file: # we read the rows as we go
+            if line.startswith('And'): # we could have used some fancy regex here as well
+                write_file.write(line) # similarly we write line by line as we go
 
 # above recipe will work on even very large files
 # the files do not have to fit into memory!! could be TB files
+
+# let's append some information to frost_and.txt file
+# let's append simple timestamp
+from datetime import datetime
+timestamp = datetime.now().isoformat() # iso format is a standard format
+print(f"timestamp: {timestamp}")
+# let's use Latvian locale and format
+# we use strftime method to format time as we see fit
+# %d - day of the month
+# %m - month
+# %Y - year
+# %H - hour
+# %M - minute
+# %S - second
+timestamp_latvian = datetime.now().strftime('%d.%m.%Y %H:%M:%S')
+print(f"timestamp_latvian: {timestamp_latvian}")
+# append both to frost_and.txt
+# note use of mode='a' flag!
+with open('frost_and.txt', mode='a', encoding='utf-8') as file:
+    # i could use print function with file parameter
+    # print is a bit slower but more convenient
+    print("\n" + "*"*20, file=file) # print to file
+    # we added a new line and some stars
+    # file.write is a bit faster 
+    file.write(f"timestamp: {timestamp}\n")
+    file.write(f"timestamp_latvian: {timestamp_latvian}\n")
+
+# when we work with files we can either overwrite file or append at the end
+# we can not put data in the middle of the file or in beginning
+
+# if we need to do so, we simply read whole file in memory 
+# make adjustments
+# and then write it back
