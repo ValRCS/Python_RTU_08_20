@@ -34,7 +34,7 @@ class MyPet:
 # also it could be used for testing purposes
 
 # so lets do a bit of testing
-
+# main guard
 if __name__ == '__main__':
     print("My module is being run as a program!")
     print(my_favorite_foods) # ['pizza', 'pasta', 'sushi', 'ramen', 'tacos']
