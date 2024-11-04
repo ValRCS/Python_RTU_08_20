@@ -18,15 +18,15 @@ import my_module # now I can use the functions and variables from my_module
 # naming modules try to avoid conflicts with standard library modules
 # https://docs.python.org/3/library/index.html
 
-# now let's use the functions and variables from my_module
-print(my_module.my_favorite_foods) # ['pizza', 'pasta', 'sushi', 'ramen', 'tacos']
-# so we use my_module namespace to access the variables and functions in my_module
+# # now let's use the functions and variables from my_module
+# print(my_module.my_favorite_foods) # ['pizza', 'pasta', 'sushi', 'ramen', 'tacos']
+# # so we use my_module namespace to access the variables and functions in my_module
 
-# i can define some shopping list
-shopping_list = ['milk', 'eggs', 'bread', 'cheese', 'butter']
-# i can use the function from my_module to print my shopping list
-my_module.print_fav_foods(shopping_list)
+# # i can define some shopping list
+# shopping_list = ['milk', 'eggs', 'bread', 'cheese', 'butter']
+# # i can use the function from my_module to print my shopping list
+# my_module.print_fav_foods(shopping_list)
 
-# i can use MyPet class from my_module
-my_pet = my_module.MyPet('Winnie', 'cat')
-print(my_pet) # Winnie is a cat
+# # i can use MyPet class from my_module
+# my_pet = my_module.MyPet('Winnie', 'cat')
+# print(my_pet) # Winnie is a cat
