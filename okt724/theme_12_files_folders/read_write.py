@@ -157,3 +157,22 @@ with open(new_file_name, mode='w', encoding='utf-8') as file:
     # write the lines back to the file
     for line in lines_starting_without_number:
         file.write(line) # so we write line by line, not optimal but simple
+
+
+# now let's look at how we could open two files simultaneously
+# one for reading and one for writing
+# we could use two with statements
+# or we could use a comma
+# we will take filtered_frost.txt and write back only those lines that start with And
+# we will write to frost_and.txt
+
+# open both files
+with open('frost_filtered.txt', encoding='utf-8') as read_file, open('frost_and.txt', mode='w', encoding='utf-8') as write_file:
+    # write the lines that start with And
+    # we loop/iterate over each line in read_file, without reading it all into memory
+    for line in read_file: # we read the rows as we go
+        if line.startswith('And'): # we could have used some fancy regex here as well
+            write_file.write(line) # similarly we write line by line as we go
+
+# above recipe will work on even very large files
+# the files do not have to fit into memory!! could be TB files
