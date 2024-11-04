@@ -1,3 +1,5 @@
+from pathlib import Path
+
 def count_lines_in_file(file_path, encoding='utf-8'):
     try:
         with open(file_path, 'r', encoding=encoding) as file:
@@ -21,3 +23,86 @@ def count_lines_in_file(file_path, encoding='utf-8'):
 file_path = 'veidenbaums.txt'
 file_len = count_lines_in_file(file_path)
 print(f"Number of lines in {file_path}: {file_len}")
+
+# 1b -> uzrakstam funkciju get_poem_lines(fpath), kas atgriež list ar tikai tām rindiņām kurās ir dzeja.
+def get_poem_lines(fpath, encoding="utf-8") -> list:
+    with open(fpath, encoding=encoding) as file:
+        # lines = file.readlines()
+        # non_empty_lines = []
+        # #for line in lines:
+        #    # if line.strip(): # if line is not empty after stripping whitespace
+        #         #non_empty_lines.append(line)
+        # [non_empty_lines.append(line) for line in lines if line.strip()]
+        # lines_without_title = []
+        # [lines_without_title.append(line) for line in non_empty_lines if "***" not in line]
+        # let's rewrite it work on any size file
+        non_empty_lines = []
+        for line in file:
+            # if not line.strip():
+            #     continue # meaning we had a empty line so no need to do anything else and get next line
+            # # here we know we have an non empty line guaranteed!
+            # if "***" not in line: # we could have used stronger check here like endswith after stripping
+            #     non_empty_lines.append(line)
+            # alternative is to check both conditions in one if
+            if line.strip() and "***" not in line: # if after strip is False no need to check second condition
+                non_empty_lines.append(line)
+        return non_empty_lines
+    
+# let's test it on veidenbaums.txt
+poem_lines = get_poem_lines(file_path)
+# how many
+print(f"Number of poem lines in {file_path}: {len(poem_lines)}")
+
+# 1c -> uzrakstam funkciju save_lines(destpath, lines)
+def save_lines(destpath, lines, encoding="utf-8"):
+    """
+    Saves lines to a file at destpath.
+    :param destpath: str, destination file path
+    :param lines: list, lines to save, lines should have new line characters at the end!
+    :param encoding: str, encoding to use
+    :return: None
+    """
+    with open(destpath, mode='w', encoding=encoding) as file:
+        # for line in lines:
+        #     file.write(line)
+        # faster would be
+        file.writelines(lines)
+
+# let's test it
+# we already have poem_lines from previous task
+# destpath = 'veidenbaums_poem.txt'
+# save_lines(destpath, poem_lines)
+
+# now we can combine all three functions in one call
+# let's read veidenbaums.txt, get only poem lines and save them to veidenbaums_poem.txt
+src = 'veidenbaums.txt'
+dst = 'veidenbaums_poem.txt'
+save_lines(dst, get_poem_lines(src))
+
+# let's create a small function that takes a file name and adds date to it before extension
+def get_file_name_with_date(file_name: str|Path, date=None):
+    """
+    Adds date to file name before extension.
+    :param file_name: str, file name
+    :param date: str, date to add, if None then current date is used
+    :return: str, new file name
+    """
+    if date is None:
+        from datetime import datetime
+        date = datetime.now().strftime("%Y_%m_%d")
+    # this is hand rolled way to split file name and extension
+    # parts = file_name.split('.') # assumes we have only one dot in file name
+    # let's use Path from pathlib to do it for us
+    # from pathlib import Path # if we do not have it imported yet
+    path = Path(file_name)
+    stem = path.stem # file name without extension
+    ext = path.suffix # extension with dot!
+    return f"{stem}_{date}{ext}" 
+
+# let's test it
+file_name = 'veidenbaums_poem.txt'
+new_file_name = get_file_name_with_date(file_name)
+print(new_file_name)
+
+# now let's save it with new name
+save_lines(new_file_name, get_poem_lines(src))
