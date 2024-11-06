@@ -1,4 +1,8 @@
 from pathlib import Path
+import string # providees some useful constants like string.punctuation
+from collections import Counter
+print(f"String punctuation: {string.punctuation}")
+
 
 def count_lines_in_file(file_path, encoding='utf-8'):
     try:
@@ -76,7 +80,7 @@ def save_lines(destpath, lines, encoding="utf-8"):
 # now we can combine all three functions in one call
 # let's read veidenbaums.txt, get only poem lines and save them to veidenbaums_poem.txt
 src = 'veidenbaums.txt'
-dst = 'veidenbaums_poem.txt'
+dst = 'veidenbaums_poems.txt'
 save_lines(dst, get_poem_lines(src))
 
 # let's create a small function that takes a file name and adds date to it before extension
@@ -100,9 +104,48 @@ def get_file_name_with_date(file_name: str|Path, date=None):
     return f"{stem}_{date}{ext}" 
 
 # let's test it
-file_name = 'veidenbaums_poem.txt'
+file_name = 'veidenbaums_poems.txt'
 new_file_name = get_file_name_with_date(file_name)
 print(new_file_name)
 
 # now let's save it with new name
 save_lines(new_file_name, get_poem_lines(src))
+
+# 1e -> uzrakstam funkciju clean_punkts(srcpath,destpath)
+def clean_punkts(srcpath, destpath, bad_chars = string.punctuation, encoding='utf-8'):
+    with open(srcpath, encoding=encoding) as read_file:
+        with open(destpath, mode='w', encoding=encoding) as write_file:
+            for line in read_file:
+                for c in bad_chars:
+                    line = line.replace(c,"")
+                write_file.write(line)
+ 
+chars_to_remove = string.punctuation + "„”…" # we can add more characters to remove
+
+clean_punkts('veidenbaums_poems.txt','veidenbaums_clean.txt', bad_chars=chars_to_remove)
+
+# 1f -> uzrakstam funkciju get_word_usage(srcpath, destpath)
+# funkcija atver failu un atrod biežāk lietotos vārdus
+def get_word_usage(srcpath, destpath, encoding='utf-8'):
+    words_list = []
+    # with open(srcpath, encoding=encoding) as read_file:
+    #     with open(destpath, mode='w', encoding=encoding) as write_file:
+    #         for line in read_file:
+    #             words_list.extend(line.lower().split())
+ 
+    #         word_counter = Counter(words_list)
+    #         write_file.write(str(word_counter))
+    # since we are going to be reading all into memory anyway we can do it in one go
+    with open(srcpath, encoding=encoding) as read_file:
+        words_list = read_file.read().lower().split() # newline is also whitespace so we are good
+    word_counter = Counter(words_list)
+    # let's write it to file
+    with open(destpath, mode='w', encoding=encoding) as write_file:
+        # header first
+        write_file.write("Word,Count\n")
+        for word, count in word_counter.most_common():
+            write_file.write(f"{word},{count}\n")
+        # in effect we've written a CSV
+        # CSV has not strict format but usually it is comma separated values
+ 
+get_word_usage('veidenbaums_clean.txt','veidenbaums_word_count.csv')
