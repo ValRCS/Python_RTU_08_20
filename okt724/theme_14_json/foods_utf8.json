@@ -1,0 +1,22 @@
+[
+    {
+        "name": "pizza",
+        "type": "Italian",
+        "price": 10.99
+    },
+    {
+        "name": "sushi",
+        "type": "Japanese",
+        "price": 18.99
+    },
+    {
+        "name": "cheeseburger",
+        "type": "American",
+        "price": 8.99
+    },
+    {
+        "name": "kartupeļi",
+        "type": "Latvian",
+        "price": 3.99
+    }
+]
