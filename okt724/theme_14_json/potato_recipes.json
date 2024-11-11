@@ -1,0 +1,132 @@
+[
+    {
+        "id": 13,
+        "name": "Aloo Keema",
+        "ingredients": [
+            "Ground beef",
+            "Potatoes, peeled and diced",
+            "Onions, finely chopped",
+            "Tomatoes, chopped",
+            "Ginger-garlic paste",
+            "Cumin powder",
+            "Coriander powder",
+            "Turmeric powder",
+            "Red chili powder",
+            "Cooking oil",
+            "Fresh coriander leaves",
+            "Salt to taste"
+        ],
+        "instructions": [
+            "In a pan, heat cooking oil and sauté chopped onions until golden brown.",
+            "Add ginger-garlic paste and sauté until fragrant.",
+            "Add ground beef and cook until browned. Drain excess oil if needed.",
+            "Add diced potatoes, chopped tomatoes, and spices. Mix well.",
+            "Cover and simmer until the potatoes are tender and the masala is well-cooked.",
+            "Garnish with fresh coriander leaves and serve hot with naan or rice."
+        ],
+        "prepTimeMinutes": 25,
+        "cookTimeMinutes": 35,
+        "servings": 5,
+        "difficulty": "Medium",
+        "cuisine": "Pakistani",
+        "caloriesPerServing": 380,
+        "tags": [
+            "Keema",
+            "Potatoes",
+            "Main course",
+            "Pakistani",
+            "Asian"
+        ],
+        "userId": 152,
+        "image": "https://cdn.dummyjson.com/recipe-images/13.webp",
+        "rating": 4.6,
+        "reviewCount": 53,
+        "mealType": [
+            "Lunch",
+            "Dinner"
+        ]
+    },
+    {
+        "id": 27,
+        "name": "Russian Borscht",
+        "ingredients": [
+            "Beets, peeled and shredded",
+            "Cabbage, shredded",
+            "Potatoes, diced",
+            "Onions, finely chopped",
+            "Carrots, grated",
+            "Tomato paste",
+            "Beef or vegetable broth",
+            "Garlic, minced",
+            "Bay leaves",
+            "Sour cream for serving"
+        ],
+        "instructions": [
+            "In a pot, sauté chopped onions and garlic until softened.",
+            "Add shredded beets, cabbage, diced potatoes, grated carrots, and tomato paste.",
+            "Pour in broth and add bay leaves. Simmer until vegetables are tender.",
+            "Serve hot with a dollop of sour cream on top.",
+            "Enjoy the hearty and comforting flavors of Russian Borscht!"
+        ],
+        "prepTimeMinutes": 30,
+        "cookTimeMinutes": 40,
+        "servings": 6,
+        "difficulty": "Medium",
+        "cuisine": "Russian",
+        "caloriesPerServing": 220,
+        "tags": [
+            "Borscht",
+            "Russian",
+            "Soup"
+        ],
+        "userId": 1,
+        "image": "https://cdn.dummyjson.com/recipe-images/27.webp",
+        "rating": 4.3,
+        "reviewCount": 39,
+        "mealType": [
+            "Dinner"
+        ]
+    },
+    {
+        "id": 28,
+        "name": "South Indian Masala Dosa",
+        "ingredients": [
+            "Dosa batter (fermented rice and urad dal batter)",
+            "Potatoes, boiled and mashed",
+            "Onions, finely chopped",
+            "Mustard seeds",
+            "Cumin seeds",
+            "Curry leaves",
+            "Turmeric powder",
+            "Green chilies, chopped",
+            "Ghee",
+            "Coconut chutney for serving"
+        ],
+        "instructions": [
+            "In a pan, heat ghee and add mustard seeds, cumin seeds, and curry leaves.",
+            "Add chopped onions, green chilies, and turmeric powder. Sauté until onions are golden brown.",
+            "Mix in boiled and mashed potatoes. Cook until well combined and seasoned.",
+            "Spread dosa batter on a hot griddle to make thin pancakes.",
+            "Place a spoonful of the potato mixture in the center, fold, and serve hot.",
+            "Pair with coconut chutney for a delicious South Indian meal."
+        ],
+        "prepTimeMinutes": 40,
+        "cookTimeMinutes": 20,
+        "servings": 4,
+        "difficulty": "Medium",
+        "cuisine": "Indian",
+        "caloriesPerServing": 320,
+        "tags": [
+            "Dosa",
+            "Indian",
+            "Asian"
+        ],
+        "userId": 138,
+        "image": "https://cdn.dummyjson.com/recipe-images/28.webp",
+        "rating": 4.4,
+        "reviewCount": 96,
+        "mealType": [
+            "Breakfast"
+        ]
+    }
+]

@@ -1,0 +1,87 @@
+[
+    {
+        "id": 16,
+        "name": "Japanese Ramen Soup",
+        "ingredients": [
+            "Ramen noodles",
+            "Chicken broth",
+            "Soy sauce",
+            "Mirin",
+            "Sesame oil",
+            "Shiitake mushrooms, sliced",
+            "Bok choy, chopped",
+            "Green onions, sliced",
+            "Soft-boiled eggs",
+            "Grilled chicken slices",
+            "Norwegian seaweed (nori)"
+        ],
+        "instructions": [
+            "Cook ramen noodles according to package instructions and set aside.",
+            "In a pot, combine chicken broth, soy sauce, mirin, and sesame oil. Bring to a simmer.",
+            "Add sliced shiitake mushrooms and chopped bok choy. Cook until vegetables are tender.",
+            "Divide the cooked noodles into serving bowls and ladle the hot broth over them.",
+            "Top with green onions, soft-boiled eggs, grilled chicken slices, and nori.",
+            "Serve hot and enjoy the authentic Japanese ramen!"
+        ],
+        "prepTimeMinutes": 20,
+        "cookTimeMinutes": 25,
+        "servings": 2,
+        "difficulty": "Medium",
+        "cuisine": "Japanese",
+        "caloriesPerServing": 480,
+        "tags": [
+            "Ramen",
+            "Japanese",
+            "Soup",
+            "Asian"
+        ],
+        "userId": 85,
+        "image": "https://cdn.dummyjson.com/recipe-images/16.webp",
+        "rating": 4.9,
+        "reviewCount": 38,
+        "mealType": [
+            "Dinner"
+        ]
+    },
+    {
+        "id": 27,
+        "name": "Russian Borscht",
+        "ingredients": [
+            "Beets, peeled and shredded",
+            "Cabbage, shredded",
+            "Potatoes, diced",
+            "Onions, finely chopped",
+            "Carrots, grated",
+            "Tomato paste",
+            "Beef or vegetable broth",
+            "Garlic, minced",
+            "Bay leaves",
+            "Sour cream for serving"
+        ],
+        "instructions": [
+            "In a pot, sauté chopped onions and garlic until softened.",
+            "Add shredded beets, cabbage, diced potatoes, grated carrots, and tomato paste.",
+            "Pour in broth and add bay leaves. Simmer until vegetables are tender.",
+            "Serve hot with a dollop of sour cream on top.",
+            "Enjoy the hearty and comforting flavors of Russian Borscht!"
+        ],
+        "prepTimeMinutes": 30,
+        "cookTimeMinutes": 40,
+        "servings": 6,
+        "difficulty": "Medium",
+        "cuisine": "Russian",
+        "caloriesPerServing": 220,
+        "tags": [
+            "Borscht",
+            "Russian",
+            "Soup"
+        ],
+        "userId": 1,
+        "image": "https://cdn.dummyjson.com/recipe-images/27.webp",
+        "rating": 4.3,
+        "reviewCount": 39,
+        "mealType": [
+            "Dinner"
+        ]
+    }
+]
