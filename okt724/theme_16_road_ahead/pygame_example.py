@@ -1,7 +1,10 @@
 # let's make a simple pygame that moves a circle around on key press
 # pygame is good for making 2D games - side scrollers, top down, etc.
-
-import pygame
+try:
+    import pygame
+except ImportError:
+    print("Pygame is not installed. Let's install it.")
+    print("command line: pip install pygame")
 # print pygame version
 print(f"Pygame version: {pygame.version.ver}")
 # documentation https://www.pygame.org/docs/
