@@ -92,6 +92,7 @@ if __name__ == "__main__":
     else:
         filename = "data/latvian_names.txt"
     main(filename)
+    # we could add a check if we want to play again and put main in a loop
     print("Thanks for playing!")
 
 
