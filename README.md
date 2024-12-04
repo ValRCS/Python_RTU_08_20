@@ -86,4 +86,6 @@ Generators and closures
 Processing files
 Working with real files
 
-Updated for 2023
+## Module 7 - External Libraries
+
+2020-2024 Saulespurens
